@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,keys: %i(name self_introduction sex img_name job_category original_experience purpose_of_working weakness want_to_do want_to_connect meet_area))
+    devise_parameter_sanitizer.permit(:account_update, keys: %i(name self_introduction sex img_name job_category original_experience purpose_of_working weakness want_to_do want_to_connect meet_area))
   end
 end
