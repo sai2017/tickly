@@ -6,10 +6,26 @@
     </header>
     <div class='userInfo'>
       <div class='userInfo_img'>
-        <%= image_tag @user.img_name.url(:thumb) %>
+        <% if @user.img_name? %>
+          <%= image_tag @user.img_name.url(:thumb) %>
+        <% else %>
+          <%= image_tag 'default-person-icon.jpeg' %>
+        <% end %>
       </div>
       <div class='userInfo_name'><%= @user.name%></div>
       <div class='userInfo_selfIntroduction'><%= @user.self_introduction %></div>
+    </div>
+    <div class="text-center" id="user-description">
+      <% if user_signed_in? %>
+        <div id="follow_form">
+          <% if current_user.following?(@user) %>
+            <div class='liked.btn.btn-default'>いいね済み</div>
+          <% else %>
+            <%= render 'follow', {relationship: @relationship} %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= link_to "ユーザー一覧に戻る", users_path %>
     </div>
     <% if current_user.id == @user.id %>
       <div class='userAction'>

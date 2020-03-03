@@ -1,3 +1,7 @@
 <% @users.each do |user| %>
-  <div><%= user.name %></div>
+  <% unless current_user.following?(user) %>
+    <%= link_to user_path(user.id) do %>
+      <div><%= user.name %></div>
+    <% end %>
+  <% end%>
 <% end %>
