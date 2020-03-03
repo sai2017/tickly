@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_02_175338) do
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_175338) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -31,16 +31,16 @@ ActiveRecord::Schema.define(version: 2020_03_02_175338) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", limit: 100, default: "", null: false
-    t.text "self_introduction", limit: 1000
+    t.text "self_introduction"
     t.integer "sex", default: 0, null: false
     t.string "img_name"
-    t.string "job_category", limit: 100, default: "", null: false
-    t.text "original_experience", limit: 1000, default: ""
-    t.text "purpose_of_working", limit: 1000, default: "", null: false
-    t.text "weakness", limit: 1000, default: ""
-    t.text "want_to_do", limit: 1000, default: ""
-    t.text "want_to_connect", limit: 1000, default: ""
-    t.string "meet_area", limit: 200, default: "", null: false
+    t.string "job_category", limit: 100, default: ""
+    t.text "original_experience"
+    t.text "purpose_of_working"
+    t.text "weakness"
+    t.text "want_to_do"
+    t.text "want_to_connect"
+    t.string "meet_area", limit: 200, default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
