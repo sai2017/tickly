@@ -1,0 +1,14 @@
+<div class="message">
+  <span class="message__name">
+    <%= message.user.name %>:
+  </span>
+  <% if message.user.id == current_user.id %>
+    <div class="message__text message_current_user">
+      <div><%= message.content %></div>
+    </div>
+  <% else %>
+    <div class="message__text">
+      <div><%= message.content %></div>
+    </div>
+  <% end %>
+</div>

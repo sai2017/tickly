@@ -1,0 +1,19 @@
+<div class="chatPage">
+  <header class="header">
+  <%= link_to "", matching_index_path, class: "linkToMatching" %>
+    <div class="chatPartner">
+      <div class="chatPartner_name"><%= @message_room_user.name %></div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="messagesArea messages">
+      <%= render @messages %>
+    </div>
+  </div>
+  <form class="messageInputForm">
+    <div class='container'>
+    <%= label_tag :content, 'Say something:' %>
+    <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+    </div>
+  </form>
+</div>
