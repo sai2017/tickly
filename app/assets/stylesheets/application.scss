@@ -10,3 +10,54 @@
 @import "users/edit";
 @import "messages";
 @import "matching";
+@import "welcome";
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #e9eef1;
+  margin: 0 auto;
+  padding: 10px 10px 5px;
+  display: flex;
+
+  #logo {
+    width: 220px;
+    margin-top: -2px;
+
+    img {
+      width: 100px;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin-top: 5px;
+    margin-bottom: 0px;
+
+    li {
+      display: inline-block;
+      color: #007FBD;
+      margin-right: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+
+      a {
+        &:hover {
+          text-decoration: none;
+        }  
+      }
+    }
+  }
+
+  .header-user-img {
+    margin-left: auto;
+    padding-right: 10px;
+    
+    img {
+      border-radius: 50%;
+      border: 1px #707070 solid;
+      width: 40px;
+      height: 40px;  
+    }
+  }
+}

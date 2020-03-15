@@ -20,6 +20,29 @@
     <!-- ここにclassを追加する -->
     <div class="alert alert-danger"><%= flash[:alert] %></div>
   <% end %>
+  <header>
+    <div id="logo">
+      <%= link_to image_tag('cordis_logo.svg'), root_path %>
+    </div>
+    <ul class="menu">
+      <% if user_signed_in? %>
+        <li><%= link_to '会員をさがす', users_path %></li>
+        <li><%= link_to 'キョウカン' %></li>
+        <li><%= link_to 'メッセージ', matching_index_path  %></li>
+        <li><%= link_to 'プロフィール', user_path(current_user) %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path  %></li>
+        <li><%= link_to '新規登録', new_user_registration_path  %></li>
+      <% end %>
+    </ul>
+    <div class='header-user-img'>
+      <% if current_user.img_name? %>
+        <%= image_tag current_user.img_name.url(:thumb) %>
+      <% else %>
+        <%= image_tag 'default-person-icon.jpeg' %>
+      <% end %>
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
