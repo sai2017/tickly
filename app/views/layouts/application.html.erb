@@ -35,13 +35,15 @@
         <li><%= link_to '新規登録', new_user_registration_path  %></li>
       <% end %>
     </ul>
-    <div class='header-user-img'>
-      <% if current_user.img_name? %>
-        <%= image_tag current_user.img_name.url(:thumb) %>
-      <% else %>
-        <%= image_tag 'default-person-icon.jpeg' %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class='header-user-img'>
+        <% if current_user.img_name? %>
+          <%= image_tag current_user.img_name.url(:thumb) %>
+        <% else %>
+          <%= image_tag 'default-person-icon.jpeg' %>
+        <% end %>
+      </div>
+    <% end %>
   </header>
     <%= yield %>
   </body>

@@ -1,3 +1,48 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.users-page-inner {
+  background-color: #E5F6FF;
+  display: flex;
+
+  .box-wrap {
+    display: flex;
+    margin: 0 auto;
+    padding: 60px 0;
+  
+    .search-box {
+      margin-right: 50px;
+      height: 600px;
+      width: 290px;
+
+      .search-header {
+        h4 {
+          color: #24282A;
+          font-size: 13px;
+          font-weight: 600;
+        }
+      }
+    }
+  
+    .user-list-box {
+      width: 600px;
+
+      .user-card {
+        border-radius: 13px;
+        width: 600px;
+        height: 200px;
+        background-color: #fff;
+        margin-bottom: 30px;
+
+        .user-card-img {
+          img {
+            border-radius: 50%;
+            border: 1px #707070 solid;
+            width: 40px;
+            height: 40px;  
+          }
+        }
+      }
+    }
+  }
+}
