@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_052751) do
+ActiveRecord::Schema.define(version: 2020_03_16_093509) do
 
   create_table "message_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "message_room_id", null: false
@@ -51,16 +51,19 @@ ActiveRecord::Schema.define(version: 2020_03_04_052751) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", limit: 100, default: "", null: false
+    t.integer "age"
+    t.string "company_name", limit: 100, default: ""
     t.text "self_introduction"
-    t.integer "sex", default: 0, null: false
     t.string "img_name"
     t.string "job_category", limit: 100, default: ""
+    t.string "catch_copy", limit: 50, default: ""
     t.text "original_experience"
     t.text "purpose_of_working"
     t.text "weakness"
     t.text "want_to_do"
     t.text "want_to_connect"
-    t.string "meet_area", limit: 200, default: ""
+    t.integer "communication_method", default: 0
+    t.integer "purpose_of_use", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
