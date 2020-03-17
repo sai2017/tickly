@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :message_room_users
 
+  belongs_to :prefecture, optional: true
+
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
