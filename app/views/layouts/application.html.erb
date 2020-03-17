@@ -22,7 +22,11 @@
   <% end %>
   <header>
     <div id="logo">
-      <%= link_to image_tag('cordis_logo.svg'), root_path %>
+      <% if user_signed_in? %>
+        <%= link_to image_tag('cordis_logo.svg'), users_path %>
+      <% else %>
+        <%= link_to image_tag('cordis_logo.svg'), root_path %>
+      <% end %>
     </div>
     <ul class="menu">
       <% if user_signed_in? %>
