@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_025623) do
+ActiveRecord::Schema.define(version: 2020_03_17_145756) do
 
   create_table "message_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "message_room_id", null: false
@@ -70,10 +70,11 @@ ActiveRecord::Schema.define(version: 2020_03_17_025623) do
     t.text "want_to_connect"
     t.integer "communication_method", default: 0
     t.integer "purpose_of_use", default: 0
-    t.bigint "prefecture_id", null: false
+    t.bigint "prefecture_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "prefectures"
 end
