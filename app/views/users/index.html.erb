@@ -12,8 +12,8 @@
             <%= link_to user_path(user.id) do %>
               <div class="user-card">
                 <div class='user-card-img'>
-                  <% if current_user.img_name? %>
-                    <%= image_tag current_user.img_name.url(:thumb) %>
+                  <% if user.img_name? %>
+                    <%= image_tag user.img_name.url(:thumb) %>
                   <% else %>
                     <%= image_tag 'default-person-icon.jpeg' %>
                   <% end %>
