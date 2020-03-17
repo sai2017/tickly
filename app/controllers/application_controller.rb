@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys: %i(name self_introduction sex img_name job_category original_experience purpose_of_working weakness want_to_do want_to_connect meet_area))
-    devise_parameter_sanitizer.permit(:account_update, keys: %i(name self_introduction sex img_name job_category original_experience purpose_of_working weakness want_to_do want_to_connect meet_area))
+    devise_parameter_sanitizer.permit(:sign_up,keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :age, :company_name, :self_introduction, :img_name, :job_category, :catch_copy, :original_experience, :purpose_of_working, :weakness, :want_to_do, :want_to_connect, :communication_method, :purpose_of_use])
   end
 
   def after_sign_in_path_for(resource)
