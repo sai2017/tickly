@@ -21,8 +21,11 @@
         <div id="follow_form">
           <% if current_user.following?(@user) %>
             <div class='liked.btn.btn-default'>いいね済み</div>
-          <% else %>
+          <% elsif current_user != @user %>
             <%= render 'follow', {relationship: @relationship} %>
+          <% elsif current_user.id == @user.id %>
+            <%= link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path) %>
+            <span>情報を編集</span>
           <% end %>
         </div>
       <% end %>
