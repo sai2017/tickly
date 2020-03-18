@@ -16,6 +16,27 @@ class User < ApplicationRecord
 
   belongs_to :prefecture, optional: true
 
+  enum communication_method: { 
+    対面で話したい: 0,
+    オンラインで話したい: 1,
+    まずはメッセージのみで話したい: 2,
+    通話したい: 3,
+  }
+
+  enum purpose_of_use: { 
+    採用したい: 0,
+    ビジネスパートナーを見つけたい: 1,
+    情報交換したい: 2,
+    起業仲間を見つけたい: 3,
+    案件を探したい: 4,
+    視野を広げたい: 5,
+    知識・経験を提供したい: 6,
+    VC・投資家を探したい: 7,
+    投資先を探したい: 8,
+    友達を作りたい: 9,
+    就活したい: 10
+  }
+
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)

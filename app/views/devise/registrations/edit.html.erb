@@ -24,6 +24,12 @@
       <div class="form-group">
         <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
       </div>
+      <div class="form-group">
+        <%= f.select :communication_method, User.communication_methods.keys, include_blank: '選択して下さい', multiple: true %>
+      </div>
+      <div class="form-group">
+        <%= f.select :purpose_of_use, User.purpose_of_uses.keys, include_blank: '選択して下さい', multiple: true %>
+      </div>
 
       <div class="form-group">
         <%= f.label '更新するにはパスワードを入力してください' %>
