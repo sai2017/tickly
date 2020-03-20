@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :messages, only: %i(create show)
   resources :matching, only: %i(index)
 
-  resources :users, only: %i(index show) do
-    member do
-      get :following, :followers
-    end
-  end
+  resources :users, only: %i(index show)
   resources :relationships, only: %i(create)
+
+  namespace :likes do
+    get 'sent'
+    get 'received'
+  end
 end
