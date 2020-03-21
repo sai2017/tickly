@@ -17,24 +17,24 @@ class User < ApplicationRecord
   belongs_to :prefecture, optional: true
 
   enum communication_method: { 
-    対面で話したい: 0,
-    オンラインで話したい: 1,
-    まずはメッセージのみで話したい: 2,
-    通話したい: 3,
+    meeting: 0,
+    online: 1,
+    chat: 2,
+    call: 3,
   }
 
   enum purpose_of_use: { 
-    採用したい: 0,
-    ビジネスパートナーを見つけたい: 1,
-    情報交換したい: 2,
-    起業仲間を見つけたい: 3,
-    案件を探したい: 4,
-    視野を広げたい: 5,
-    知識・経験を提供したい: 6,
-    VC・投資家を探したい: 7,
-    投資先を探したい: 8,
-    友達を作りたい: 9,
-    就活したい: 10
+    recruitment: 0,
+    find_business_partner: 1,
+    exchange_information: 2,
+    find_starting_business_member: 3,
+    find_project: 4,
+    spread_view: 5,
+    provide_knowledge_and_experience: 6,
+    find_vc_and_investor: 7,
+    find_investment_destination: 8,
+    make_friend: 9,
+    job_search: 10
   }
 
   # 現在のユーザーがいいねしてたらtrueを返す
