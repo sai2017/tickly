@@ -18,3 +18,6 @@ ja:
         find_investment_destination: 投資先を探したい
         make_friend: 友達を作りたい
         job_search: 就活したい
+  time:
+    formats:
+      default: "%m/%d %H:%M"
