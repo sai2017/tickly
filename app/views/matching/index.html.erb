@@ -10,9 +10,16 @@
         <% @message_blank_matchers.each do |user| %>
           <div class="matchingPerson">
             <div class="matchingPerson_name"><%= user.name %></div>
-            <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
-            <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
             <p>マッチングしました</p>
+            <% curerent_user_follow_user = Relationship.find_by(follower_id: user.id, following_id: current_user.id) %>
+            <% user_follow_curerent_user = Relationship.find_by(follower_id: current_user.id, following_id: user.id) %>
+            <% if curerent_user_follow_user.present? && user_follow_curerent_user.present? %>
+              <% if curerent_user_follow_user.created_at > user_follow_curerent_user.created_at %>
+                <%= l curerent_user_follow_user.created_at, format: :short %>
+              <% else %>
+                <%= l user_follow_curerent_user.created_at, format: :short %>
+              <% end %>
+            <% end %>
             <%= form_tag :messages, method: :post do %>
               <input name="user_id" type="hidden" value="<%= user.id %>" />
               <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
