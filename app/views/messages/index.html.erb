@@ -14,6 +14,9 @@
             <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
             <%= Message.where(message_room_id: message_room.id).last.content %>
             <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
+            <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
+              <p>未読</p>
+            <% end %>
             <%= form_tag :messages, method: :post do %>
               <input name="user_id" type="hidden" value="<%= user.id %>" />
               <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>

@@ -40,5 +40,7 @@ class MessagesController < ApplicationController
     @message_room_user = message_room.message_room_users.
       where.not(user_id: current_user.id).first.user
     @messages = Message.where(message_room: message_room).order(:created_at)
+    unread_received_messages = @messages.where(user_id: @message_room_user.id, unread: 'unread')
+    unread_received_messages.update_all(unread: :read) if unread_received_messages.present?
   end
 end
