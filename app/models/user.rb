@@ -46,4 +46,16 @@ class User < ApplicationRecord
     following & followers
   end
 
+  scope :matching, -> user_id {
+    joins("INNER JOIN relationships ON relationships.follower_id = users.id
+           INNER JOIN relationships AS r ON relationships.following_id = r.follower_id 
+           AND r.following_id = relationships.follower_id
+           INNER JOIN relationships AS n 
+           ON n.created_at = 
+            (CASE WHEN 
+               relationships.created_at > r.created_at THEN relationships.created_at 
+             ELSE r.created_at END)"
+    ).where('relationships.following_id = ?', user_id).order('n.created_at DESC') 
+  }
+
 end

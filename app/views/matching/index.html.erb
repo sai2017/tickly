@@ -7,7 +7,7 @@
       <div class="matchingNum"><%= link_to "メッセージ一覧", messages_path %></div>
       <h2 class="pageTitle">新しいマッチング</h2>
       <div class="matchingList">
-        <% @message_blank_matchers.each do |user| %>
+        <% @desc_relationship_blank_matchers.each do |user| %>
           <div class="matchingPerson">
             <div class="matchingPerson_name"><%= user.name %></div>
             <p>マッチングしました</p>
@@ -19,6 +19,11 @@
               <% else %>
                 <%= l user_follow_curerent_user.created_at, format: :short %>
               <% end %>
+            <% end %>
+            <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
+            <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
+            <%if message_room.blank? %>
+              <div>NEW</div>
             <% end %>
             <%= form_tag :messages, method: :post do %>
               <input name="user_id" type="hidden" value="<%= user.id %>" />
