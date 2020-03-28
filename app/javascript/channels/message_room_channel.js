@@ -40,6 +40,6 @@ $(document).on('click', '#btn_id', function(event) {
   const content = $('.message-content').val();
   console.log(content);
   messageRoomChannel.create(content);
-  $(content).val('');
+  $('.message-content').val('');
   return event.preventDefault();
 });
