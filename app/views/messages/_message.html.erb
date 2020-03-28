@@ -1,4 +1,4 @@
-<div class="line-bc" id="message_room" data-message_room_id="<%= message.message_room_id %>" data-user_id="<%= current_user.id %>"><!--①LINE会話全体を囲う-->
+<div class="line-bc" id="message_room" data-message_room_id="<%= message.message_room_id %>" data-user_id="<%= current_user.id %>" data-created_at="<%= l Time.current, format: :short %>"><!--①LINE会話全体を囲う-->
   <!--②左コメント始-->
   <% if message.user.id != current_user.id %>
     <div class="balloon6">

@@ -13,13 +13,14 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
 
   received: function(data) {
     const img_name = $('.faceicon').data('img_name');
+    const created_at = $('#message_room').data('created_at');
     if (data['user_id'] != $('#message_room').data('user_id')) {
       $('.messages').append(
-        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><img src='${img_name}'></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div></div></div>`
+        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><img src='${img_name}'></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div><div class="time-sent-message">${created_at}</div></div>`
       )
     } else {
       $('.messages').append(
-        "<div class='line-bc'><div class='mycomment'><p id='right-message'>" + data['content'] + "</p></div></div>"
+        `<div class='line-bc'><div class='mycomment'><div class='time-sent-message'>${created_at}</div><p id='right-message'>${data['content']}</p></div></div>`
       )
     }
   },
