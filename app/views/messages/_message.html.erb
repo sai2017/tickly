@@ -1,15 +1,24 @@
-<div class="message">
-  <span class="message__name">
-    <%= message.user.name %>:
-  </span>
-  <% if message.user.id == current_user.id %>
-    <div class="message__text message_current_user">
-      <div><%= message.content %></div>
+<div class="line-bc" id="message_room" data-message_room_id="<%= message.message_room_id %>" data-user_id="<%= current_user.id %>"><!--①LINE会話全体を囲う-->
+  <!--②左コメント始-->
+  <% if message.user.id != current_user.id %>
+    <div class="balloon6">
+      <div class="faceicon" data-img_name="<%= message.user.img_name.url(:thumb) %>" data-default_img="default-person-icon.jpeg">
+          <%= image_tag message.user.img_name.url(:thumb) %>
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p id="left-message"><%= message.content %></p>
+        </div>
+      </div>
     </div>
+    <!--②/左コメント終-->
+    <!--③右コメント始-->
   <% else %>
-    <div class="message__text">
-      <div><%= message.content %></div>
+    <div class="mycomment">
+      <p id="right-message">
+      <%= message.content %>
+      </p>
     </div>
   <% end %>
-  <%= l message.created_at, format: :short %>
-</div>
+  <!--/③右コメント終-->
+</div><!--/①LINE会話終了-->

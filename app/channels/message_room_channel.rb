@@ -8,9 +8,15 @@ class MessageRoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak(data)
-    message = Message.create! content: data['message'], user_id: current_user.id, message_room_id: data["message_room_id"]
-    MessageRoomChannel.broadcast_to "message_room_#{data['message_room_id']}", content: render_message(message)
+  def create(data)
+    message = Message.create!(
+      content: data["message"],
+      user_id: data["user_id"],
+      message_room_id: data["message_room_id"]
+    )
+    if message.save
+      MessageRoomChannel.broadcast_to "message_room_#{params[:message_room_id]}", content: data['message'], user_id: data['user_id']
+    end
   end
 
   private

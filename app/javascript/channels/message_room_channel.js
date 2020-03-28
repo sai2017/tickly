@@ -12,20 +12,32 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
   },
 
   received: function(data) {
-    return $('.messages').append(data['content']);
+    const img_name = $('.faceicon').data('img_name');
+    if (data['user_id'] != $('#message_room').data('user_id')) {
+      $('.messages').append(
+        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><img src='${img_name}'></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div></div></div>`
+      )
+    } else {
+      $('.messages').append(
+        "<div class='line-bc'><div class='mycomment'><p id='right-message'>" + data['content'] + "</p></div></div>"
+      )
+    }
   },
 
-  speak: function(message) {
-    return this.perform('speak', {
+  create(message) {
+    const message_room_ids = $('#message_room').data('message_room_id');
+    const user_id = $('#message_room').data('user_id');
+    return this.perform('create', {
       message: message,
-      message_room_id: message_room_id
-    });
+      user_id: user_id,
+      message_room_id: message_room_ids
+    })
   }
 });
 
 $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
   if (event.keyCode === 13) {
-    messageRoomChannel.speak(event.target.value);
+    messageRoomChannel.create(event.target.value);
     event.target.value = '';
     return event.preventDefault();
   }
