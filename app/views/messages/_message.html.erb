@@ -10,13 +10,19 @@
           <p id="left-message"><%= message.content %></p>
         </div>
       </div>
+      <div class="time-sent-message">
+        <%= l message.created_at, format: :short %>
+      </div>
     </div>
     <!--②/左コメント終-->
     <!--③右コメント始-->
   <% else %>
     <div class="mycomment">
+      <div class="time-sent-message">
+        <%= l message.created_at, format: :short %>
+      </div>
       <p id="right-message">
-      <%= message.content %>
+        <%= message.content %>
       </p>
     </div>
   <% end %>

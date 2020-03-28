@@ -49,84 +49,102 @@
     
     /*以下、②左側のコメント*/
     .balloon6 {
-      width: 100%;
       margin: 10px 0;
       overflow: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      .faceicon {
+        float: left;
+        margin-right: 10px;
+        width: 40px;
+      }
+      
+      .faceicon img{
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+      .chatting {
+        max-width: 68%;
+        text-align: left;
+      }
+      .says {
+        color: #746D79;
+        display: inline-block;
+        position: relative; 
+        padding: 10px;
+        border-radius: 12px;
+        background: #F5F5F5;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 3px; 
+          left: -19px;
+          border: 8px solid transparent;
+          border-right: 18px solid #F5F5F5;
+          -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+      
+      .time-sent-message {
+        color: #746D79;
+        margin-left: 5px;
+        font-size: 11px;
+      }
+  
     }
-    
-    .balloon6 .faceicon {
-      float: left;
-      margin-right: -50px;
-      width: 40px;
-    }
-    
-    .balloon6 .faceicon img{
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-    }
-    .balloon6 .chatting {
-      width: 100%;
-      text-align: left;
-    }
-    .says {
-      color: #746D79;
-      display: inline-block;
-      position: relative; 
-      margin: 0 0 0 50px;
-      padding: 10px;
-      max-width: 68%;
-      border-radius: 12px;
-      background: #F5F5F5;
-    }
-    
-    .says:after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      top: 3px; 
-      left: -19px;
-      border: 8px solid transparent;
-      border-right: 18px solid #F5F5F5;
-      -webkit-transform: rotate(35deg);
-      transform: rotate(35deg);
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    .says p {
-      margin: 0;
-      padding: 0;
-    }
-    
+
     /*以下、③右側の緑コメント*/
     .mycomment {
       margin: 10px 0;
-    }
-    .mycomment p {
-      color: #fff;
-      display: inline-block;
-      position: relative; 
-      margin: 0 10px 0 0;
-      padding: 8px;
-      max-width: 68%;
-      border-radius: 12px;
-      background: #007FBD;
-      font-size: 15px;
-    }
-    
-    .mycomment p:after {
-      content: "";
-      position: absolute;
-      top: 3px; 
-      right: -19px;
-      border: 8px solid transparent;
-      border-left: 18px solid #007FBD;
-      -webkit-transform: rotate(-35deg);
-      transform: rotate(-35deg);
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      p {
+        color: #fff;
+        display: inline-block;
+        position: relative; 
+        margin: 0 10px 0 0;
+        padding: 8px;
+        max-width: 68%;
+        border-radius: 12px;
+        background: #007FBD;
+        font-size: 15px;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 3px; 
+          right: -19px;
+          border: 8px solid transparent;
+          border-left: 18px solid #007FBD;
+          -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+
+      .time-sent-message {
+        color: #746D79;
+        margin-right: 5px;
+        font-size: 11px;
+      }
+    }  
+
     .message {
       margin-top: 24px;
       &__name {
