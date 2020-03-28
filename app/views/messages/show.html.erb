@@ -12,8 +12,8 @@
   </div>
   <form class="messageInputForm">
     <div class='container'>
-    <%= label_tag :content, 'Say something:' %>
-    <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+    <textarea type="text" placeholder="入力してください" class="message-content"></textarea>
+    <button id="btn_id">送信</button>
     </div>
   </form>
 </div>

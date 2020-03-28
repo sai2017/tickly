@@ -36,10 +36,10 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
   }
 });
 
-$(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
-  if (event.keyCode === 13) {
-    messageRoomChannel.create(event.target.value);
-    event.target.value = '';
-    return event.preventDefault();
-  }
+$(document).on('click', '#btn_id', function(event) {
+  const content = $('.message-content').val();
+  console.log(content);
+  messageRoomChannel.create(content);
+  $(content).val('');
+  return event.preventDefault();
 });
