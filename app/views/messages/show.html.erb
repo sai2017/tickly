@@ -1,17 +1,15 @@
 <div class="chatPage">
-  <header class="header">
+  <div class="header">
   <%= link_to "", messages_path, class: "linkToMatching" %>
     <div class="chatPartner">
       <div class="chatPartner_name"><%= @message_room_user.name %></div>
     </div>
-  </header>
-  <div class="container">
-    <div class="messagesArea messages">
-      <%= render @messages %>
-    </div>
   </div>
-  <form class="messageInputForm">
-    <div class='container'>
+  <div class="messagesArea messages">
+    <%= render @messages %>
+  </div>
+  <form class="messageInputForm-wap">
+    <div class='messageInputForm'>
     <textarea type="text" placeholder="入力してください" class="message-content"></textarea>
     <button id="btn_id">送信</button>
     </div>
