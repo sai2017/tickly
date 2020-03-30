@@ -27,12 +27,33 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
     if (data['user_id'] != $('#direct_messages').data('user_id')) {
       $(".no-messages").remove();
       $('.messages').append(
-        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><a href='/users/${message_user_id}'><img src='${image_name}'></a></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div><div class="time-sent-message">${dateNow}</div></div>`
+        `<div class='line-bc'>
+           <div class='balloon6'>
+             <div class='faceicon'>
+               <a href='/users/${message_user_id}'>
+                 <img src='${image_name}'>
+               </a>
+             </div>
+             <div class='chatting'>
+               <div class='says'>
+                 <p id='left-message'>${data['content']}</p>
+               </div>
+             </div>
+             <div class="time-sent-message">${dateNow}</div>
+           </div>
+         </div>`
       )
     } else {
       $(".no-messages").remove();
       $('.messages').append(
-        `<div class='line-bc'><div class='mycomment'><div class='time-sent-message'>${dateNow}</div><p id='right-message'>${data['content']}</p></div></div>`
+        `<div class='line-bc'>
+           <div class='mycomment'>
+             <div class='time-sent-message'>
+               ${dateNow}
+             </div>
+             <p id='right-message'>${data['content']}</p>
+           </div>
+         </div>`
       )
     }
   },
