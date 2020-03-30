@@ -5,7 +5,7 @@
       <div class="chatPartner_name"><%= @message_room_user.name %></div>
     </div>
   </div>
-  <div class="messagesArea messages" id="direct_messages" data-room_id="<%= @message_room.id %>" data-image_name="<%= @message_room_user.img_name.url(:thumb) %>" data-user_id="<%= current_user.id %>">
+  <div class="messagesArea messages" id="direct_messages" data-room_id="<%= @message_room.id %>" data-image_name="<%= @message_room_user.img_name.url(:thumb) %>" data-user_id="<%= current_user.id %>" data-message_user_id="<%= @message_room_user.id %>">
     <% if @messages.present? %>
       <%= render @messages %>
     <% else %>

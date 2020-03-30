@@ -2,7 +2,9 @@
   <% if message.user.id != current_user.id %>
     <div class="balloon6">
       <div class="faceicon">
+        <%= link_to user_path(message.user.id) do %>
           <%= image_tag message.user.img_name.url(:thumb) %>
+        <% end %>
       </div>
       <div class="chatting">
         <div class="says">
