@@ -12,22 +12,33 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
   },
 
   received: function(data) {
-    const img_name = $('.faceicon').data('img_name');
-    const created_at = $('#message_room').data('created_at');
-    if (data['user_id'] != $('#message_room').data('user_id')) {
+    const image_name = $('#direct_messages').data('image_name');
+
+    const formatDate = (date, format) => {
+      format = format.replace(/MM/, date.getMonth() + 1);
+      format = format.replace(/DD/, date.getDate());
+      format = format.replace(/hh/, date.getHours());
+      format = format.replace(/mm/, date.getMinutes());
+      return format;
+    }
+    const dateNow = formatDate(new Date(), 'MM/DD hh:mm');
+
+    if (data['user_id'] != $('#direct_messages').data('user_id')) {
+      $(".no-messages").remove();
       $('.messages').append(
-        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><img src='${img_name}'></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div><div class="time-sent-message">${created_at}</div></div>`
+        `<div class='line-bc'><div class='balloon6'><div class='faceicon'><img src='${image_name}'></div><div class='chatting'><div class='says'><p id='left-message'>${data['content']}</p></div></div><div class="time-sent-message">${dateNow}</div></div>`
       )
     } else {
+      $(".no-messages").remove();
       $('.messages').append(
-        `<div class='line-bc'><div class='mycomment'><div class='time-sent-message'>${created_at}</div><p id='right-message'>${data['content']}</p></div></div>`
+        `<div class='line-bc'><div class='mycomment'><div class='time-sent-message'>${dateNow}</div><p id='right-message'>${data['content']}</p></div></div>`
       )
     }
   },
 
   create(message) {
-    const message_room_ids = $('#message_room').data('message_room_id');
-    const user_id = $('#message_room').data('user_id');
+    const message_room_ids = $('#direct_messages').data('room_id');
+    const user_id = $('#direct_messages').data('user_id');    
     return this.perform('create', {
       message: message,
       user_id: user_id,
@@ -38,7 +49,6 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
 
 $(document).on('click', '#btn_id', function(event) {
   const content = $('.message-content').val();
-  console.log(content);
   messageRoomChannel.create(content);
   $('.message-content').val('');
   return event.preventDefault();

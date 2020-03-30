@@ -1,7 +1,7 @@
-<div class="line-bc" id="message_room" data-message_room_id="<%= message.message_room_id %>" data-user_id="<%= current_user.id %>" data-created_at="<%= l Time.current, format: :short %>"><!--①LINE会話全体を囲う-->
+<div class="line-bc"><!--①LINE会話全体を囲う-->
   <% if message.user.id != current_user.id %>
     <div class="balloon6">
-      <div class="faceicon" data-img_name="<%= message.user.img_name.url(:thumb) %>" data-default_img="default-person-icon.jpeg">
+      <div class="faceicon">
           <%= image_tag message.user.img_name.url(:thumb) %>
       </div>
       <div class="chatting">
