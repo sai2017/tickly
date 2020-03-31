@@ -43,6 +43,10 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
            </div>
          </div>`
       )
+      $('html, body').animate({
+        scrollTop: $(document).height()
+      },1500);
+      return false;
     } else {
       $(".no-messages").remove();
       $('.messages').append(
@@ -55,6 +59,10 @@ const messageRoomChannel = consumer.subscriptions.create({ channel: "MessageRoom
            </div>
          </div>`
       )
+      $('html, body').animate({
+        scrollTop: $(document).height()
+      },1500);
+      return false;
     }
   },
 
