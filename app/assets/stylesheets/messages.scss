@@ -213,13 +213,19 @@
 
     .messageInputForm {
       display: flex;
+      justify-content: space-between;
+      height: 55px;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      background: #E5F6FF;
 
       textarea {
-        width: 100%;
+        border: none;
+        width: 85%;
         height: 35px;
-        padding: 10px 15px;
+        padding: 5px 15px;
         align-items: center;
-        justify-content: space-between;
         resize: none;
         border-radius: 52px;
         background: #f5f5f5;
@@ -228,8 +234,8 @@
       #btn_id {
         font-size: 20px;
         color: #fff;
-        width: 90px;
-        height: 40px;
+        width: 70px;
+        height: 35px;
         border-radius: 52px;
         background: #007fbd;
       }
