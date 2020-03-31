@@ -81,5 +81,6 @@ $(document).on('click', '#btn_id', function(event) {
   const content = $('.message-content').val();
   messageRoomChannel.create(content);
   $('.message-content').val('');
+  $("#btn_id").attr("disabled", true);
   return event.preventDefault();
 });
