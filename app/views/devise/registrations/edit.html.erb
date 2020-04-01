@@ -33,9 +33,13 @@
         <% end %>
       </div>
       <div class="form-group">
-        <%= f.select :purpose_of_use, User.purpose_of_uses.keys.map {|k| [I18n.t("enums.user.purpose_of_use.#{k}"), k]}, include_blank: '選択して下さい' %>
+        <%= collection_check_boxes(:user, :purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
+          <%= purpose.label do %>
+            <%= purpose.check_box %>
+            <%= purpose.text %>
+          <% end %>
+        <% end %>
       </div>
-
       <div class="form-group">
         <%= f.label '更新するにはパスワードを入力してください' %>
         <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>

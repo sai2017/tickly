@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_093425) do
+ActiveRecord::Schema.define(version: 2020_04_01_161039) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -49,6 +49,21 @@ ActiveRecord::Schema.define(version: 2020_04_01_093425) do
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purpose_of_use_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "purpose_of_use_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purpose_of_use_id"], name: "index_purpose_of_use_users_on_purpose_of_use_id"
+    t.index ["user_id"], name: "index_purpose_of_use_users_on_user_id"
+  end
+
+  create_table "purpose_of_uses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -94,5 +109,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_093425) do
 
   add_foreign_key "communication_method_users", "communication_methods"
   add_foreign_key "communication_method_users", "users"
+  add_foreign_key "purpose_of_use_users", "purpose_of_uses"
+  add_foreign_key "purpose_of_use_users", "users"
   add_foreign_key "users", "prefectures"
 end

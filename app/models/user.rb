@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :communication_method_users
   has_many :communication_methods, through: :communication_method_users
 
+  has_many :purpose_of_use_users
+  has_many :purpose_of_uses, through: :purpose_of_use_users
+
   enum communication_method: { 
     meeting: 0,
     online: 1,
