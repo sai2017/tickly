@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_044859) do
+ActiveRecord::Schema.define(version: 2020_04_01_093425) do
+
+  create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "communication_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["communication_method_id"], name: "index_communication_method_users_on_communication_method_id"
+    t.index ["user_id"], name: "index_communication_method_users_on_user_id"
+  end
+
+  create_table "communication_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "message_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "message_room_id", null: false
@@ -77,5 +92,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_044859) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "communication_method_users", "communication_methods"
+  add_foreign_key "communication_method_users", "users"
   add_foreign_key "users", "prefectures"
 end

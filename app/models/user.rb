@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   belongs_to :prefecture, optional: true
 
+  has_many :communication_method_users
+  has_many :communication_methods, through: :communication_method_users
+
   enum communication_method: { 
     meeting: 0,
     online: 1,
