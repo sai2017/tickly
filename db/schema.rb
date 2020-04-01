@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_161039) do
+ActiveRecord::Schema.define(version: 2020_04_01_163758) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -99,8 +99,6 @@ ActiveRecord::Schema.define(version: 2020_04_01_161039) do
     t.text "weakness"
     t.text "want_to_do"
     t.text "want_to_connect"
-    t.integer "communication_method"
-    t.integer "purpose_of_use"
     t.bigint "prefecture_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
