@@ -22,27 +22,6 @@ class User < ApplicationRecord
   has_many :purpose_of_use_users
   has_many :purpose_of_uses, through: :purpose_of_use_users
 
-  enum communication_method: { 
-    meeting: 0,
-    online: 1,
-    chat: 2,
-    call: 3,
-  }
-
-  enum purpose_of_use: { 
-    recruitment: 0,
-    find_business_partner: 1,
-    exchange_information: 2,
-    find_starting_business_member: 3,
-    find_project: 4,
-    spread_view: 5,
-    provide_knowledge_and_experience: 6,
-    find_vc_and_investor: 7,
-    find_investment_destination: 8,
-    make_friend: 9,
-    job_search: 10
-  }
-
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)

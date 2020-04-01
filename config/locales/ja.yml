@@ -205,22 +205,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%-m/%-d %H:%M"
     pm: 午後
-  enums:
-    user:
-      communication_method:
-        meeting: 対面で話したい
-        online: オンラインで話したい
-        chat: まずはメッセージのみで話したい
-        call: 通話したい
-      purpose_of_use:
-        recruitment: 採用したい
-        find_business_partner: ビジネスパートナーを見つけたい
-        exchange_information: 情報交換したい
-        find_starting_business_member: 起業仲間を見つけたい
-        find_project: 案件を探したい
-        spread_view: 視野を広げたい
-        provide_knowledge_and_experience: 知識・経験を提供したい
-        find_vc_and_investor: VC・投資家を探したい
-        find_investment_destination: 投資先を探したい
-        make_friend: 友達を作りたい
-        job_search: 就活したい
