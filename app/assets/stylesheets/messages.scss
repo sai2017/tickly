@@ -46,7 +46,7 @@
   .messagesArea {
     overflow: scroll;
     padding-top: 55px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
     margin: 0;
     max-width: 700px;
     width: 700px;
@@ -203,31 +203,28 @@
     bottom:0;
     width: 100%;
     max-width: 700px;
-    height: 55px;
+    height: 100px;
     max-height: 155px;
     background-color: #fff;
-    &_input {
-      width: 100%;
-      border: none;
-    }
 
     .messageInputForm {
       display: flex;
       justify-content: space-between;
-      height: 55px;
       width: 100%;
       height: 100%;
-      padding: 10px;
+      padding: 5px 10px;
       background: #E5F6FF;
 
       textarea {
-        border: none;
+        border: 1px #e8e8e8 solid;
+        bottom: 0px;
         width: 85%;
-        height: 35px;
-        padding: 5px 15px;
+        font-size: 14px;
+        padding: 10px 15px;
+        height: 87px;
         align-items: center;
         resize: none;
-        border-radius: 52px;
+        border-radius: 10px;
         background: #f5f5f5;
       }
 
