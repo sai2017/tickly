@@ -1,4 +1,4 @@
-PurposeOfUse.seed(:id,
+PurposeOfUse.seed_once(:id,
   { :id => 1, :name => "採用したい" },
   { :id => 2, :name => "ビジネスパートナーを見つけたい" },
   { :id => 3, :name => "情報交換したい" },

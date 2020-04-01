@@ -1,4 +1,4 @@
-CommunicationMethod.seed(:id,
+CommunicationMethod.seed_once(:id,
   { :id => 1, :name => "対面で話したい" },
   { :id => 2, :name => "オンラインで話したい" },
   { :id => 3, :name => "まずはメッセージのみで話したい" },
