@@ -19,7 +19,7 @@
           </div>
           <div class="job-category-search">
             <%= f.label :job_categories_id, "職種" %>
-            <%= f.collection_select :job_categories_id_in, JobCategory.all, :id, :name, {}, {:multiple => true} %>
+            <%= f.collection_select :job_categories_id_eq, JobCategory.all, :id, :name, include_blank: '指定なし' %>
           </div>
           <%= f.submit "検索" %>
         <% end %>
