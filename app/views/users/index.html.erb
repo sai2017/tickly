@@ -17,9 +17,9 @@
             <%= f.label :prefecture_id, "居住地" %>
             <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
           </div>
-          <div class="communication-method-search">
-            <%= f.label :communication_method, "コミュニケーションの手段" %>
-            <%= f.select :communication_method_eq,  User.communication_methods.map {|k, v| [User.communication_methods_i18n[k], v]}, include_blank: '指定なし' %>
+          <div class="job-category-search">
+            <%= f.label :job_categories_id, "職種" %>
+            <%= f.collection_select :job_categories_id_in, JobCategory.all, :id, :name, {}, {:multiple => true} %>
           </div>
           <%= f.submit "検索" %>
         <% end %>

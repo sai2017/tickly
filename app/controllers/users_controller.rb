@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page]).per(2)
+    @job_categories = JobCategory.all
+    @users = @q.result(distinct: true).includes(:job_categories).page(params[:page]).per(2)
   end
 
   def show
