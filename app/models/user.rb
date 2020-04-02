@@ -22,6 +22,9 @@ class User < ApplicationRecord
   has_many :purpose_of_use_users
   has_many :purpose_of_uses, through: :purpose_of_use_users
 
+  has_many :job_category_users
+  has_many :job_categories, through: :job_category_users
+
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)

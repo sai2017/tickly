@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
       :name, :age, :company_name, :self_introduction, :img_name, :job_category, 
       :catch_copy, :original_experience, :purpose_of_working, :weakness, 
       :want_to_do, :want_to_connect, :communication_method, :purpose_of_use, 
-      :prefecture_id, :remove_img_name, communication_method_ids: [], purpose_of_use_ids: []
+      :prefecture_id, :remove_img_name, communication_method_ids: [], purpose_of_use_ids: [],
+      job_category_ids: []
     ])
   end
 

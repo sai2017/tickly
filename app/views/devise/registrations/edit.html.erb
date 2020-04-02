@@ -18,6 +18,14 @@
         <p><%= f.check_box :remove_img_name %>画像を削除する</p>
       </div>
       <div class="form-group">
+        <%= collection_check_boxes(:user, :job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
+          <%= job_category.label do %>
+            <%= job_category.check_box %>
+            <%= job_category.text %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="form-group">
         <%= f.label '自己紹介' %>
         <%= f.text_area :self_introduction, class: "form-control" %>
       </div>
