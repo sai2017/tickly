@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_234511) do
+ActiveRecord::Schema.define(version: 2020_04_02_015955) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_234511) do
     t.string "company_name", limit: 100, default: ""
     t.text "self_introduction"
     t.string "img_name"
-    t.string "job_category", limit: 100, default: ""
+    t.string "occupation", limit: 100, default: ""
     t.string "catch_copy", limit: 50, default: ""
     t.text "original_experience"
     t.text "purpose_of_working"
