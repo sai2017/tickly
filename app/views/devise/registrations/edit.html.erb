@@ -21,14 +21,21 @@
         <%= f.label '肩書き' %>
         <%= f.text_field :occupation, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= collection_check_boxes(:user, :job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
-          <%= job_category.label do %>
-            <%= job_category.check_box %>
-            <%= job_category.text %>
-          <% end %>
-        <% end %>
-      </div>
+      <section class="user-edit-section">
+        <p class="user-edit-category">職種 ※複数選択可</p>
+        <div class="user-edit-list-none">
+          <ul class="user-edit-list-inner">
+            <%= collection_check_boxes(:user, :job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
+              <li class="user-edit-list-item">
+                <%= job_category.label do %>
+                  <%= job_category.check_box %>
+                  <%= job_category.text %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </section>
       <div class="form-group">
         <%= f.label '自己紹介' %>
         <%= f.text_area :self_introduction, class: "form-control" %>
@@ -63,3 +70,11 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $(function(){
+    $(document).on('click', '.user-edit-category', function() {
+      $('.user-edit-list-none').toggle('slow');
+    });
+  });
+</script>

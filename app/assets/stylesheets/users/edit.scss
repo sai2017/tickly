@@ -9,6 +9,37 @@ $main-text-color: #fff;
     background: $main-color;
     color: $main-text-color;
   }
+
+  .user-edit-section {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-top: 15px;
+    background-color: #fff;
+
+    .user-edit-category {
+      border-bottom: 1px solid #cccccc;
+      color: #333;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 10px 15px;
+      margin-bottom: -1px;
+    }
+
+    .user-edit-list-none {
+      display: none;
+
+      .user-edit-list-inner {
+        padding: 15px;
+        list-style: none;
+
+        .user-edit-list-item {
+          width: 50%;
+        }
+      }
+    }
+  }
+
   .communication-method-area {
     width: 300px;
   }
