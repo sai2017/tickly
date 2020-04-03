@@ -67,14 +67,25 @@
           </ul>
         </div>
       </section>
-      <div class="form-group">
-        <%= collection_check_boxes(:user, :purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
-          <%= purpose.label do %>
-            <%= purpose.check_box %>
-            <%= purpose.text %>
-          <% end %>
-        <% end %>
-      </div>
+      <label>cordisの利用目的 ※複数選択可</label>
+      <section class="user-edit-section">
+        <p class="user-edit-category">
+          選択して下さい
+          <i class="fas fa-angle-down fa-2x"></i>
+        </p>
+        <div class="user-edit-list-none">
+          <ul class="user-edit-list-inner">
+            <%= collection_check_boxes(:user, :purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
+              <li class="user-edit-list-item">
+                <%= purpose.label do %>
+                  <%= purpose.check_box %>
+                  <%= purpose.text %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </section>
       <div class="form-group">
         <%= f.label '更新するにはパスワードを入力してください' %>
         <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
