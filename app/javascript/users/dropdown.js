@@ -5,7 +5,8 @@ $(function() {
 
   // メニュー領域外をクリックしたらメニューを閉じる
   $(document).on('click touchend', function(event) {
-    if (!$(event.target).closest('.user-edit-category').length) {
+    if (!$(event.target).closest('.user-edit-category').length && 
+        !$(event.target).closest('.user-edit-list-none').length) {
       $('.user-edit-category').siblings('.user-edit-list-none').slideUp('slow');
     }
   });
