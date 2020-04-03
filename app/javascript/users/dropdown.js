@@ -1,5 +1,5 @@
 $(function() {
-  $(document).on('click', '.user-edit-category', function() {
-    $('.user-edit-list-none').toggle('slow');
+  $('.user-edit-category').on('click',function() {
+    $(this).siblings('.user-edit-list-none').toggle('slow');
   });
 });
