@@ -44,6 +44,7 @@
         <%= f.label '自己紹介' %>
         <%= f.text_area :self_introduction, class: "form-control" %>
       </div>
+      <label>居住地</label>
       <div class="form-group">
         <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
       </div>
