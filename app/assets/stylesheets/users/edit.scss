@@ -13,7 +13,6 @@ $main-text-color: #fff;
   .user-edit-section {
     border: 1px solid #cccccc;
     border-radius: 4px;
-    margin-top: 15px;
     background-color: #fff;
 
     .user-edit-category {
@@ -21,9 +20,12 @@ $main-text-color: #fff;
       color: #333;
       cursor: pointer;
       font-size: 12px;
-      font-weight: bold;
       padding: 10px 15px;
       margin-bottom: -1px;
+
+      .fa-angle-down {
+        float: right;
+      }
     }
 
     .user-edit-list-none {

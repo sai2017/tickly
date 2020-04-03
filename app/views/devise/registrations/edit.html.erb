@@ -21,8 +21,12 @@
         <%= f.label '肩書き' %>
         <%= f.text_field :occupation, class: "form-control" %>
       </div>
+      <label>職業タイプ ※複数選択可</label>
       <section class="user-edit-section">
-        <p class="user-edit-category">職種 ※複数選択可</p>
+        <p class="user-edit-category">
+          選択してください
+          <i class="fas fa-angle-down fa-2x"></i>
+        </p>
         <div class="user-edit-list-none">
           <ul class="user-edit-list-inner">
             <%= collection_check_boxes(:user, :job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
