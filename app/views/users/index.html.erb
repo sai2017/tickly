@@ -1,23 +1,23 @@
 <div class="users-page-inner">
   <div class="box-wrap">
     <div class="search-box">
-      <div class="search-header">
+      <div class="search-box-inner">
         <h4>検索条件</h4>
         <%= search_form_for @q do |f| %>
           <div class="keyword-search">
             <%= f.label :name, "Keyword" %>
             <%= f.search_field :name_cont %>
           </div>
-          <div class="age-search">
+          <div class="search-form">
             <%= f.label :age %>
             <%= f.number_field :age_gteq %>以上〜
             <%= f.number_field :age_lt %>未満
           </div>
-          <div class="prefecture-search">
+          <div class="search-form">
             <%= f.label :prefecture_id, "居住地" %>
             <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
           </div>
-          <div class="job-category-search">
+          <div class="search-form">
             <%= f.label :job_categories_id, "職種" %>
             <%= f.collection_select :job_categories_id_eq, JobCategory.all, :id, :name, include_blank: '指定なし' %>
           </div>
