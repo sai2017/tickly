@@ -46,6 +46,21 @@
             appearance: none;
           }        
         }
+
+        .search-age-form {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+
+          #search_min_age, #search_max_age {
+            width: 40%;
+          }
+  
+          .range-space {
+            font-size: 12px;
+          }  
+        }
       }
     }
   
