@@ -6,6 +6,12 @@
         <%= f.label '名前' %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
+      <div class="birthday-form-group">
+        <%= f.label '生年月日' %><br>
+        <%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, 
+                          end_year: (Time.current.year - 10), include_blank: true %>
+      </div>
+
       <div id="img_field" onClick="$('#file').click()" >
         <% if current_user.img_name? %>
           <%= image_tag current_user.img_name.url(:thumb) %>
