@@ -9,9 +9,9 @@
             <%= f.search_field :name_cont %>
           </div>
           <div class="search-form">
-            <%= f.label :age %>
-            <%= f.number_field :age_gteq %>以上〜
-            <%= f.number_field :age_lt %>未満
+            <label>年齢</label>
+            <%= number_field_tag :search_min_age %>〜
+            <%= number_field_tag :search_max_age %>
           </div>
           <div class="search-form">
             <%= f.label :prefecture_id, "居住地" %>
