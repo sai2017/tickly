@@ -32,7 +32,14 @@
       <% if user_signed_in? %>
         <li><%= link_to '会員をさがす', users_path %></li>
         <li><%= link_to 'キョウカン', likes_received_path %></li>
-        <li><%= link_to 'メッセージ', matching_index_path  %></li>
+        <% if @unread_message.present? || @message_room.blank? %>
+          <li>
+            <%= link_to 'メッセージ', matching_index_path  %>
+            <i class="fas fa-circle fa-xs circle-badge"></i>
+          </li>
+        <% else %>
+          <li><%= link_to 'メッセージ', matching_index_path  %></li>
+        <% end %>
         <li><%= link_to 'プロフィール', user_path(current_user) %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path  %></li>
