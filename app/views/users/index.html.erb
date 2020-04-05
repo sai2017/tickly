@@ -11,9 +11,9 @@
           <div class="search-form">
             <label>年齢</label>
             <div class='search-age-form'>
-              <%= select_tag :search_min_age, options_for_select((15..85).to_a), include_blank: true %>
+              <%= select_tag :search_min_age, options_for_select((15..85).to_a, { :selected => @search_min_age.to_i }), include_blank: true %>
               <span class='range-space'>〜</span>
-              <%= select_tag :search_max_age, options_for_select((15..85).to_a), include_blank: true %>
+              <%= select_tag :search_max_age, options_for_select((15..85).to_a, { :selected => @search_max_age.to_i }), include_blank: true %>
             </div>
           </div>
           <div class="search-form">
