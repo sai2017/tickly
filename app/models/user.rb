@@ -25,6 +25,8 @@ class User < ApplicationRecord
   has_many :job_category_users
   has_many :job_categories, through: :job_category_users
 
+  has_one :like_point, dependent: :destroy
+
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_034201) do
+ActiveRecord::Schema.define(version: 2020_04_06_095215) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2020_04_05_034201) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_category_id"], name: "index_job_category_users_on_job_category_id"
     t.index ["user_id"], name: "index_job_category_users_on_user_id"
+  end
+
+  create_table "like_points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "balance", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_like_points_on_user_id"
   end
 
   create_table "message_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -124,6 +132,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_034201) do
   add_foreign_key "communication_method_users", "users"
   add_foreign_key "job_category_users", "job_categories"
   add_foreign_key "job_category_users", "users"
+  add_foreign_key "like_points", "users"
   add_foreign_key "purpose_of_use_users", "purpose_of_uses"
   add_foreign_key "purpose_of_use_users", "users"
   add_foreign_key "users", "prefectures"
