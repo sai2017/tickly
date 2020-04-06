@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery except: :message_notification
+  protect_from_forgery except: :matching_notification
   before_action :message_notification
   before_action :matching_notification
-  protect_from_forgery with: :exception
 
   def message_notification
+    return unless user_signed_in?
     @message_room_users = MessageRoomUser.where(user_id: current_user.id)
     @message_room_users.each do |message_room_user|
       @unread_message = Message.where(message_room_id: message_room_user.message_room_id, unread: 'unread')
@@ -14,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def matching_notification
+    return unless user_signed_in?
     current_user.matchers.each do |user|
       current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room)
       @message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id)
