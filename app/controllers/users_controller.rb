@@ -21,10 +21,10 @@ class UsersController < ApplicationController
     younger_birthday = Time.parse(younger_birth_ymd)
     older_birthday = Time.parse(older_birth_ymd)
 
-    if younger_birthday.present? || older_birthday.present?
-      @q = User.where(birthday: older_birthday..younger_birthday).ransack(params[:q])
-    else
+    if params[:search_min_age].blank? && params[:search_max_age].blank?
       @q = User.ransack(params[:q])
+    elsif params[:search_min_age].present? || params[:search_max_age].present?
+      @q = User.where(birthday: older_birthday..younger_birthday).ransack(params[:q])
     end
 
     @job_categories = JobCategory.all
