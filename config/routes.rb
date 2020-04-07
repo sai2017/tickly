@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  } 
   root to: 'welcome#index'
   resources :messages, only: %i(index create show)
   resources :matching, only: %i(index)
