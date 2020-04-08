@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery except: :matching_notification
   before_action :message_notification
   before_action :matching_notification
+  before_action :passive_relationship_notification
 
   def message_notification
     return unless user_signed_in?
@@ -22,6 +23,14 @@ class ApplicationController < ActionController::Base
       @message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id)
                                      .map(&:message_room).first
       return if @message_room.blank?
+    end
+  end
+
+  def passive_relationship_notification
+    return unless user_signed_in?
+    current_user.passive_relationships.each do |relationship|
+      next if relationship.new_arrival_flag == false
+      @new_arrival_flag = relationship.new_arrival_flag
     end
   end
 

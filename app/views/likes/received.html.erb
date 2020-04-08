@@ -3,3 +3,14 @@
     <%= received_user.name %>
   <% end %>
 </div>
+
+<script>
+  // ページ更新や離脱したときに、new_arrival_flagをfalseに切り替える
+  $(window).on('unload', function(e) {
+    <% current_user.passive_relationships.each do |relationship| %>
+      <% if relationship.new_arrival_flag == true %>
+        <% relationship.update(new_arrival_flag: false) %>
+      <% end %>
+    <% end %>
+  });
+</script>

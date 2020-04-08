@@ -31,7 +31,14 @@
     <ul class="menu">
       <% if user_signed_in? %>
         <li><%= link_to '会員をさがす', users_path %></li>
-        <li><%= link_to 'キョウカン', likes_received_path %></li>
+        <% if @new_arrival_flag == true %>
+          <li>
+            <%= link_to 'キョウカン', likes_received_path %>
+            <i class="fas fa-circle fa-xs circle-badge"></i>
+          </li>
+        <% else %>
+          <li><%= link_to 'キョウカン', likes_received_path %></li>
+        <% end %>
         <% if current_user.matchers.present? && (@unread_message.present? || @message_room.blank?) %>
           <li>
             <%= link_to 'メッセージ', matching_index_path  %>
