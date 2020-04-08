@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_031008) do
+ActiveRecord::Schema.define(version: 2020_04_08_082548) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -124,6 +124,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_031008) do
     t.text "want_to_do"
     t.text "want_to_connect"
     t.bigint "prefecture_id"
+    t.string "uid"
+    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

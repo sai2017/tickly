@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   mount_uploader :img_name, ImgNameUploader
 
@@ -26,6 +26,24 @@ class User < ApplicationRecord
   has_many :job_categories, through: :job_category_users
 
   has_one :like_point, dependent: :destroy
+
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        name:  auth.info.name,
+        password: Devise.friendly_token[0, 20],
+        remote_img_name_url:  auth.info.image.gsub("picture","picture?type=large")
+      )
+    end
+    # binding.pry
+
+    user
+  end
 
   # 現在のユーザーがいいねしてたらtrueを返す
   def following?(other_user)
