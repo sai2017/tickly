@@ -40,7 +40,6 @@ class User < ApplicationRecord
         remote_img_name_url:  auth.info.image.gsub("picture","picture?type=large")
       )
     end
-    # binding.pry
 
     user
   end
