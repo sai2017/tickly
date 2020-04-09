@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
+
   mount ActionCable.server => '/cable'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i(index show)
   resources :relationships, only: %i(create)
+  resources :contacts, only: %i(new create)
 
   namespace :likes do
     get 'sent'

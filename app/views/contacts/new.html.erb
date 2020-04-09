@@ -1,0 +1,11 @@
+<%= form_with(model: @contact, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :email, '返信先メールアドレス' %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, 'お問い合わせ内容' %>
+    <%= f.text_area :content, size: '10x10', class: 'form-control' %>
+  </div>
+  <%= f.submit '送信' %>
+<% end %>
