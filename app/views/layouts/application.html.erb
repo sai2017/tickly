@@ -12,14 +12,6 @@
   </head>
 
   <body>
-  <% if flash[:notice] %>
-    <!-- ここにclassを追加する -->
-    <div class="alert alert-info"><%= flash[:notice] %></div>
-  <% end %>
-  <% if flash[:alert] %>
-    <!-- ここにclassを追加する -->
-    <div class="alert alert-danger"><%= flash[:alert] %></div>
-  <% end %>
   <header>
     <div id="logo">
       <% if user_signed_in? %>
@@ -63,6 +55,9 @@
       </div>
     <% end %>
   </header>
+    <% flash.each do |key, value| %>
+      <p class="alert alert_<%= key %>"><%= value %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

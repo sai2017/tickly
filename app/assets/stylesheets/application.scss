@@ -70,4 +70,35 @@ body {
       }
     }
   }
+
+  .alert {
+    text-align:center;
+    padding:10px;
+    display: block;
+  }
+
+  .alert.alert_error {
+    color: #ff4d44;
+    background: #ffd4d2;
+  }
+  
+  .alert_error_title {
+    color: #ff4d44;
+    background: #ffd4d2;
+    margin: 0 0 15px 0;
+  }
+  
+  .alert.alert_warning {
+    color: #f0ad4e;
+    background: #fcf8e3;
+  }
+  .alert.alert_info {
+    color: #337ab7;
+    background: #d9edf7;
+  }
+  .alert.alert_success {
+    color: #5cb85c;
+    background: #dff0d8;
+  }
+  
 }

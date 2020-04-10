@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: %i(index show)
   resources :relationships, only: %i(create)
   resources :contacts, only: %i(new create)
+  resources :settings, only: %i(index create)
 
   namespace :likes do
     get 'sent'

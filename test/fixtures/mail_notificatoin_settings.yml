@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message_flag: false
+  like_flag: false
+  matching_flag: false
+  user_id: one
+
+two:
+  message_flag: false
+  like_flag: false
+  matching_flag: false
+  user_id: two
