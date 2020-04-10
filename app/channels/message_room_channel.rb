@@ -16,6 +16,13 @@ class MessageRoomChannel < ApplicationCable::Channel
     )
     if message.save
       MessageRoomChannel.broadcast_to "message_room_#{params[:message_room_id]}", content: data['message'], user_id: data['user_id']
+      target_room_user = MessageRoomUser.where(message_room_id: message.message_room_id)
+                                        .where.not(user_id: message.user.id).last
+      receive_user = User.find(target_room_user.user_id)
+      receive_user_setting = MailNotificatoinSetting.find_by(user_id: receive_user.id)
+      if receive_user_setting.message_flag == true
+        MessageMailer.message_to_user(message.user, receive_user).deliver
+      end
     end
   end
 
