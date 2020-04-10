@@ -6,6 +6,7 @@ class RelationshipsController < ApplicationController
       update_balance = @like_point.balance - 1
       @like_point.update(balance: update_balance)
       current_user.active_relationships.create(create_params)
+      Relationship.find_user_send_mail(params[:following_id], current_user)
     else
       redirect_to users_path
     end
