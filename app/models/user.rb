@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   has_one :like_point, dependent: :destroy
 
-  has_one :mail_notificatoin_setting, dependent: :destroy
+  has_one :mail_notification_setting, dependent: :destroy
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

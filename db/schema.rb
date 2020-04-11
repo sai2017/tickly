@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_141517) do
+ActiveRecord::Schema.define(version: 2020_04_11_032533) do
 
   create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -57,14 +57,14 @@ ActiveRecord::Schema.define(version: 2020_04_09_141517) do
     t.index ["user_id"], name: "index_like_points_on_user_id"
   end
 
-  create_table "mail_notificatoin_settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "mail_notification_settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.boolean "message_flag", default: true, null: false
     t.boolean "like_flag", default: true, null: false
     t.boolean "matching_flag", default: true, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_mail_notificatoin_settings_on_user_id"
+    t.index ["user_id"], name: "index_mail_notification_settings_on_user_id"
   end
 
   create_table "message_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_141517) do
   add_foreign_key "job_category_users", "job_categories"
   add_foreign_key "job_category_users", "users"
   add_foreign_key "like_points", "users"
-  add_foreign_key "mail_notificatoin_settings", "users"
+  add_foreign_key "mail_notification_settings", "users"
   add_foreign_key "purpose_of_use_users", "purpose_of_uses"
   add_foreign_key "purpose_of_use_users", "users"
   add_foreign_key "users", "prefectures"

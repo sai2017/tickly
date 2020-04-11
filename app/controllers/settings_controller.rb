@@ -1,10 +1,10 @@
 class SettingsController < ApplicationController
   def index
-    @mail_notification_setting = MailNotificatoinSetting.find_by(user_id: current_user.id)
+    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
   end
 
   def create
-    @mail_notification_setting = MailNotificatoinSetting.find_by(user_id: current_user.id)
+    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
     if @mail_notification_setting.update(setting_params)
       flash[:success] = "設定を更新しました"
     else

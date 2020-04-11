@@ -11,22 +11,22 @@ class Relationship < ApplicationRecord
     # 自分からいいねしてた相手からいいねを返されたら、自分にメールが飛ぶ（相手には飛ばない）
     if active_relationship.present? && passive_relationship.present?
       if active_relationship.created_at > passive_relationship.created_at
-        if current_user.mail_notificatoin_setting.matching_flag == true
+        if current_user.mail_notification_setting.matching_flag == true
           MatchingMailer.matching_to_user(current_user, receive_user).deliver
         end
       else
-        if receive_user.mail_notificatoin_setting.matching_flag == true
+        if receive_user.mail_notification_setting.matching_flag == true
           MatchingMailer.matching_to_user(receive_user, current_user).deliver
         end
       end
     end
     # 相手がいいねしてきたら、自分にメールが飛ぶ（相互フォローのときは飛ばない）
     if active_relationship.blank? && passive_relationship.present?
-      if receive_user.mail_notificatoin_setting.like_flag == true
+      if receive_user.mail_notification_setting.like_flag == true
         FollowingMailer.following_to_user(receive_user, current_user).deliver
       end
     elsif passive_relationship.blank? && active_relationship.present?
-      if current_user.mail_notificatoin_setting.like_flag == true
+      if current_user.mail_notification_setting.like_flag == true
         FollowingMailer.following_to_user(current_user, receive_user).deliver
       end
     end
