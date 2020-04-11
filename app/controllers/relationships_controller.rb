@@ -8,7 +8,8 @@ class RelationshipsController < ApplicationController
       current_user.active_relationships.create(create_params)
       Relationship.find_user_send_mail(params[:following_id], current_user)
     else
-      redirect_to users_path
+      redirect_to user_path(params[:following_id])
+      flash[:error] = 'いいねポイントが足りません。'
     end
   end
 
