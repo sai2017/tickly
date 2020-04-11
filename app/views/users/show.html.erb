@@ -18,16 +18,33 @@
     </div>
     <div class="text-center" id="user-description">
       <% if user_signed_in? %>
-        <div id="follow_form">
-          <% if current_user.following?(@user) %>
+        <%# マッチングしたとき　%>
+        <% if current_user.matchers.include?(@user) %>
+          <%= link_to 'メッセージを送る', messages_path %>
+        <%# いいねされたとき %>
+        <% elsif current_user.follower?(@user) %>
+          <div id="follow_form" class="thank">
+            <% if current_user.matchers.include?(@user) %>
+              <%= link_to 'メッセージを送る', messages_path %>
+            <% elsif current_user != @user %>
+              <%= render 'follow', {relationship: @relationship} %>
+            <% end %>
+          </div>
+        <%# いいねしたとき %>
+        <% elsif current_user.following?(@user) %>
+          <div id="follow_form" class="good">
             <div class='liked.btn.btn-default'>いいね済み</div>
-          <% elsif current_user != @user %>
+          </div>
+        <%# 自分のユーザーではない画面のとき %>
+        <% elsif current_user != @user %>
+          <div class="other_user">
             <%= render 'follow', {relationship: @relationship} %>
-          <% elsif current_user.id == @user.id %>
-            <%= link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path) %>
-            <span>情報を編集</span>
-          <% end %>
-        </div>
+          </div>
+        <%# 自分のユーザー画面とき %>
+        <% elsif current_user.id == @user.id %>
+          <%= link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path) %>
+          <span>情報を編集</span>
+        <% end %>
       <% end %>
       <%= link_to "ユーザー一覧に戻る", users_path %>
     </div>
