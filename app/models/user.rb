@@ -51,6 +51,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # 現在のユーザーがいいねされていたらtrueを返す
+  def follower?(other_user)
+    followers.include?(other_user)
+  end
+
   def matchers
     following & followers
   end

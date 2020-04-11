@@ -1,6 +1,10 @@
 <%= form_with model: relationship, remote: true do |f| %>
   <div>
     <%= hidden_field_tag :following_id, @user.id %>
-    <%= f.submit "いいね", class: "btn btn-primary" %>
+    <% if current_user.follower?(@user) %>
+      <%= f.submit "ありがとう！", class: "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "いいね", class: "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
