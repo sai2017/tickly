@@ -30,22 +30,18 @@
     </div>
     <div class="user-list-box">
       <% @users.each do |user| %>
-        <% if user != current_user %>
-          <% unless current_user.following?(user) %>
-            <%= link_to user_path(user.id) do %>
-              <div class="user-card">
-                <div class='user-card-img'>
-                  <% if user.img_name? %>
-                    <%= image_tag user.img_name.url(:thumb) %>
-                  <% else %>
-                    <%= image_tag 'default-person-icon.jpeg' %>
-                  <% end %>
-                </div>
-                <%= user.name %>
-              </div>
-            <% end %>
-          <% end%>
-        <% end%>
+        <%= link_to user_path(user.id) do %>
+          <div class="user-card">
+            <div class='user-card-img'>
+              <% if user.img_name? %>
+                <%= image_tag user.img_name.url(:thumb) %>
+              <% else %>
+                <%= image_tag 'default-person-icon.jpeg' %>
+              <% end %>
+            </div>
+            <%= user.name %>
+          </div>
+        <% end %>
       <% end %>
       <%= paginate @users %>
     </div>
