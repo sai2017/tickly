@@ -1,23 +1,25 @@
-<div class="chatPage">
-  <div class="header">
-  <%= link_to "", messages_path, class: "linkToMatching" %>
-    <div class="chatPartner">
-      <div class="chatPartner_name"><%= @message_room_user.name %></div>
-    </div>
-  </div>
-  <div class="messagesArea messages" id="direct_messages" data-room_id="<%= @message_room.id %>" data-image_name="<%= @message_room_user.img_name.url(:thumb) %>" data-user_id="<%= current_user.id %>" data-message_user_id="<%= @message_room_user.id %>">
-    <% if @messages.present? %>
-      <%= render @messages %>
-    <% else %>
-      <div class="no-messages">
-        <p>メッセージなし</p>
+<body id="chat-page-body">
+  <div class="chatPage">
+    <div class="header">
+    <%= link_to "", messages_path, class: "linkToMatching" %>
+      <div class="chatPartner">
+        <div class="chatPartner_name"><%= @message_room_user.name %></div>
       </div>
-    <% end %>
-  </div>
-  <form class="messageInputForm-wap">
-    <div class='messageInputForm'>
-    <textarea type="text" placeholder="入力してください" class="message-content"></textarea>
-    <button id="btn_id">送信</button>
     </div>
-  </form>
-</div>
+    <div class="messagesArea messages" id="direct_messages" data-room_id="<%= @message_room.id %>" data-image_name="<%= @message_room_user.img_name.url(:thumb) %>" data-user_id="<%= current_user.id %>" data-message_user_id="<%= @message_room_user.id %>">
+      <% if @messages.present? %>
+        <%= render @messages %>
+      <% else %>
+        <div class="no-messages">
+          <p>メッセージなし</p>
+        </div>
+      <% end %>
+    </div>
+    <form class="messageInputForm-wap">
+      <div class='messageInputForm'>
+      <textarea type="text" placeholder="入力してください" class="message-content"></textarea>
+      <button id="btn_id">送信</button>
+      </div>
+    </form>
+  </div>
+</body>
