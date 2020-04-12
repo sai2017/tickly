@@ -30,8 +30,8 @@ class UsersController < ApplicationController
     search_users = @q.result(distinct: true)
     # フォローorフォロワーの関係を持っていないユーザーを配列にして返す
     unrelationship_users = search_users.map do |user|
-      if user != current_user
-        if !current_user.following?(user) || !current_user.follower?(user)
+      unless user == current_user
+        unless current_user.following?(user) || current_user.follower?(user)
           user
         end
       end
