@@ -58,18 +58,52 @@ body {
       }
     }
 
-    .header-user-img {
+    .popover-icon {
       margin-left: auto;
-      padding-right: 10px;
-      
-      img {
-        border-radius: 50%;
-        border: 1px #707070 solid;
-        width: 40px;
-        height: 40px;  
+      background: none;
+      color: none;
+      border: none;
+      padding: 0;
+      outline: none;
+      cursor: pointer;
+
+      .header-user-img {
+        margin-left: auto;
+        margin-right: 10px;
+        
+        img {
+          border-radius: 50%;
+          border: 1px #707070 solid;
+          width: 40px;
+          height: 40px;  
+        }
       }
     }
   }
+
+  .popover {
+
+    .popover-body {
+
+      .popper-ul {
+        list-style: none;
+        padding: 10px 20px;
+
+        .popper-li {
+          font-weight: bold;
+          padding-bottom: 10px;
+          &:last-child {
+            padding-bottom: 0;
+          }
+
+          a {
+            color: #24282A;
+          }
+        }
+      }
+    }
+  }
+
 
   .alert {
     text-align:center;

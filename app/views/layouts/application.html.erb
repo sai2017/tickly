@@ -9,6 +9,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -46,12 +48,35 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
-      <div class='header-user-img'>
-        <% if current_user.img_name? %>
-          <%= image_tag current_user.img_name.url(:thumb) %>
-        <% else %>
-          <%= image_tag 'default-person-icon.jpeg' %>
-        <% end %>
+      <button 
+        class="popover-icon"
+        data-container="body"
+        data-toggle="popover"
+        data-placement="bottom"
+        data-popover-content="#popover-content-id"
+      >
+        <div class='header-user-img'>
+          <% if current_user.img_name? %>
+            <%= image_tag current_user.img_name.url(:thumb) %>
+          <% else %>
+            <%= image_tag 'default-person-icon.jpeg' %>
+          <% end %>
+        </div>
+      </button>
+      <div id="popover-content-id" style="display:none;">
+        <div class="popover-body">
+          <ul class="popper-ul">
+            <li class="popper-li">
+              <%= link_to 'プロフィールを編集', user_path(current_user) %>
+            </li>
+            <li class="popper-li">
+              <%= link_to '各種設定', settings_path %>
+            </li>
+            <li class="popper-li">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
       </div>
     <% end %>
   </header>
