@@ -27,8 +27,18 @@ class UsersController < ApplicationController
       @q = User.where(birthday: older_birthday..younger_birthday).ransack(params[:q])
     end
 
-    @job_categories = JobCategory.all
-    @users = @q.result(distinct: true).includes(:job_categories).page(params[:page]).per(2)
+    job_category_users = @q.result(distinct: true).includes(:job_categories)
+    # フォローorフォロワーの関係を持っていないユーザーを配列にして返す
+    unrelationship_users = job_category_users.map do |user|
+      if user != current_user
+        if !current_user.following?(user) || !current_user.follower?(user)
+          user
+        end
+      end
+    end
+    delete_nil_users = unrelationship_users.compact
+    # 配列に対してページングするためpaginate_arrayを使用
+    @users = Kaminari.paginate_array(delete_nil_users).page(params[:page]).per(10)
   end
 
   def show
