@@ -27,9 +27,9 @@ class UsersController < ApplicationController
       @q = User.where(birthday: older_birthday..younger_birthday).ransack(params[:q])
     end
 
-    job_category_users = @q.result(distinct: true).includes(:job_categories)
+    search_users = @q.result(distinct: true)
     # フォローorフォロワーの関係を持っていないユーザーを配列にして返す
-    unrelationship_users = job_category_users.map do |user|
+    unrelationship_users = search_users.map do |user|
       if user != current_user
         if !current_user.following?(user) || !current_user.follower?(user)
           user
