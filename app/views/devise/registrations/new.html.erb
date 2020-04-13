@@ -20,10 +20,6 @@
         <% end %><br />
         <%= f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off" %>
       </div>
-      <div class="form-group">
-        <label>確認用パスワード</label>
-        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
-      </div>
       <div class="text-center">
         <%= f.submit "はじめる", class: "btn submitBtn" %>
         <%= render "devise/shared/links" %>
