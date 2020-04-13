@@ -25,4 +25,4 @@ class MessageRoomChannel < ApplicationCable::Channel
       end
     end
   end
- end
+end
