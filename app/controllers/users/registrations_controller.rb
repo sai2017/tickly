@@ -47,7 +47,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    resource.update_without_current_password(params)
+    if resource.update_without_current_password(params)
+      unless params[:password]
+        flash[:success] = 'プロフィールを変更しました。'
+      else
+        flash[:success] = 'アカウント情報を変更しました。'
+      end
+    else
+      flash[:error] = '変更に失敗しました。'
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
