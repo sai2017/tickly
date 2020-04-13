@@ -11,10 +11,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    # 新規登録の際にポイント10個をユーザーに付与する
-    LikePoint.create(balance: 10, user_id: @user.id)
-    MailNotificationSetting.create(user_id: @user.id)
+    super do
+      # 新規登録の際にポイント10個をユーザーに付与する
+      LikePoint.create(balance: 10, user_id: @user.id)
+      MailNotificationSetting.create(user_id: @user.id)
+      resource.skip_confirmation!
+      resource.save
+    end
   end
 
   # GET /resource/edit
