@@ -25,9 +25,4 @@ class MessageRoomChannel < ApplicationCable::Channel
       end
     end
   end
-
-  private
-    def render_message(message)
-      ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message, current_user: message.user })
-    end
-end
+ end
