@@ -80,9 +80,7 @@
       </div>
     <% end %>
   </header>
-    <% flash.each do |key, value| %>
-      <p class="alert alert_<%= key %>"><%= value %></p>
-    <% end %>
+    <%= render 'layouts/flashes' %>
     <%= yield %>
   </body>
 </html>
