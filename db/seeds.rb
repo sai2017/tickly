@@ -7,18 +7,19 @@
   #   email: email,
   #   password: password,
   #   password_confirmation: password,
+  #   confirmed_at: Time.now
   # )
 
-  id = n + 1
+  # id = n + 1
   # MailNotificationSetting.create!(
   #   message_flag: 1,
   #   like_flag: 1,
   #   matching_flag: 1,
-  #   user_id: aaa
+  #   user_id: id
   # )
 
-  LikePoint.create!(
-    balance: 10,
-    user_id: id
-  )
+  # LikePoint.create!(
+  #   balance: 10,
+  #   user_id: id
+  # )
 end
