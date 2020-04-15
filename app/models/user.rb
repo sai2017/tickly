@@ -29,6 +29,8 @@ class User < ApplicationRecord
 
   has_one :mail_notification_setting, dependent: :destroy
 
+  validates :name, presence: true
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
