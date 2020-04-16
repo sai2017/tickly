@@ -1,6 +1,7 @@
 class MypageController < ApplicationController
   def index
     @current_person = Person.find_by(user_id: current_user.id)
+    @current_person_profile = Profile.find_by(person_id: @current_person.id)
   end
 
   def edit

@@ -2,6 +2,8 @@ class Profile < ApplicationRecord
   belongs_to :person
   mount_uploader :img_name, ImgNameUploader
 
+  belongs_to :prefecture, optional: true
+
   def age
     birthday = self.birthday.strftime("%Y%m%d").to_i
     today = Date.today.strftime("%Y%m%d").to_i
