@@ -26,6 +26,7 @@ class MypageController < ApplicationController
       purpose_of_use_ids: [],
       job_category_ids: [],
       profile_attributes: [
+        :id,
         :name, 
         :birthday, 
         :age, 
