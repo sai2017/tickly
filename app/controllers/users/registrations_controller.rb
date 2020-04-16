@@ -12,6 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do
+      person = resource.build_person
+      person.build_profile
+      resource.save
+
       # 新規登録の際にポイント10個をユーザーに付与する
       LikePoint.create(balance: 10, user_id: @user.id)
       MailNotificationSetting.create(user_id: @user.id)
@@ -56,6 +60,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       flash[:error] = '変更に失敗しました。'
     end
+  end
+
+  def after_update_path_for(resource)
+    settings_path
   end
 
   # If you have extra params to permit, append them to the sanitizer.
