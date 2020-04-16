@@ -78,9 +78,7 @@
             </ul>
           </div>
         </section> 
-        <%
-=begin%>
- <label>cordisの利用目的 ※複数選択可</label>
+        <label>cordisの利用目的 ※複数選択可</label>
         <section class="user-edit-section">
           <p class="user-edit-category">
             選択して下さい
@@ -88,7 +86,7 @@
           </p>
           <div class="user-edit-list-none">
             <ul class="user-edit-list-inner">
-              <%= collection_check_boxes(:person, :purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
+              <%= f.collection_check_boxes(:purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
                 <li class="user-edit-list-item">
                   <%= purpose.label do %>
                     <%= purpose.check_box %>
@@ -99,8 +97,6 @@
             </ul>
           </div>
         </section> 
-<%
-=end%>
         <div class="text-center">
           <%= f.submit '更新', class: "btn submitBtn" %>
         </div>

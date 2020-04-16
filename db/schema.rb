@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_055156) do
+ActiveRecord::Schema.define(version: 2020_04_16_100840) do
 
   create_table "communication_method_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "communication_method_id", null: false
@@ -122,13 +122,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_055156) do
     t.index ["prefecture_id"], name: "index_profiles_on_prefecture_id"
   end
 
-  create_table "purpose_of_use_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "purpose_of_use_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "purpose_of_use_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["purpose_of_use_id"], name: "index_purpose_of_use_users_on_purpose_of_use_id"
-    t.index ["user_id"], name: "index_purpose_of_use_users_on_user_id"
+    t.bigint "person_id", null: false
+    t.index ["person_id"], name: "index_purpose_of_use_people_on_person_id"
+    t.index ["purpose_of_use_id"], name: "index_purpose_of_use_people_on_purpose_of_use_id"
   end
 
   create_table "purpose_of_uses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_055156) do
   add_foreign_key "people", "users"
   add_foreign_key "profiles", "people"
   add_foreign_key "profiles", "prefectures"
-  add_foreign_key "purpose_of_use_users", "purpose_of_uses"
-  add_foreign_key "purpose_of_use_users", "users"
+  add_foreign_key "purpose_of_use_people", "people"
+  add_foreign_key "purpose_of_use_people", "purpose_of_uses"
   add_foreign_key "users", "prefectures"
 end
