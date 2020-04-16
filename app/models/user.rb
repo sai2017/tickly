@@ -14,17 +14,6 @@ class User < ApplicationRecord
   has_many :messages
   has_many :message_room_users
 
-  belongs_to :prefecture, optional: true
-
-  has_many :communication_method_users
-  has_many :communication_methods, through: :communication_method_users
-
-  has_many :purpose_of_use_users
-  has_many :purpose_of_uses, through: :purpose_of_use_users
-
-  has_many :job_category_users
-  has_many :job_categories, through: :job_category_users
-
   has_one :like_point, dependent: :destroy
 
   has_one :mail_notification_setting, dependent: :destroy
