@@ -3,22 +3,22 @@
     <div class="search-box">
       <div class="search-box-inner">
         <h4>検索条件</h4>
-        <%= search_form_for @q do |f| %>
+        <%= search_form_for(@q, url:users_path) do |f| %>
           <div class="keyword-search">
-            <%= f.label :name, "Keyword" %>
-            <%= f.search_field :name_cont %>
+            <%= f.label :profile_name, "Keyword" %>
+            <%= f.search_field :profile_name_cont %>
           </div>
           <div class="search-form">
             <label>年齢</label>
             <div class='search-age-form'>
-              <%= select_tag :search_min_age, options_for_select((15..85).to_a, { :selected => @search_min_age.to_i }), include_blank: true %>
+              <%= select_tag :profile_search_min_age, options_for_select((15..85).to_a, { :selected => @search_min_age.to_i }), include_blank: true %>
               <span class='range-space'>〜</span>
-              <%= select_tag :search_max_age, options_for_select((15..85).to_a, { :selected => @search_max_age.to_i }), include_blank: true %>
+              <%= select_tag :profile_search_max_age, options_for_select((15..85).to_a, { :selected => @search_max_age.to_i }), include_blank: true %>
             </div>
           </div>
           <div class="search-form">
-            <%= f.label :prefecture_id, "居住地" %>
-            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
+            <%= f.label :profile_prefecture_id, "居住地" %>
+            <%= f.collection_select :profile_prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
           </div>
           <div class="search-form">
             <%= f.label :job_categories_id, "職種" %>

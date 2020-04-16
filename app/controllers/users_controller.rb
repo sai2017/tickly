@@ -1,35 +1,38 @@
 class UsersController < ApplicationController
   def index
-    if params[:search_min_age].present?
+    if params[:profile_search_min_age].present?
       # 指定された年齢となる生年月日をyyyymmdd形式の文字列へと変換
-      younger_birth_ymd = User.calc_younger_birthday(params[:search_min_age]).to_s
-      @search_min_age = params[:search_min_age]
+      younger_birth_ymd = Profile.calc_younger_birthday(params[:profile_search_min_age]).to_s
+      @search_min_age = params[:profile_search_min_age]
     else
       # 下限の年齢が未入力の場合は、上限以下のすべてのユーザーを取得するため0を渡しておく
-      younger_birth_ymd = User.calc_younger_birthday("0").to_s
+      younger_birth_ymd = Profile.calc_younger_birthday("0").to_s
     end
 
-    if params[:search_max_age].present?
-      older_birth_ymd = User.calc_older_birthday(params[:search_max_age]).to_s
-      @search_max_age = params[:search_max_age]
+    if params[:profile_search_max_age].present?
+      older_birth_ymd = Profile.calc_older_birthday(params[:profile_search_max_age]).to_s
+      @search_max_age = params[:profile_search_max_age]
     else
       # 上限の年齢が未入力の場合は、下限以上のすべてのユーザーを取得するため99を渡しておく
-      older_birth_ymd = User.calc_older_birthday("99").to_s
+      older_birth_ymd = Profile.calc_older_birthday("99").to_s
     end
 
     # yyyymmdd形式の生年月日を日付形式に変換
     younger_birthday = Time.parse(younger_birth_ymd)
     older_birthday = Time.parse(older_birth_ymd)
 
-    if params[:search_min_age].blank? && params[:search_max_age].blank?
-      @q = User.ransack(params[:q])
-    elsif params[:search_min_age].present? || params[:search_max_age].present?
-      @q = User.where(birthday: older_birthday..younger_birthday).ransack(params[:q])
+    if params[:profile_search_min_age].blank? && params[:profile_search_max_age].blank?
+      @q = Person.ransack(params[:q])
+    elsif params[:profile_search_min_age].present? || params[:profile_search_max_age].present?
+      @q = Person.includes(:profile)
+                 .where(profiles: { birthday: older_birthday..younger_birthday })
+                 .ransack(params[:q])
     end
 
-    search_users = @q.result(distinct: true)
+    search_people = @q.result(distinct: true)
     # フォローorフォロワーの関係を持っていないユーザーを配列にして返す
-    unrelationship_users = search_users.map do |user|
+    unrelationship_users = search_people.map do |person|
+      user = User.find(person.user_id)
       unless user == current_user
         unless current_user.following?(user) || current_user.follower?(user)
           user
