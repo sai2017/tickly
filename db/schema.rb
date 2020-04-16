@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_100840) do
+ActiveRecord::Schema.define(version: 2020_04_16_105908) do
 
   create_table "communication_method_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "communication_method_id", null: false
@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_100840) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_category_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "job_category_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "job_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_category_id"], name: "index_job_category_users_on_job_category_id"
-    t.index ["user_id"], name: "index_job_category_users_on_user_id"
+    t.bigint "person_id", null: false
+    t.index ["job_category_id"], name: "index_job_category_people_on_job_category_id"
+    t.index ["person_id"], name: "index_job_category_people_on_person_id"
   end
 
   create_table "like_points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -182,8 +182,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_100840) do
 
   add_foreign_key "communication_method_people", "communication_methods"
   add_foreign_key "communication_method_people", "people"
-  add_foreign_key "job_category_users", "job_categories"
-  add_foreign_key "job_category_users", "users"
+  add_foreign_key "job_category_people", "job_categories"
+  add_foreign_key "job_category_people", "people"
   add_foreign_key "like_points", "users"
   add_foreign_key "mail_notification_settings", "users"
   add_foreign_key "people", "users"

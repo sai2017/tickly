@@ -28,9 +28,7 @@
           <%= pf.label '肩書き' %>
           <%= pf.text_field :occupation, class: "form-control" %>
         </div>
-        <%
-=begin%>
- <label>職業タイプ ※複数選択可</label>
+        <label>職業タイプ ※複数選択可</label>
         <section class="user-edit-section">
           <p class="user-edit-category">
             選択して下さい
@@ -38,7 +36,7 @@
           </p>
           <div class="user-edit-list-none">
             <ul class="user-edit-list-inner">
-              <%= collection_check_boxes(:person, :job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
+              <%= f.collection_check_boxes(:job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
                 <li class="user-edit-list-item">
                   <%= job_category.label do %>
                     <%= job_category.check_box %>
@@ -49,8 +47,6 @@
             </ul>
           </div>
         </section> 
-<%
-=end%>
         <div class="form-group">
           <%= pf.label '自己紹介' %>
           <%= pf.text_area :self_introduction, class: "form-control" %>
