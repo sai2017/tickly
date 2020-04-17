@@ -12,6 +12,9 @@
             <% else %>
               <%= image_tag 'default-person-icon.jpeg' %>
             <% end %>
+            <% if @new_arrival_flag == true %>
+              <span>NEW</span>
+            <% end %>
           </div>
           <%= received_user.person.profile.name %>
         </div>
