@@ -22,9 +22,10 @@ class UsersController < ApplicationController
     older_birthday = Time.parse(older_birth_ymd)
 
     if params[:profile_search_min_age].blank? && params[:profile_search_max_age].blank?
-      @q = Person.ransack(params[:q])
+      @q = Person.order(created_at: :desc).ransack(params[:q])
     elsif params[:profile_search_min_age].present? || params[:profile_search_max_age].present?
-      @q = Person.includes(:profile)
+      @q = Person.order(created_at: :desc)
+                 .includes(:profile)
                  .where(profiles: { birthday: older_birthday..younger_birthday })
                  .ransack(params[:q])
     end
