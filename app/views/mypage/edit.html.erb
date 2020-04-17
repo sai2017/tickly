@@ -1,7 +1,7 @@
 <div class='userEditPage'>
   <div class='header'>アカウント編集</div>
   <div class='container'>
-    <%= form_for @current_person, url: mypage_path(current_user), html: { method: :patch, enforce_utf8: false } do |f| %>
+    <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
         <div class="form-group">
           <%= pf.label '名前' %>

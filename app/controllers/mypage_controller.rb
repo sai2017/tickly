@@ -1,5 +1,5 @@
 class MypageController < ApplicationController
-  def index
+  def my_profile
     @current_person = Person.find_by(user_id: current_user.id)
     @current_person_profile = Profile.find_by(person_id: @current_person.id)
   end
@@ -16,7 +16,7 @@ class MypageController < ApplicationController
     else
       flash[:error] = 'プロフィールの更新に失敗しました。' 
     end
-    redirect_back(fallback_location: edit_mypage_path)
+    redirect_back(fallback_location: root_path)
   end
 
   private
