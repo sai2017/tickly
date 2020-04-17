@@ -1,16 +1,16 @@
 100.times do |n|
   # email = Faker::Internet.email
   # name = Faker::Name.name
+  # birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
   # password = "123456"
   # user = User.create!(
-  #   name: name,
   #   email: email,
   #   password: password,
   #   password_confirmation: password,
   #   confirmed_at: Time.now
   # )
   # person = user.build_person
-  # person.build_profile(name: name)
+  # person.build_profile(name: name, birthday: birthday)
   # user.save
 
 
