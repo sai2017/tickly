@@ -12,7 +12,9 @@
             <% else %>
               <%= image_tag 'default-person-icon.jpeg' %>
             <% end %>
-            <% if @new_arrival_flag == true %>
+            <% relationship = Relationship.find_by(following_id: current_user.id,
+                                                   follower_id: received_user.id) %>
+            <% if relationship.new_arrival_flag == true %>
               <span>NEW</span>
             <% end %>
           </div>
