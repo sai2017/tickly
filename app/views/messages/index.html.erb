@@ -9,7 +9,7 @@
       <div class="matchingList">
         <% @desc_message_exist_matchers.each do |user| %>
           <div class="matchingPerson">
-            <div class="matchingPerson_name"><%= user.name %></div>
+            <div class="matchingPerson_name"><%= user.person.profile.name %></div>
             <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
             <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
             <%= Message.where(message_room_id: message_room.id).last.content %>

@@ -9,7 +9,7 @@
       <div class="matchingList">
         <% @desc_relationship_blank_matchers.each do |user| %>
           <div class="matchingPerson">
-            <div class="matchingPerson_name"><%= user.name %></div>
+            <div class="matchingPerson_name"><%= user.person.profile.name %></div>
             <p>マッチングしました</p>
             <% curerent_user_follow_user = Relationship.find_by(follower_id: user.id, following_id: current_user.id) %>
             <% user_follow_curerent_user = Relationship.find_by(follower_id: current_user.id, following_id: user.id) %>

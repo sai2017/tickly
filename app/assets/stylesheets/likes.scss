@@ -1,3 +1,27 @@
-// Place all the styles related to the likes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.relationship-user-box-wrap {
+  display: flex;
+  margin: 0 auto;
+  padding: 60px 0;
+  width: 600px;
+
+  .relationship-user-list-box {
+    width: 600px;
+
+    .user-card {
+      border-radius: 13px;
+      width: 600px;
+      height: 200px;
+      background-color: #fff;
+      margin-bottom: 30px;
+
+      .user-card-img {
+        img {
+          border-radius: 50%;
+          border: 1px #707070 solid;
+          width: 40px;
+          height: 40px;  
+        }
+      }
+    }
+  }
+}

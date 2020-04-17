@@ -1,5 +1,21 @@
-<div>
-  <% @sent_users.each do |sent_user| %>
-    <%= sent_user.name %>
-  <% end %>
+<div class="relationship-user-box-wrap">
+  <div class="relationship-user-list-box">
+    <h1>キョウカン履歴</h1>
+    <%= link_to '相手から', likes_received_path %>
+    <%= link_to '自分から', likes_sent_path %>
+    <% @sent_users.each do |sent_user| %>
+      <%= link_to user_path(sent_user.id) do %>
+        <div class="user-card">
+          <div class='user-card-img'>
+            <% if sent_user.person.profile.img_name? %>
+              <%= image_tag sent_user.person.profile.img_name.url(:thumb) %>
+            <% else %>
+              <%= image_tag 'default-person-icon.jpeg' %>
+            <% end %>
+          </div>
+          <%= sent_user.person.profile.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
