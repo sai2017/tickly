@@ -2,6 +2,8 @@ class LikesController < ApplicationController
   def sent
     @current_user = User.find_by(id: current_user.id)
     all_sent_users = @current_user.following
+                                  .includes(:active_relationships)
+                                  .order("relationships.created_at desc")
     next_sent_users = all_sent_users.map do |sent_user|
       active_relationship = Relationship.find_by(following_id: sent_user.id, follower_id: current_user.id)
       passive_relationship = Relationship.find_by(following_id: current_user.id, follower_id: sent_user.id)
@@ -21,6 +23,8 @@ class LikesController < ApplicationController
   def received
     @current_user = User.find_by(id: current_user.id)
     all_received_users = @current_user.followers
+                                      .includes(:passive_relationships)
+                                      .order("relationships.created_at desc")
     next_received_users = all_received_users.map do |received_user|
       active_relationship = Relationship.find_by(following_id: received_user.id, follower_id: current_user.id)
       passive_relationship = Relationship.find_by(following_id: current_user.id, follower_id: received_user.id)
