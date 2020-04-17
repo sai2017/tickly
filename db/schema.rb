@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_044738) do
+ActiveRecord::Schema.define(version: 2020_04_16_164630) do
 
-  create_table "communication_method_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "communication_method_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "communication_method_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["communication_method_id"], name: "index_communication_method_users_on_communication_method_id"
-    t.index ["user_id"], name: "index_communication_method_users_on_user_id"
+    t.bigint "person_id", null: false
+    t.index ["communication_method_id"], name: "index_communication_method_people_on_communication_method_id"
+    t.index ["person_id"], name: "index_communication_method_people_on_person_id"
   end
 
   create_table "communication_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2020_04_13_044738) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_category_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "job_category_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "job_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_category_id"], name: "index_job_category_users_on_job_category_id"
-    t.index ["user_id"], name: "index_job_category_users_on_user_id"
+    t.bigint "person_id", null: false
+    t.index ["job_category_id"], name: "index_job_category_people_on_job_category_id"
+    t.index ["person_id"], name: "index_job_category_people_on_person_id"
   end
 
   create_table "like_points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -88,19 +88,47 @@ ActiveRecord::Schema.define(version: 2020_04_13_044738) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "purpose_of_use_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", limit: 100
+    t.date "birthday"
+    t.string "company_name", limit: 100, default: ""
+    t.text "self_introduction"
+    t.string "img_name"
+    t.string "occupation", limit: 100, default: ""
+    t.string "catch_copy", limit: 50, default: ""
+    t.text "original_experience"
+    t.text "purpose_of_working"
+    t.text "weakness"
+    t.text "want_to_do"
+    t.text "want_to_connect"
+    t.bigint "person_id", null: false
+    t.bigint "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_profiles_on_person_id"
+    t.index ["prefecture_id"], name: "index_profiles_on_prefecture_id"
+  end
+
+  create_table "purpose_of_use_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "purpose_of_use_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["purpose_of_use_id"], name: "index_purpose_of_use_users_on_purpose_of_use_id"
-    t.index ["user_id"], name: "index_purpose_of_use_users_on_user_id"
+    t.bigint "person_id", null: false
+    t.index ["person_id"], name: "index_purpose_of_use_people_on_person_id"
+    t.index ["purpose_of_use_id"], name: "index_purpose_of_use_people_on_purpose_of_use_id"
   end
 
   create_table "purpose_of_uses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -128,19 +156,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_044738) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name", limit: 100, default: "", null: false
-    t.date "birthday"
-    t.string "company_name", limit: 100, default: ""
-    t.text "self_introduction"
-    t.string "img_name"
-    t.string "occupation", limit: 100, default: ""
-    t.string "catch_copy", limit: 50, default: ""
-    t.text "original_experience"
-    t.text "purpose_of_working"
-    t.text "weakness"
-    t.text "want_to_do"
-    t.text "want_to_connect"
-    t.bigint "prefecture_id"
     t.string "uid"
     t.string "provider"
     t.string "confirmation_token"
@@ -148,17 +163,18 @@ ActiveRecord::Schema.define(version: 2020_04_13_044738) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "communication_method_users", "communication_methods"
-  add_foreign_key "communication_method_users", "users"
-  add_foreign_key "job_category_users", "job_categories"
-  add_foreign_key "job_category_users", "users"
+  add_foreign_key "communication_method_people", "communication_methods"
+  add_foreign_key "communication_method_people", "people"
+  add_foreign_key "job_category_people", "job_categories"
+  add_foreign_key "job_category_people", "people"
   add_foreign_key "like_points", "users"
   add_foreign_key "mail_notification_settings", "users"
-  add_foreign_key "purpose_of_use_users", "purpose_of_uses"
-  add_foreign_key "purpose_of_use_users", "users"
-  add_foreign_key "users", "prefectures"
+  add_foreign_key "people", "users"
+  add_foreign_key "profiles", "people"
+  add_foreign_key "profiles", "prefectures"
+  add_foreign_key "purpose_of_use_people", "people"
+  add_foreign_key "purpose_of_use_people", "purpose_of_uses"
 end

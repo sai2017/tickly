@@ -2,13 +2,17 @@
   # email = Faker::Internet.email
   # name = Faker::Name.name
   # password = "123456"
-  # User.create!(
+  # user = User.create!(
   #   name: name,
   #   email: email,
   #   password: password,
   #   password_confirmation: password,
   #   confirmed_at: Time.now
   # )
+  # person = user.build_person
+  # person.build_profile(name: name)
+  # user.save
+
 
   # id = n + 1
   # MailNotificationSetting.create!(

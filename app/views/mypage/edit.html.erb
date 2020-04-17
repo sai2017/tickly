@@ -1,0 +1,102 @@
+<div class='userEditPage'>
+  <div class='header'>アカウント編集</div>
+  <div class='container'>
+    <%= form_for @current_person, url: mypage_path(current_user), html: { method: :patch, enforce_utf8: false } do |f| %>
+      <%= f.fields_for :profile, @current_person.profile do |pf| %>
+        <div class="form-group">
+          <%= pf.label '名前' %>
+          <%= pf.text_field :name, class: "form-control" %>
+        </div>
+        <div class="birthday-form-group">
+          <%= pf.label '生年月日' %><br>
+          <%= pf.date_select :birthday, use_month_numbers: true, start_year: 1930, 
+                            end_year: (Time.current.year - 10), include_blank: true %>
+        </div>
+
+        <div id="img_field" onClick="$('#file').click()" >
+          <% if @current_person.profile.img_name? %>
+            <%= image_tag @current_person.profile.img_name.url(:thumb) %>
+          <% else %>
+            <%= image_tag 'default-person-icon.jpeg' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= pf.file_field :img_name, class: "image", style: "display:none;", id: "file"%>
+          <p><%= pf.check_box :remove_img_name %>画像を削除する</p>
+        </div>
+        <div class="form-group">
+          <%= pf.label '肩書き' %>
+          <%= pf.text_field :occupation, class: "form-control" %>
+        </div>
+        <label>職業タイプ ※複数選択可</label>
+        <section class="user-edit-section">
+          <p class="user-edit-category">
+            選択して下さい
+            <i class="fas fa-angle-down fa-2x"></i>
+          </p>
+          <div class="user-edit-list-none">
+            <ul class="user-edit-list-inner">
+              <%= f.collection_check_boxes(:job_category_ids, JobCategory.all, :id, :name) do |job_category| %>
+                <li class="user-edit-list-item">
+                  <%= job_category.label do %>
+                    <%= job_category.check_box %>
+                    <%= job_category.text %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section> 
+        <div class="form-group">
+          <%= pf.label '自己紹介' %>
+          <%= pf.text_area :self_introduction, class: "form-control" %>
+        </div>
+        <label>居住地</label>
+        <div class="form-group">
+          <%= pf.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+        <label>コミュニケーションの手段 ※複数選択可</label>
+        <section class="user-edit-section">
+          <p class="user-edit-category">
+            選択して下さい
+            <i class="fas fa-angle-down fa-2x"></i>
+          </p>
+          <div class="user-edit-list-none">
+            <ul class="user-edit-list-inner">
+              <%= f.collection_check_boxes(:communication_method_ids, CommunicationMethod.all, :id, :name) do |method| %>
+                <li class="user-edit-list-item">
+                  <%= method.label do %>
+                    <%= method.check_box %>
+                    <%= method.text %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section> 
+        <label>cordisの利用目的 ※複数選択可</label>
+        <section class="user-edit-section">
+          <p class="user-edit-category">
+            選択して下さい
+            <i class="fas fa-angle-down fa-2x"></i>
+          </p>
+          <div class="user-edit-list-none">
+            <ul class="user-edit-list-inner">
+              <%= f.collection_check_boxes(:purpose_of_use_ids, PurposeOfUse.all, :id, :name) do |purpose| %>
+                <li class="user-edit-list-item">
+                  <%= purpose.label do %>
+                    <%= purpose.check_box %>
+                    <%= purpose.text %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section> 
+        <div class="text-center">
+          <%= f.submit '更新', class: "btn submitBtn" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

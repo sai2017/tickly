@@ -1,0 +1,26 @@
+<div class='usershowPage'>
+  <div class='container'>
+    <header class="header">
+      <p class='header_logo'>
+      </p>
+    </header>
+    <div class='userInfo'>
+      <div class='userInfo_img'>
+        <% if @current_person_profile.img_name? %>
+          <%= image_tag @current_person_profile.img_name.url(:thumb) %>
+        <% else %>
+          <%= image_tag 'default-person-icon.jpeg' %>
+        <% end %>
+      </div>
+      <div class='userInfo_name'><%= @current_person_profile.name%></div>
+      <div class='userInfo_selfIntroduction'><%= @current_person_profile.self_introduction %></div>
+      <div><%= @current_person_profile.prefecture.name if @current_person_profile.prefecture_id? %></div>
+    </div>
+    <div class='userAction'>
+      <div class="userAction_edit userAction_common">
+        <%= link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_mypage_path(current_user)) %>
+        <span>情報を編集</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,22 +14,16 @@ class User < ApplicationRecord
   has_many :messages
   has_many :message_room_users
 
-  belongs_to :prefecture, optional: true
-
-  has_many :communication_method_users
-  has_many :communication_methods, through: :communication_method_users
-
-  has_many :purpose_of_use_users
-  has_many :purpose_of_uses, through: :purpose_of_use_users
-
-  has_many :job_category_users
-  has_many :job_categories, through: :job_category_users
-
   has_one :like_point, dependent: :destroy
 
   has_one :mail_notification_setting, dependent: :destroy
 
-  validates :name, presence: true
+  has_one :person, dependent: :destroy
+
+  validates :email, presence: true
+
+  # このパスワードのバリデーションのかけ方だと、メールアドレス変更の際にエラーになる
+  # validates :password, presence: true
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -39,9 +33,12 @@ class User < ApplicationRecord
         uid:      auth.uid,
         provider: auth.provider,
         email:    auth.info.email,
-        name:  auth.info.name,
         password: Devise.friendly_token[0, 20],
-        remote_img_name_url:  auth.info.image.gsub("picture","picture?type=large")
+      )
+      person = user.build_person
+      person.build_profile(
+        name: auth.info.name, 
+        remote_img_name_url: auth.info.image.gsub("picture","picture?type=large")
       )
     end
 
@@ -88,23 +85,4 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-
-  def age
-    birthday = self.birthday.strftime("%Y%m%d").to_i
-    today = Date.today.strftime("%Y%m%d").to_i
-    return (today - birthday) / 10000
-  end
-
-  # *********以下、生年月日から年齢の範囲検索をするためのメソッドたち*********
-
-  # 渡された年齢に本日なったばかりの生年月日をyyyymmdd形式で出力
-  def self.calc_younger_birthday(age)
-    Date.today.strftime("%Y%m%d").to_i - age.to_i * 10000
-  end
-  # 渡された年齢であるギリギリの生年月日をyyyymmdd形式で出力
-  def self.calc_older_birthday(age)
-    Date.today.strftime("%Y%m%d").to_i - age.to_i * 10000 - 9999
-  end
-
-  # *************************** 以上 ***************************
 end

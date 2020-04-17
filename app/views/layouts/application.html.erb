@@ -41,7 +41,7 @@
         <% else %>
           <li><%= link_to 'メッセージ', matching_index_path  %></li>
         <% end %>
-        <li><%= link_to 'プロフィール', user_path(current_user) %></li>
+        <li><%= link_to 'プロフィール', mypage_index_path %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path  %></li>
         <li><%= link_to '新規登録', new_user_registration_path  %></li>
@@ -67,7 +67,7 @@
         <div class="popover-body">
           <ul class="popper-ul">
             <li class="popper-li">
-              <%= link_to 'プロフィールを編集', user_path(current_user) %>
+              <%= link_to 'プロフィールを編集', edit_mypage_path(current_user) %>
             </li>
             <li class="popper-li">
               <%= link_to '各種設定', settings_path %>
