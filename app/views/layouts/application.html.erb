@@ -56,8 +56,8 @@
         data-popover-content="#popover-content-id"
       >
         <div class='header-user-img'>
-          <% if current_user.img_name? %>
-            <%= image_tag current_user.img_name.url(:thumb) %>
+          <% if current_user.person.profile.img_name? %>
+            <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
           <% else %>
             <%= image_tag 'default-person-icon.jpeg' %>
           <% end %>
