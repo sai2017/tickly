@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery except: :message_notification
   protect_from_forgery except: :matching_notification
   before_action :message_notification
@@ -35,16 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys: [:name, :img_name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [
-      :name, :birthday, :age, :company_name, :self_introduction, :img_name, :occupation, 
-      :catch_copy, :original_experience, :purpose_of_working, :weakness, 
-      :want_to_do, :want_to_connect, :communication_method, :purpose_of_use, 
-      :prefecture_id, :remove_img_name
-    ])
-  end
 
   def after_sign_in_path_for(resource)
     users_path

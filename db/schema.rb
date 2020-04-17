@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_105908) do
+ActiveRecord::Schema.define(version: 2020_04_16_164630) do
 
   create_table "communication_method_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "communication_method_id", null: false
@@ -156,19 +156,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_105908) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name", limit: 100, default: "", null: false
-    t.date "birthday"
-    t.string "company_name", limit: 100, default: ""
-    t.text "self_introduction"
-    t.string "img_name"
-    t.string "occupation", limit: 100, default: ""
-    t.string "catch_copy", limit: 50, default: ""
-    t.text "original_experience"
-    t.text "purpose_of_working"
-    t.text "weakness"
-    t.text "want_to_do"
-    t.text "want_to_connect"
-    t.bigint "prefecture_id"
     t.string "uid"
     t.string "provider"
     t.string "confirmation_token"
@@ -176,7 +163,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_105908) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -191,5 +177,4 @@ ActiveRecord::Schema.define(version: 2020_04_16_105908) do
   add_foreign_key "profiles", "prefectures"
   add_foreign_key "purpose_of_use_people", "people"
   add_foreign_key "purpose_of_use_people", "purpose_of_uses"
-  add_foreign_key "users", "prefectures"
 end

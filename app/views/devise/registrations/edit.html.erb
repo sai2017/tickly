@@ -1,4 +1,6 @@
-<div class='userEditPage'>
+<%
+=begin%>
+ <div class='userEditPage'>
   <div class='header'>アカウント編集</div>
   <div class='container'>
     <%= form_for current_user, url: registration_path(current_user) do |f| %>
@@ -98,4 +100,6 @@
 
     <% end %>
   </div>
-</div>
+</div> 
+<%
+=end%>

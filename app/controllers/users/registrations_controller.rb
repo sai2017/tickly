@@ -52,11 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     if resource.update_without_current_password(params)
-      unless params[:password]
-        flash[:success] = 'プロフィールを変更しました。'
-      else
-        flash[:success] = 'アカウント情報を変更しました。'
-      end
+      flash[:success] = 'アカウント情報を変更しました。'
     else
       flash[:error] = '変更に失敗しました。'
     end

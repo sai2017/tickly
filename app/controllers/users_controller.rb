@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile = @user.person.profile
     @relationship = Relationship.new
   end
 end
