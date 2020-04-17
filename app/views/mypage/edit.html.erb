@@ -14,8 +14,8 @@
         </div>
 
         <div id="img_field" onClick="$('#file').click()" >
-          <% if current_user.img_name? %>
-            <%= image_tag current_user.img_name.url(:thumb) %>
+          <% if @current_person.profile.img_name? %>
+            <%= image_tag @current_person.profile.img_name.url(:thumb) %>
           <% else %>
             <%= image_tag 'default-person-icon.jpeg' %>
           <% end %>
