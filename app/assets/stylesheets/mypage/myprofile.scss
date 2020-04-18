@@ -2,14 +2,14 @@
   padding: 50px 0;
   color: #24282A;
 
-  .myprofile-wrap {
+  .profile-wrap {
     width: 940px;
     background-color: #fff;
     border-radius: 13px;
     margin: 0 auto;
     padding: 50px;
 
-    .myprofile-header {
+    .profile-header {
       display: flex;
       img {
         width: 200px;
@@ -67,7 +67,7 @@
     .btn-wrap {
       padding-top: 30px;
 
-      .btn-default {
+      .default-btn {
         font-size: 30px;
         color: #fff;
         width: 100%;

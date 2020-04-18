@@ -1,6 +1,6 @@
 <div class='user-page-wrap'>
-  <div class='myprofile-wrap'>
-    <div class='myprofile-header'>
+  <div class='profile-wrap'>
+    <div class='profile-header'>
       <%= image_tag @profile.img_name.url(:thumb) %>
       <div class='basic-text-profile-wrap'>
         <div class='name-age-wrap'>
@@ -22,12 +22,12 @@
       <% if user_signed_in? %>
         <%# マッチングしたとき　%>
         <% if current_user.matchers.include?(@user) %>
-          <%= link_to 'メッセージを送る', messages_path, class: 'btn btn-default' %>
+          <%= link_to 'メッセージを送る', messages_path, class: 'btn default-btn' %>
         <%# いいねされたとき %>
         <% elsif current_user.follower?(@user) %>
           <div id="follow_form" class="thank">
             <% if current_user.matchers.include?(@user) %>
-              <%= link_to 'メッセージを送る', messages_path, class: 'btn btn-default' %>
+              <%= link_to 'メッセージを送る', messages_path, class: 'btn default-btn' %>
             <% elsif current_user != @user %>
               <%= render 'follow', {relationship: @relationship} %>
             <% end %>
