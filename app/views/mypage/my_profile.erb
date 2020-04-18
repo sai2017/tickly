@@ -77,11 +77,13 @@
     </div>
     <div class='main-profile'>
       <div class='profile-title'>居住地</div>
-      <div class='tags-wrap'>
-        <div class='tags'>
-          <div class='tags-text'><%= @current_person_profile.prefecture.name %></div>
+      <% if @current_person_profile.prefecture_id? %>
+        <div class='tags-wrap'>
+          <div class='tags'>
+            <div class='tags-text'><%= @current_person_profile.prefecture.name %></div>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
