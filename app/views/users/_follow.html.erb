@@ -2,9 +2,9 @@
   <div>
     <%= hidden_field_tag :following_id, @user.id %>
     <% if current_user.follower?(@user) %>
-      <%= f.submit "ありがとう！", class: "btn btn-primary" %>
+      <%= f.submit "ありがとう！", class: 'btn btn-default' %>
     <% else %>
-      <%= f.submit "いいね", class: "btn btn-primary" %>
+      <%= f.submit "キョウカン", class: 'btn btn-default' %>
     <% end %>
   </div>
 <% end %>

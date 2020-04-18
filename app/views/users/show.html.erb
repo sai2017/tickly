@@ -1,31 +1,33 @@
-<div class='usershowPage'>
-  <div class='container'>
-    <header class="header">
-      <p class='header_logo'>
-      </p>
-    </header>
-    <div class='userInfo'>
-      <div class='userInfo_img'>
-        <% if @profile.img_name? %>
-          <%= image_tag @profile.img_name.url(:thumb) %>
-        <% else %>
-          <%= image_tag 'default-person-icon.jpeg' %>
-        <% end %>
+<div class='user-page-wrap'>
+  <div class='myprofile-wrap'>
+    <div class='myprofile-header'>
+      <%= image_tag @profile.img_name.url(:thumb) %>
+      <div class='basic-text-profile-wrap'>
+        <div class='name-age-wrap'>
+          <div class="user-name">
+            <%= @profile.name %>
+          </div>
+          <div class="user-age">
+            <p><%= @profile.age %> 歳</p>
+          </div>
+        </div>
+        <p class='company-name'><%= @profile.company_name %></p>
+        <p class='user-occupation'><%= @profile.occupation %></p>
       </div>
-      <div class='userInfo_name'><%= @profile.name%></div>
-      <div class='userInfo_selfIntroduction'><%= @profile.self_introduction %></div>
-      <div><%= @profile.prefecture.name if @profile.prefecture_id? %></div>
     </div>
-    <div class="text-center" id="user-description">
+    <p class='user-catch-copy'>
+      <%= @profile.catch_copy %>
+    </p>
+    <div class='btn-wrap'>
       <% if user_signed_in? %>
         <%# マッチングしたとき　%>
         <% if current_user.matchers.include?(@user) %>
-          <%= link_to 'メッセージを送る', messages_path %>
+          <%= link_to 'メッセージを送る', messages_path, class: 'btn btn-default' %>
         <%# いいねされたとき %>
         <% elsif current_user.follower?(@user) %>
           <div id="follow_form" class="thank">
             <% if current_user.matchers.include?(@user) %>
-              <%= link_to 'メッセージを送る', messages_path %>
+              <%= link_to 'メッセージを送る', messages_path, class: 'btn btn-default' %>
             <% elsif current_user != @user %>
               <%= render 'follow', {relationship: @relationship} %>
             <% end %>
@@ -33,7 +35,7 @@
         <%# いいねしたとき %>
         <% elsif current_user.following?(@user) %>
           <div id="follow_form" class="good">
-            <div class='liked.btn.btn-default'>いいね済み</div>
+            <button class='disabled-btn'>キョウカン済み</button>
           </div>
         <%# 自分のユーザーではない画面のとき %>
         <% elsif current_user != @user %>
@@ -42,7 +44,70 @@
           </div>
         <% end %>
       <% end %>
-      <%= link_to "ユーザー一覧に戻る", users_path %>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>これまでのSTORY</div>
+      <p class='profile-content'><%= @profile.self_introduction %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>職種タイプ</div>
+      <div class='tags-wrap'>
+        <% @user.person.job_categories.each do |job_category| %>
+          <div class='tags'>
+            <div class='tags-text'><%= job_category.name %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>働く意義</div>
+      <p class='profile-content'><%= @profile.purpose_of_working %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>弱みやコンプレックス</div>
+      <p class='profile-content'><%= @profile.weakness %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>原体験(現在の職業や活動、働く意義に至った理由など、あなたの今の人格が形成された体験を記入してください)</div>
+      <p class='profile-content'><%= @profile.original_experience %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>今頑張っていることや、今後やってみたいこと</div>
+      <p class='profile-content'><%= @profile.want_to_do %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>どのような人と繋がりたいか</div>
+      <p class='profile-content'><%= @profile.want_to_connect %></p>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>コミュニーケーションの手段</div>
+      <div class='tags-wrap'>
+        <% @user.person.communication_methods.each do |communication_method| %>
+          <div class='tags'>
+            <div class='tags-text'><%= communication_method.name %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>cordisの利用目的</div>
+      <div class='tags-wrap'>
+        <% @user.person.purpose_of_uses.each do |purpose_of_use| %>
+          <div class='tags'>
+            <div class='tags-text'><%= purpose_of_use.name %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='main-profile'>
+      <div class='profile-title'>居住地</div>
+      <% if @profile.prefecture_id? %>
+        <div class='tags-wrap'>
+          <div class='tags'>
+            <div class='tags-text'><%= @profile.prefecture.name %></div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
