@@ -29,8 +29,11 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     current_user.passive_relationships.each do |relationship|
       next if relationship.new_arrival_flag == false
-      # いいねをしてくれた相手が、自分からいいねを前に送ってた場合は処理を抜ける
-      next if relationship.following_id == current_user.id
+      active_relationship = Relationship.find_by(following_id: relationship.following_id, follower_id: current_user.id)
+      passive_relationship = Relationship.find_by(following_id: current_user.id, follower_id: relationship.follower_id)
+
+        # いいねをしてくれた相手が、自分からいいねを前に送ってた場合は処理を抜ける
+      next if active_relationship.present? && passive_relationship.present?
       @new_arrival_flag = relationship.new_arrival_flag
     end
   end
