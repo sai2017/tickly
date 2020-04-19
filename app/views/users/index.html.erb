@@ -33,13 +33,27 @@
         <%= link_to user_path(user.id) do %>
           <div class="user-card">
             <div class='user-card-img'>
-              <% if user.person.profile.img_name? %>
-                <%= image_tag user.person.profile.img_name.url(:thumb) %>
-              <% else %>
-                <%= image_tag 'default-person-icon.jpeg' %>
-              <% end %>
+              <%= image_tag user.person.profile.img_name.url(:thumb) %>
             </div>
-            <%= user.person.profile.name %>
+            <div class='right-area'>
+              <div class='name-age'>
+                <div class='user-name'>
+                  <%= user.person.profile.name %>
+                </div>
+                <div class='user-age'>
+                  <%= user.person.profile.age %> 歳
+                </div>
+              </div>
+              <div class='user-company-name'>
+                <%= user.person.profile.company_name %>
+              </div>
+              <div class='user-occupation'>
+                <%= user.person.profile.occupation %>
+              </div>
+              <div class='user-catch-copy'>
+                <%= user.person.profile.catch_copy %>
+              </div>
+            </div>
           </div>
         <% end %>
       <% end %>

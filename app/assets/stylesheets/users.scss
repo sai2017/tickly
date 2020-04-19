@@ -66,6 +66,11 @@
   
     .user-list-box {
       width: 600px;
+      a {
+        &:hover {
+          text-decoration: none;
+        }  
+      }
 
       .user-card {
         border-radius: 13px;
@@ -73,13 +78,48 @@
         height: 200px;
         background-color: #fff;
         margin-bottom: 30px;
+        padding: 20px;
+        display: flex;
+        color: #24282A;
+        font-weight: bold;
+        &:hover {
+          box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+          transform: translateY(-10px);
+          transition-duration: 0.5s;
+        }  
 
         .user-card-img {
           img {
             border-radius: 50%;
             border: 1px #707070 solid;
-            width: 40px;
-            height: 40px;  
+            width: 100px;
+            height: 100px;
+          }
+        }
+
+        .right-area {
+          padding-left: 10px;
+
+          .name-age {
+            display: flex;
+            padding-bottom: 10px;
+
+            .user-name {
+              padding-right: 20px;
+            }
+          }
+
+          .user-company-name {
+            padding-bottom: 5px;
+          }
+
+          .user-occupation {
+            padding-bottom: 10px;
+          }
+
+          .user-catch-copy {
+            color: #007fbd;
+            font-size: 18px;
           }
         }
       }
