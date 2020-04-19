@@ -22,12 +22,18 @@
       <% if user_signed_in? %>
         <%# マッチングしたとき　%>
         <% if current_user.matchers.include?(@user) %>
-          <%= link_to 'メッセージを送る', messages_path, class: 'btn default-btn' %>
+          <%= form_tag :messages, method: :post do %>
+            <input name="user_id" type="hidden" value="<%= @user.id %>" />
+            <%= submit_tag 'メッセージを送る', class: "btn default-btn" %>
+          <% end %>
         <%# いいねされたとき %>
         <% elsif current_user.follower?(@user) %>
           <div id="follow_form" class="thank">
             <% if current_user.matchers.include?(@user) %>
-              <%= link_to 'メッセージを送る', messages_path, class: 'btn default-btn' %>
+              <%= form_tag :messages, method: :post do %>
+                <input name="user_id" type="hidden" value="<%= @user.id %>" />
+                <%= submit_tag 'メッセージを送る', class: "btn default-btn" %>
+              <% end %>
             <% elsif current_user != @user %>
               <%= render 'follow', {relationship: @relationship} %>
             <% end %>

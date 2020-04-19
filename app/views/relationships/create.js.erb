@@ -1,4 +1,3 @@
-
-  $(".thank").html(`<a href='/messages' class='btn default-btn'>メッセージを送る</a>`);
-  $(".good").html(`<button class="disabled-btn">キョウカン済み</button>`)
-  $(".other_user").html(`<button class="disabled-btn">キョウカン済み</button>`)
+$(".thank").html('<%= form_tag :messages, method: :post do %><input name="user_id" type="hidden" value="<%= @follower.id %>" /><%= submit_tag 'メッセージを送る', class: 'btn default-btn' %><% end %>')
+$(".good").html(`<button class="disabled-btn">キョウカン済み</button>`)
+$(".other_user").html(`<button class="disabled-btn">キョウカン済み</button>`)
