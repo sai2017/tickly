@@ -16,15 +16,28 @@
       width: 290px;
 
       .search-box-inner {
-        padding: 20px;
+        padding: 0 20px 20px;
 
         h4 {
           color: #24282A;
-          font-size: 13px;
+          font-size: 15px;
           font-weight: 600;
+          padding-bottom: 15px;
+        }
+
+        .keyword-area {
+          width: 250px;
+          height: 32px;
+          border-radius: 31px;
+          background: #fff;
+          // border: 1px solid #707070;
+          border: 1px solid #ddd;
+          padding: 0 10px;
         }
 
         .search-form {
+          padding-bottom: 15px;
+
           select {
             background: #fff;
             background-image: url('angle-down-solid.svg');
@@ -44,7 +57,13 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-          }        
+          }  
+          
+          label {
+            color: #24282A;
+            font-weight: bold;
+            font-size: 15px;
+          }
         }
 
         .search-age-form {
@@ -59,7 +78,29 @@
   
           .range-space {
             font-size: 12px;
+            font-weight: bold;
+            padding: 0 20px;
           }  
+        }
+
+        .btn-wrap {
+          padding-top: 20px;
+    
+          .default-btn {
+            font-size: 20px;
+            color: #fff;
+            width: 100%;
+            height: 40px;
+            border-radius: 52px;
+            background: #007fbd;
+    
+            &:hover {
+              text-decoration: none;
+              background-color: #fff;
+              border-color: #007fbd;
+              color: #007fbd;
+            }  
+          }
         }
       }
     }
