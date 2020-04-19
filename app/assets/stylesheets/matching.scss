@@ -1,66 +1,136 @@
-.matchingPage {
-  .header {
+.matching-page-box {
+  margin: 0 auto;
+  width: 600px;
+  padding: 20px 0;
+
+
+  .page-title {
+    color: #007FBD;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  
+  .matching-or-messages {
+    padding: 15px 0px;
+    width: 100%;
+    text-align: center;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    color: #fd5068;
-    border-bottom: 1px solid #e8e8e8;
-    &_logo {
-      position: absolute;
-      left: 30px;
-      & > a {
-        width: 40px;
-        display: block;
-        & > img {
-          width: 100%;
-        }
+    font-weight: bold;
+
+    .matching-link {
+      border-radius: 6px 0 0 6px;
+      color: #fff;
+      background-color: #007fbd;
+      width: 50%;
+      height: 30px;
+      line-height: 30px;
+
+        &:hover {
+          text-decoration: none;
+        }  
       }
+
+    .message-link {
+      border-radius: 52px;
+      display: inline-block;
+      border-radius: 0px 6px 6px 0px;
+      width: 50%;
+      height: 30px;
+      line-height: 2;
+      color: #007fbd;
+      font-size: 1.1em;
+      background-color: rgba(0,0,0,0.05);
+      height: 30px;
+      line-height: 30px;
+      
+      &:hover {
+        text-decoration: none;
+      }  
     }
   }
-  .matchingNum {
-    text-align: center;
-    font-size: 12px;
-    color: #fd5068;
-    margin-bottom: 20px;
-  }
-  .pageTitle {
-    font-size: 20px;
-    text-align: center;
-  }
-  .matchingList {
-    margin-top: 30px;
-    padding: 0;
-    .matchingPerson {
+
+  .user-list-box {
+    width: 600px;
+    a {
+      &:hover {
+        text-decoration: none;
+      }  
+    }
+
+    .user-card {
+      border-radius: 13px;
+      width: 600px;
+      height: 200px;
+      background-color: #fff;
+      margin-bottom: 30px;
+      padding: 20px;
       display: flex;
-      align-items: center;
-      padding: 20px 0px;
-      border-bottom: 1px solid #e8e8e8;
-      position: relative;
-      &_img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 10px;
-        & > img {
-          width: 100%;
+      color: #24282A;
+      font-weight: bold;
+      &:hover {
+        box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+        transform: translateY(-10px);
+        transition-duration: 0.5s;
+      }  
+
+      .user-card-img {
+        img {
+          border-radius: 50%;
+          border: 1px #707070 solid;
+          width: 100px;
+          height: 100px;
         }
       }
-      form {
-        position: absolute;
-        right: 0;
-        .chatForm_btn {
-          border: none;
-          padding: 10px;
-          background: #fd5068;
-          color: #fff;
-          border-radius: 6px;
-          cursor: pointer;
-          transition: opacity .3s;
-          &:hover {
-            opacity: .7;
+
+      .right-area {
+        padding-left: 10px;
+        width: 100%;
+
+        .first-topic-area {
+          display: flex;
+          justify-content: space-between;
+
+          .name-age {
+            display: flex;
+            padding-bottom: 10px;
+  
+            .user-name {
+              padding-right: 20px;
+            }
+          }  
+
+          .icon-time {
+            display: flex;
+
+            .user-new-icon {
+              width: 50px;
+              height: 24px;
+              background: #f71515;
+              border-radius: 50px;
+              color: #fff;
+              text-align: center;
+            }
+  
+            .user-relation-time {
+              padding-left: 10px;
+              color: #9B9B9B;
+              font-size: 14px;
+            }
           }
+        }
+
+        .user-company-name {
+          padding-bottom: 5px;
+        }
+
+        .user-occupation {
+          padding-bottom: 10px;
+        }
+
+        .user-catch-copy {
+          color: #007fbd;
+          font-size: 18px;
         }
       }
     }

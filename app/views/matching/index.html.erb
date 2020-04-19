@@ -1,37 +1,57 @@
-<div class="matchingPage">
-  <header class="header">
-    <i class="fas fa-comments fa-3x"></i>
-  </header>
-  <div class="container">
-    <div class="mt-5">
-      <div class="matchingNum"><%= link_to "メッセージ一覧", messages_path %></div>
-      <h2 class="pageTitle">新しいマッチング</h2>
-      <div class="matchingList">
-        <% @desc_relationship_blank_matchers.each do |user| %>
-          <div class="matchingPerson">
-            <div class="matchingPerson_name"><%= user.person.profile.name %></div>
-            <p>マッチングしました</p>
-            <% curerent_user_follow_user = Relationship.find_by(follower_id: user.id, following_id: current_user.id) %>
-            <% user_follow_curerent_user = Relationship.find_by(follower_id: current_user.id, following_id: user.id) %>
-            <% if curerent_user_follow_user.present? && user_follow_curerent_user.present? %>
-              <% if curerent_user_follow_user.created_at > user_follow_curerent_user.created_at %>
-                <%= l curerent_user_follow_user.created_at, format: :short %>
-              <% else %>
-                <%= l user_follow_curerent_user.created_at, format: :short %>
-              <% end %>
-            <% end %>
-            <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
-            <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
-            <%if message_room.blank? %>
-              <div>NEW</div>
-            <% end %>
-            <%= form_tag :messages, method: :post do %>
-              <input name="user_id" type="hidden" value="<%= user.id %>" />
-              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
-            <% end %>
+<div class="matching-page-box">
+  <div class='page-title'>マッチング一覧</div>
+  <div class='matching-or-messages'>
+    <%= link_to 'マッチング', matching_index_path, class: 'matching-link' %>
+    <%= link_to 'メッセージ', messages_path, class: 'message-link' %>
+  </div>
+  <div class="user-list-box">
+    <% @desc_relationship_blank_matchers.each do |user| %>
+      <%= link_to user_path(user.id) do %>
+        <div class="user-card">
+          <div class='user-card-img'>
+            <%= image_tag user.person.profile.img_name.url(:thumb) %>
           </div>
-        <% end %>
-      </div>
-    <div>
+          <div class='right-area'>
+            <div class='first-topic-area'>
+              <div class='name-age'>
+                <div class='user-name'>
+                  <%= user.person.profile.name %>
+                </div>
+                <div class='user-age'>
+                  <%= user.person.profile.age %> 歳
+                </div>
+              </div>
+              <div class='icon-time'>
+                <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
+                <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
+                <%if message_room.blank? %>
+                  <div class='user-new-icon'>NEW</div>
+                <% end %>
+                <div class='user-relation-time'>
+                  <% curerent_user_follow_user = Relationship.find_by(follower_id: user.id, following_id: current_user.id) %>
+                  <% user_follow_curerent_user = Relationship.find_by(follower_id: current_user.id, following_id: user.id) %>
+                  <% if curerent_user_follow_user.present? && user_follow_curerent_user.present? %>
+                    <% if curerent_user_follow_user.created_at > user_follow_curerent_user.created_at %>
+                      <%= l curerent_user_follow_user.created_at, format: :short %>
+                    <% else %>
+                      <%= l user_follow_curerent_user.created_at, format: :short %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class='user-company-name'>
+              <%= user.person.profile.company_name %>
+            </div>
+            <div class='user-occupation'>
+              <%= user.person.profile.occupation %>
+            </div>
+            <div class='user-catch-copy'>
+              <%= user.person.profile.catch_copy %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
