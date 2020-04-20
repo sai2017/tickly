@@ -6,7 +6,9 @@
   </div>
   <div class="user-list-box">
     <% @desc_message_exist_matchers.each do |user| %>
-      <%= link_to user_path(user.id) do %>
+      <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
+      <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
+      <%= link_to message_path(message_room.id) do %>
         <div class="user-card messages-card">
           <div class='user-card-img'>
             <%= image_tag user.person.profile.img_name.url(:thumb) %>
@@ -22,8 +24,6 @@
                 </div>
               </div>
               <div class='icon-time'>
-                <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
-                <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
                 <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
                   <div class='user-new-icon'>未読</div>
                 <% end %>
