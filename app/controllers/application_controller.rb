@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   def matching_notification
     return unless user_signed_in?
     current_user.matchers.each do |user|
-      current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room)
-      @message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id)
-                                     .map(&:message_room).first
-      return if @message_room.blank?
+      @new_matching_flag = Relationship.find_by(follower_id: current_user.id, 
+                                                     following_id: user.id, 
+                                                     new_matching_flag: true)
+      return if @new_matching_flag.present?
     end
   end
 

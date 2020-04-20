@@ -33,7 +33,7 @@
         <% else %>
           <li><%= link_to 'キョウカン', likes_received_path %></li>
         <% end %>
-        <% if current_user.matchers.present? && (@unread_message.present? || @message_room.blank?) %>
+        <% if current_user.matchers.present? && (@unread_message.present? || @new_matching_flag.present? ) %>
           <li>
             <%= link_to 'メッセージ', matching_index_path  %>
             <i class="fas fa-circle fa-xs circle-badge"></i>

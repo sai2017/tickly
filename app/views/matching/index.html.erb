@@ -22,9 +22,8 @@
                 </div>
               </div>
               <div class='icon-time'>
-                <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
-                <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
-                <%if message_room.blank? %>
+                <% active_relationship = Relationship.find_by(following_id: user.id, follower_id: current_user.id) %>
+                <% if active_relationship.new_matching_flag == true %>
                   <div class='user-new-icon'>NEW</div>
                 <% end %>
                 <div class='user-relation-time'>
