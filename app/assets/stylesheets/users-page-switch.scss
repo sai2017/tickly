@@ -18,20 +18,20 @@
     display: flex;
     font-weight: bold;
 
-    .matching-link {
+    .left-link {
       border-radius: 6px 0 0 6px;
-      color: #fff;
-      background-color: #007fbd;
+      color: #007fbd;
+      background-color: rgba(0,0,0,0.05);
       width: 50%;
       height: 30px;
       line-height: 30px;
 
-        &:hover {
-          text-decoration: none;
-        }  
-      }
+      &:hover {
+        text-decoration: none;
+      }  
+    }
 
-    .message-link {
+    .right-link {
       border-radius: 52px;
       display: inline-block;
       border-radius: 0px 6px 6px 0px;
@@ -47,6 +47,11 @@
       &:hover {
         text-decoration: none;
       }  
+    }
+
+    .active {
+      color: #fff;
+      background-color: #007fbd;
     }
   }
 

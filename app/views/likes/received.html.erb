@@ -1,8 +1,8 @@
 <div class="switch-user-page">
   <div class='page-title'>キョウカン履歴</div>
   <div class='page-switches'>
-    <%= link_to '相手から', likes_received_path, class: 'matching-link' %>
-    <%= link_to '自分から', likes_sent_path, class: 'message-link' %>
+    <%= link_to '相手から', likes_received_path, class: 'left-link active' %>
+    <%= link_to '自分から', likes_sent_path, class: 'right-link' %>
   </div>
   <div class="user-list-box">
     <% @received_users.each do |received_user| %>

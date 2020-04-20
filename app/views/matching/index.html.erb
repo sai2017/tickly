@@ -1,8 +1,8 @@
 <div class="switch-user-page">
   <div class='page-title'>マッチング一覧</div>
   <div class='page-switches'>
-    <%= link_to 'マッチング', matching_index_path, class: 'matching-link' %>
-    <%= link_to 'メッセージ', messages_path, class: 'message-link' %>
+    <%= link_to 'マッチング', matching_index_path, class: 'left-link active' %>
+    <%= link_to 'メッセージ', messages_path, class: 'right-link' %>
   </div>
   <div class="user-list-box">
     <% @desc_relationship_blank_matchers.each do |user| %>
