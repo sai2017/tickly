@@ -1,6 +1,9 @@
 <div class="switch-user-page">
   <div class='page-title'>メッセージ一覧</div>
   <div class='page-switches'>
+    <% if @new_matching_flag.present? %>
+      <i class="fas fa-circle fa-lg circle-badge"></i>
+    <% end %>
     <%= link_to 'マッチング', matching_index_path, class: 'left-link' %>
     <%= link_to 'メッセージ', messages_path, class: 'right-link active' %>
   </div>

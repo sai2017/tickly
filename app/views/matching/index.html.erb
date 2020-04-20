@@ -3,6 +3,9 @@
   <div class='page-switches'>
     <%= link_to 'マッチング', matching_index_path, class: 'left-link active' %>
     <%= link_to 'メッセージ', messages_path, class: 'right-link' %>
+    <% if @unread_message.present? %>
+      <i class="fas fa-circle fa-lg right-circle-badge"></i>
+    <% end %>
   </div>
   <div class="user-list-box">
     <% @desc_relationship_blank_matchers.each do |user| %>

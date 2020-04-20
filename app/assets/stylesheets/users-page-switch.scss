@@ -17,6 +17,18 @@
     text-align: center;
     display: flex;
     font-weight: bold;
+    position: relative;
+
+    .circle-badge {
+      color: red;
+      position: absolute;
+    }
+
+    .right-circle-badge {
+      color: red;
+      position: absolute;
+      right: 0px;
+    }
 
     .left-link {
       border-radius: 6px 0 0 6px;
