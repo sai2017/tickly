@@ -1,29 +1,48 @@
-<div class="matchingPage">
-  <header class="header">
-    <i class="fas fa-comments fa-3x"></i>
-  </header>
-  <div class="container">
-    <div class="mt-5">
-      <div class="matchingNum"><%= link_to "新しいマッチング", matching_index_path %></div>
-      <h2 class="pageTitle">メッセージ一覧</h2>
-      <div class="matchingList">
-        <% @desc_message_exist_matchers.each do |user| %>
-          <div class="matchingPerson">
-            <div class="matchingPerson_name"><%= user.person.profile.name %></div>
-            <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
-            <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
-            <%= Message.where(message_room_id: message_room.id).last.content %>
-            <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
-            <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
-              <p>未読</p>
-            <% end %>
-            <%= form_tag :messages, method: :post do %>
-              <input name="user_id" type="hidden" value="<%= user.id %>" />
-              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
-            <% end %>
+<div class="switch-user-page">
+  <div class='page-title'>メッセージ一覧</div>
+  <div class='page-switches'>
+    <%= link_to 'マッチング', matching_index_path, class: 'left-link' %>
+    <%= link_to 'メッセージ', messages_path, class: 'right-link active' %>
+  </div>
+  <div class="user-list-box">
+    <% @desc_message_exist_matchers.each do |user| %>
+      <%= link_to user_path(user.id) do %>
+        <div class="user-card messages-card">
+          <div class='user-card-img'>
+            <%= image_tag user.person.profile.img_name.url(:thumb) %>
           </div>
-        <% end %>
-      </div>
-    <div>
+          <div class='right-area'>
+            <div class='first-topic-area'>
+              <div class='message-name-age'>
+                <div class='user-name'>
+                  <%= user.person.profile.name %>
+                </div>
+                <div class='user-age'>
+                  <%= user.person.profile.age %> 歳
+                </div>
+              </div>
+              <div class='icon-time'>
+                <% current_user_message_rooms = MessageRoomUser.where(user_id: current_user.id).map(&:message_room) %>
+                <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
+                <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
+                  <div class='user-new-icon'>未読</div>
+                <% end %>
+                <div class='user-relation-time'>
+                  <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
+                </div>
+              </div>
+            </div>
+            <div class='user-company-name'>
+              <% if user.person.profile.company_name || user.person.profile.occupation %>
+                <%= user.person.profile.company_name %> / <%= user.person.profile.occupation %>
+              <% end %>
+            </div>
+            <div class='message-content'>
+              <%= Message.where(message_room_id: message_room.id).last.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
