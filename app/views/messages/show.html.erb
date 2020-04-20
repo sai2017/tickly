@@ -1,7 +1,7 @@
 <body id="chat-page-body">
   <div class="chatPage">
     <div class="header">
-    <%= link_to "", messages_path, class: "linkToMatching" %>
+    <%= link_to "", :back, class: "linkToMatching" %>
       <div class="chatPartner">
         <div class="chatPartner_name"><%= @message_room_user.person.profile.name %></div>
       </div>
