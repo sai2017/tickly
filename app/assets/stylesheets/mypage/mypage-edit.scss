@@ -1,0 +1,141 @@
+.mypage-edit-wrap {
+  margin: 0 auto;
+  width: 940px;
+  padding: 20px 0;
+
+  .mypage-edit-title {
+    color: #007FBD;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  .form-wrap {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 13px;
+    padding: 50px;
+
+    .form-area {
+      font-weight: bold;
+      font-size: 15px;
+      text-align: left;
+      color: #151414;
+      padding-bottom: 20px;
+
+      .input-form {
+        width: 100%;
+        height: 40px;
+        border-radius: 31px;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 0 10px;
+        color: #495057;
+      }
+
+      #user_birthday_1i,#user_birthday_2i,#user_birthday_3i {
+        margin-right: 10px;
+        font-size: 1rem;
+      }
+
+      .icon-label {
+        padding-bottom: 10px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 30px;
+      }
+
+      .delete-image-checkbox {
+        font-weight: normal;
+        
+        #person_profile_attributes_remove_img_name {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .title-label {
+      font-weight: bold;
+    }
+
+    .user-edit-section {
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      background-color: #fff;
+      margin-bottom: 20px;
+  
+      .user-edit-category {
+        border-bottom: 1px solid #cccccc;
+        color: #333;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 10px 15px;
+        margin-bottom: -1px;
+  
+        .fa-angle-down {
+          float: right;
+        }
+      }
+  
+      .user-edit-list-none {
+        display: none;
+  
+        .user-edit-list-inner {
+          padding: 15px;
+          list-style: none;
+        }
+      }
+    }
+  
+  
+    select {
+      background: #fff;
+      background-image: url('angle-down-solid.svg');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size:25px 25px;
+      vertical-align: middle;
+      color: inherit;
+      height: 40px;
+      padding-left: 10px;
+      border: 1px solid #ddd;
+      font-size: 12px;
+      width: 10%;
+      border-radius: 3px;
+      position: relative;
+      display: inline-block;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    #person_profile_attributes_prefecture_id {
+      width: 130px;
+    }
+  }
+
+  .btn-wrap {
+    padding-top: 20px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+
+    .default-btn {
+      font-size: 30px;
+      color: #fff;
+      width: 100%;
+      height: 60px;
+      border-radius: 52px;
+      background: #007fbd;
+
+      &:hover {
+        opacity: .8;
+      }  
+    }
+  }
+}

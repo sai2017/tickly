@@ -1,34 +1,43 @@
-<div class='userEditPage'>
-  <div class='header'>アカウント編集</div>
-  <div class='container'>
+<div class='mypage-edit-wrap'>
+  <div class='mypage-edit-title'>プロフィール編集</div>
+  <div class='form-wrap'>
     <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
-        <div class="form-group">
-          <%= pf.label '名前' %>
-          <%= pf.text_field :name, class: "form-control" %>
+        <div class="form-area">
+          <%= pf.label 'ユーザー名' %>
+          <%= pf.text_field :name, class: "input-form" %>
         </div>
-        <div class="birthday-form-group">
+        <div class="form-area">
           <%= pf.label '生年月日' %><br>
           <%= pf.date_select :birthday, use_month_numbers: true, start_year: 1930, 
-                            end_year: (Time.current.year - 10), include_blank: true %>
+                              end_year: (Time.current.year - 10), include_blank: true %>
         </div>
 
-        <div id="img_field" onClick="$('#file').click()" >
+        <div class="form-area"　id="img_field" onClick="$('#file').click()" >
+          <div class='icon-label'>アイコン</div>
           <% if @current_person.profile.img_name? %>
             <%= image_tag @current_person.profile.img_name.url(:thumb) %>
           <% else %>
             <%= image_tag 'default-person-icon.jpeg' %>
           <% end %>
         </div>
-        <div class="form-group">
+        <div class="form-area">
           <%= pf.file_field :img_name, class: "image", style: "display:none;", id: "file"%>
-          <p><%= pf.check_box :remove_img_name %>画像を削除する</p>
+          <p class='delete-image-checkbox'><%= pf.check_box :remove_img_name %>画像を削除する</p>
         </div>
-        <div class="form-group">
+        <div class="form-area">
+          <%= pf.label '会社名' %>
+          <%= pf.text_field :company_name, class: "input-form" %>
+        </div>
+        <div class="form-area">
           <%= pf.label '肩書き' %>
-          <%= pf.text_field :occupation, class: "form-control" %>
+          <%= pf.text_field :occupation, class: "input-form" %>
         </div>
-        <label>職業タイプ ※複数選択可</label>
+        <div class="form-area">
+          <%= pf.label 'これまでのSTORY(1000文字以内)' %>
+          <%= pf.text_area :self_introduction, class: "form-control" %>
+        </div>
+        <label class='title-label'>職業タイプ ※複数選択可</label>
         <section class="user-edit-section">
           <p class="user-edit-category">
             選択して下さい
@@ -47,15 +56,27 @@
             </ul>
           </div>
         </section> 
-        <div class="form-group">
-          <%= pf.label '自己紹介' %>
-          <%= pf.text_area :self_introduction, class: "form-control" %>
+        <div class="form-area">
+          <%= pf.label '働く意義' %>
+          <%= pf.text_area :purpose_of_working, class: "form-control" %>
         </div>
-        <label>居住地</label>
-        <div class="form-group">
-          <%= pf.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
+        <div class="form-area">
+          <%= pf.label '弱みやコンプレックス' %>
+          <%= pf.text_area :weakness, class: "form-control" %>
         </div>
-        <label>コミュニケーションの手段 ※複数選択可</label>
+        <div class="form-area">
+          <%= pf.label '原体験(現在の職業や活動、働く意義に至った理由など、あなたの今の人格が形成された体験を記入してください)' %>
+          <%= pf.text_area :original_experience, class: "form-control" %>
+        </div>
+        <div class="form-area">
+          <%= pf.label '今頑張っていることや、今後やってみたいこと' %>
+          <%= pf.text_area :want_to_do, class: "form-control" %>
+        </div>
+        <div class="form-area">
+          <%= pf.label '今頑張っていることや、今後やってみたいこと' %>
+          <%= pf.text_area :want_to_connect, class: "form-control" %>
+        </div>
+        <label class='title-label'>コミュニケーションの手段 ※複数選択可</label>
         <section class="user-edit-section">
           <p class="user-edit-category">
             選択して下さい
@@ -74,7 +95,7 @@
             </ul>
           </div>
         </section> 
-        <label>cordisの利用目的 ※複数選択可</label>
+        <label class='title-label'>cordisの利用目的 ※複数選択可</label>
         <section class="user-edit-section">
           <p class="user-edit-category">
             選択して下さい
@@ -93,8 +114,12 @@
             </ul>
           </div>
         </section> 
-        <div class="text-center">
-          <%= f.submit '更新', class: "btn submitBtn" %>
+        <label class='title-label'>居住地</label>
+        <div class="form-area">
+          <%= pf.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+        <div class='btn-wrap'>
+          <%= f.submit '更新する', class: "btn default-btn" %>
         </div>
       <% end %>
     <% end %>
