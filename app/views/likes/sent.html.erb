@@ -1,6 +1,9 @@
 <div class="switch-user-page">
   <div class='page-title'>キョウカン履歴</div>
   <div class='page-switches'>
+    <% if @new_arrival_flag == true %>
+      <i class="fas fa-circle fa-lg circle-badge"></i>
+    <% end %>
     <%= link_to '相手から', likes_received_path, class: 'left-link' %>
     <%= link_to '自分から', likes_sent_path, class: 'right-link active' %>
   </div>
