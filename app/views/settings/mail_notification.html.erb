@@ -4,7 +4,7 @@
     メール受信設定
     </div>
     <div class="settings-content">
-      <%= form_with(url: @mail_notification_setting_path, local: true, method: :post) do |f| %>
+      <%= form_with(url: settings_path, local: true, method: :post) do |f| %>
         <div class="form-group">
           <%= f.label :message_flag, "新着メッセージ" %>
           <% if @mail_notification_setting.message_flag == true %>
