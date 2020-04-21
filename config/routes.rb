@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   resources :users, only: %i(index show)
   resources :relationships, only: %i(create)
   resources :contacts, only: %i(new create)
-  resources :settings, only: %i(index create)
+  resources :settings, only: %i(index create) do
+    collection do
+      get :mail_notification
+      get :email
+      get :password
+    end
+  end
 
   namespace :likes do
     get 'sent'

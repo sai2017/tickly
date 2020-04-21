@@ -1,0 +1,27 @@
+<%= form_with(url: @mail_notification_setting_path, local: true, method: :post) do |f| %>
+  <div class="form-group">
+    <%= f.label :message_flag, "新着メッセージ" %>
+    <% if @mail_notification_setting.message_flag == true %>
+      <%= f.check_box :message_flag, checked: true %>
+    <% else %>
+      <%= f.check_box :message_flag %>
+    <% end %>
+  </div>
+    <div class="form-group">
+    <%= f.label :like_flag, "マッチング結果の通知" %>
+    <% if @mail_notification_setting.like_flag == true %>
+      <%= f.check_box :like_flag, checked: true %>
+    <% else %>
+      <%= f.check_box :like_flag %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :matching_flag, "キョウカンされた際の通知" %>
+    <% if @mail_notification_setting.matching_flag == true %>
+      <%= f.check_box :matching_flag, checked: true %>
+    <% else %>
+      <%= f.check_box :matching_flag %>
+    <% end %>
+  </div>
+  <%= f.submit '変更する', class: "btn submitBtn" %>
+<% end %>

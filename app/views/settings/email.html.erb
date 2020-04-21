@@ -1,0 +1,5 @@
+<%= form_for current_user, url: registration_path(current_user) do |form| %>
+  <%= form.label 'メールアドレス' %>
+  <%= form.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
+  <%= form.submit '変更する', class: "btn submitBtn" %>
+<% end %>

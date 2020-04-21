@@ -3,6 +3,18 @@ class SettingsController < ApplicationController
     @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
   end
 
+  def mail_notification
+    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
+  end
+
+  def email
+    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
+  end
+
+  def password
+    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
+  end
+
   def create
     @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
     if @mail_notification_setting.update(setting_params)

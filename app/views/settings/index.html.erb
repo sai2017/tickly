@@ -1,43 +1,19 @@
-<%= form_with(url: @mail_notification_setting_path, local: true) do |f| %>
-  <div class="form-group">
-    <%= f.label :message_flag, "新着メッセージ" %>
-    <% if @mail_notification_setting.message_flag == true %>
-      <%= f.check_box :message_flag, checked: true %>
-    <% else %>
-      <%= f.check_box :message_flag %>
-    <% end %>
+  <div class="settings-wrap">
+    <div class="settings-title">各種設定</div>
+    <div class="settings-content">
+      <ul>
+        <li class="settings-list">
+          <%= link_to "メール通知設定", mail_notification_settings_path %>
+          <i class="fas fa-lg fa-angle-right"></i>
+        </li>
+        <li class="settings-list">
+          <%= link_to "メールアドレスの変更", email_settings_path %>
+          <i class="fas fa-lg fa-angle-right"></i>
+        </li>
+        <li class="settings-list">
+          <%= link_to "パスワードの変更", password_settings_path %>
+          <i class="fas fa-lg fa-angle-right"></i>
+        </li>
+      </ul>
+    </div>
   </div>
-    <div class="form-group">
-    <%= f.label :like_flag, "マッチング結果の通知" %>
-    <% if @mail_notification_setting.like_flag == true %>
-      <%= f.check_box :like_flag, checked: true %>
-    <% else %>
-      <%= f.check_box :like_flag %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :matching_flag, "キョウカンされた際の通知" %>
-    <% if @mail_notification_setting.matching_flag == true %>
-      <%= f.check_box :matching_flag, checked: true %>
-    <% else %>
-      <%= f.check_box :matching_flag %>
-    <% end %>
-  </div>
-  <%= f.submit '変更する', class: "btn submitBtn" %>
-<% end %>
-<%= form_for current_user, url: registration_path(current_user) do |form| %>
-  <%= form.label 'メールアドレス' %>
-  <%= form.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
-  <%= form.submit '変更する', class: "btn submitBtn" %>
-
-  <div class="field">
-    <%= form.label :password, "新しいパスワード" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %>文字以上入力してください)</em><br />
-    <% end %>
-    <%= form.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
-
-  <%= form.submit '変更する', class: "btn submitBtn" %>
-
-<% end %>

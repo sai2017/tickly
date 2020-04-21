@@ -1,3 +1,44 @@
-// Place all the styles related to the Settings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.settings-wrap {
+  margin: 0 auto;
+  width: 540px;
+  padding: 20px 0;
+
+  .settings-title {
+    text-align: center;
+    color: #007FBD;
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
+
+  .settings-content {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        border: 0;
+        background-color: #fff;
+        margin-top: 10px;
+        padding: 15px 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        color: #24282A;
+        display: flex;
+
+        a {
+          width: 100%;
+          color: #24282A;
+          text-decoration: none;
+          display: block;
+        }
+
+        .fa-angle-right {
+          color: #707070;
+        }
+  
+      }
+    }
+  
+  }
+}
