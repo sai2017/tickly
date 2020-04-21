@@ -16,7 +16,7 @@
     border-radius: 13px;
     padding: 50px;
 
-    .form-area {
+    .form-area,.icon-label {
       font-weight: bold;
       font-size: 15px;
       text-align: left;
@@ -37,25 +37,21 @@
         margin-right: 10px;
         font-size: 1rem;
       }
+    }
 
-      .icon-label {
-        padding-bottom: 10px;
-      }
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
 
-      img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 30px;
-      }
-
-      .delete-image-checkbox {
-        font-weight: normal;
-        
-        #person_profile_attributes_remove_img_name {
-          margin-right: 10px;
-        }
+    .delete-image-checkbox {
+      font-weight: normal;
+      
+      #person_profile_attributes_remove_img_name {
+        margin-right: 10px;
       }
     }
 
