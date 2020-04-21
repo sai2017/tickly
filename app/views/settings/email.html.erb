@@ -1,5 +1,17 @@
-<%= form_for current_user, url: registration_path(current_user) do |form| %>
-  <%= form.label 'メールアドレス' %>
-  <%= form.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
-  <%= form.submit '変更する', class: "btn submitBtn" %>
-<% end %>
+<div class="settings-wrap">
+  <div class="settings-title">
+  <%= link_to "", :back, class: "link-to-settings" %>
+  メールアドレスの設定
+  </div>
+  <div class="settings-content">
+    <%= form_for current_user, url: registration_path(current_user) do |f| %>
+      <div>
+        <%= f.label 'メールアドレス' %>
+        <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email", class: "input-form" %>
+      </div>
+      <div class='btn-wrap'>
+        <%= f.submit '変更する', class: "btn default-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -28,6 +28,16 @@
   .settings-content {
     padding-top: 20px;
 
+    .input-form {
+      width: 100%;
+      height: 40px;
+      border-radius: 31px;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 0 10px;
+      color: #495057;
+    }
+
     ul {
       list-style: none;
       padding: 0;
