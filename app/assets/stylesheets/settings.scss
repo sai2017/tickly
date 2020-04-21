@@ -102,5 +102,24 @@
         background: #ffffff;
       }
     }
+
+    .btn-wrap {
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+
+      .default-btn {
+        font-size: 20px;
+        color: #fff;
+        width: 50%;
+        height: 40px;
+        border-radius: 52px;
+        background: #007fbd;
+
+        &:hover {
+          opacity: .8;
+        }  
+      }
+    }
   }
 }
