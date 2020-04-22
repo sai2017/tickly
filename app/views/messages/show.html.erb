@@ -3,7 +3,14 @@
     <div class="header">
     <%= link_to "", :back, class: "linkToMatching" %>
       <div class="chatPartner">
-        <div class="chatPartner_name"><%= @message_room_user.person.profile.name %></div>
+        <div class="chatPartner_name">
+        <div class="faceicon">
+          <%= link_to user_path(@message_room_user) do %>
+            <%= image_tag @message_room_user.person.profile.img_name.url(:thumb) %>
+          <% end %>
+        </div>
+          <%= @message_room_user.person.profile.name %>
+        </div>
       </div>
     </div>
     <div class="messagesArea messages" id="direct_messages" data-room_id="<%= @message_room.id %>" data-image_name="<%= @message_room_user.person.profile.img_name.url(:thumb) %>" data-user_id="<%= current_user.id %>" data-message_user_id="<%= @message_room_user.id %>">
