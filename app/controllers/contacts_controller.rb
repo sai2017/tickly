@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
       redirect_to root_path
     else
       render :new
+      flash[:error] = 'お問い合わせに失敗しました。メールアドレスとパスワードを再度ご確認ください。'
     end
   end
 

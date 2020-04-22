@@ -1,11 +1,21 @@
-<%= form_with(model: @contact, local: true) do |f| %>
-  <div class="form-group">
-    <%= f.label :email, '返信先メールアドレス' %>
-    <%= f.text_field :email, class: 'form-control' %>
+<div class="settings-wrap">
+  <div class="settings-title">
+  <%= link_to "", :back, class: "link-to-settings" %>
+  お問い合わせ
   </div>
-  <div class="form-group">
-    <%= f.label :content, 'お問い合わせ内容' %>
-    <%= f.text_area :content, size: '10x10', class: 'form-control' %>
+  <div class="settings-content">
+    <%= form_with(model: @contact, local: true) do |f| %>
+      <div>
+        <%= f.label :email, '返信先メールアドレス' %>
+        <%= f.text_field :email, class: 'input-form', placeholder: "xxx@example.com", required: 'true' %>
+      </div>
+      <div class='form-area'>
+        <%= f.label :content, 'お問い合わせ内容' %>
+        <%= f.text_area :content, class: 'text-form', placeholder: "お問い合わせ内容の詳細をご記入ください", required: 'true' %>
+      </div>
+      <div class='btn-wrap'>
+        <%= f.submit '送信', class: "btn default-btn" %>
+      </div>
+    <% end %>
   </div>
-  <%= f.submit '送信' %>
-<% end %>
+</div>
