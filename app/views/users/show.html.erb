@@ -7,9 +7,11 @@
           <div class="user-name">
             <%= @profile.name %>
           </div>
-          <div class="user-age">
-            <p><%= @profile.age %> 歳</p>
-          </div>
+          <% if @profile.birthday.present? %>
+            <div class="user-age">
+              <p><%= @profile.age %> 歳</p>
+            </div>
+          <% end %>
         </div>
         <p class='company-name'><%= @profile.company_name %></p>
         <p class='user-occupation'><%= @profile.occupation %></p>

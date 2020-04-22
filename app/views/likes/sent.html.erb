@@ -20,9 +20,11 @@
                 <div class='user-name'>
                   <%= sent_user.person.profile.name %>
                 </div>
-                <div class='user-age'>
-                  <%= sent_user.person.profile.age %> 歳
-                </div>
+                <% if sent_user.person.profile.birthday.present? %>
+                  <div class='user-age'>
+                    <%= sent_user.person.profile.age %> 歳
+                  </div>
+                <% end %>
               </div>
             </div>
             <div class='user-company-name'>

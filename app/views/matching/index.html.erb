@@ -20,9 +20,11 @@
                 <div class='user-name'>
                   <%= user.person.profile.name %>
                 </div>
-                <div class='user-age'>
-                  <%= user.person.profile.age %> 歳
-                </div>
+                <% if user.person.profile.birthday.present? %>
+                  <div class='user-age'>
+                    <%= user.person.profile.age %> 歳
+                  </div>
+                <% end %>
               </div>
               <div class='icon-time'>
                 <% active_relationship = Relationship.find_by(following_id: user.id, follower_id: current_user.id) %>
