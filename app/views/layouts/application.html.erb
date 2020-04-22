@@ -36,11 +36,11 @@
             <% end %>
             <% if current_user.matchers.present? && (@unread_message.present? || @new_matching_flag.present? ) %>
               <li>
-                <%= link_to 'メッセージ', matching_index_path  %>
+                <%= link_to 'メッセージ', messages_path  %>
                 <i class="fas fa-circle fa-xs circle-badge"></i>
               </li>
             <% else %>
-              <li><%= link_to 'メッセージ', matching_index_path  %></li>
+              <li><%= link_to 'メッセージ', messages_path  %></li>
             <% end %>
             <li><%= link_to 'プロフィール', mypage_my_profile_path %></li>
           <% else %>
