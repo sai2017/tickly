@@ -235,6 +235,10 @@
         height: 35px;
         border-radius: 52px;
         background: #007fbd;
+
+        &:hover {
+          opacity: .8;
+        }
       }
     }
   }
