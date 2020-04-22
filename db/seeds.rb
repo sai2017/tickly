@@ -2,7 +2,7 @@
   # email = Faker::Internet.email
   # name = Faker::Name.name
   # birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
-  # password = "123456"
+  # password = "12345678"
   # user = User.create!(
   #   email: email,
   #   password: password,
