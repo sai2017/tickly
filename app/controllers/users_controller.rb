@@ -51,7 +51,9 @@ class UsersController < ApplicationController
     @relationship = Relationship.new
     # ユーザー詳細画面に遷移したとき、自分がフォローしたレコードのnew_matching_flagをfalseに変える
     active_relationship = Relationship.find_by(following_id: @user.id, follower_id: current_user.id)
-    if active_relationship.new_matching_flag == true
+    passive_relationship = Relationship.find_by(following_id: current_user.id, follower_id: @user.id)
+    # マッチングした状態でactive_relationshipのnew_matching_flagがtrueだったらfalseに変える
+    if active_relationship.present? && passive_relationship.present? && active_relationship.new_matching_flag == true
       active_relationship.update(new_matching_flag: false)
     end
   end
