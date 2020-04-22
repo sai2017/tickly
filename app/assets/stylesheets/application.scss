@@ -17,10 +17,16 @@
 body {
   background: #E5F6FF;
 
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
   header {
     background-color: #fff;
     border-bottom: 1px solid #e9eef1;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding: 10px 10px 5px;
     display: flex;
 
@@ -136,4 +142,34 @@ body {
     background: #dff0d8;
   }
   
+  footer {
+    background-color: #fff;
+    border-top: 1px solid #e9eef1;
+    // margin: 0 auto;
+    padding: 10px 20px 20px;
+    margin-top: auto;
+    font-size: 13px;
+    color: #007FBD;
+
+    .fotter-inner {
+      display: flex;
+      width: 1200px;
+      margin: 0 auto;
+      padding: 22px 0;
+      flex-wrap: wrap;
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          line-height: 30px;
+        }
+      }
+    }
+
+    .copyright {
+      text-align: center;
+    }
+  }
 }

@@ -14,73 +14,86 @@
   </head>
 
   <body id="global-body">
-  <header>
-    <div id="logo">
-      <% if user_signed_in? %>
-        <%= link_to image_tag('cordis_logo.svg'), users_path %>
-      <% else %>
-        <%= link_to image_tag('cordis_logo.svg'), root_path %>
-      <% end %>
-    </div>
-    <ul class="menu">
-      <% if user_signed_in? %>
-        <li><%= link_to '会員をさがす', users_path %></li>
-        <% if @new_arrival_flag == true %>
-          <li>
-            <%= link_to 'キョウカン', likes_received_path %>
-            <i class="fas fa-circle fa-xs circle-badge"></i>
-          </li>
-        <% else %>
-          <li><%= link_to 'キョウカン', likes_received_path %></li>
-        <% end %>
-        <% if current_user.matchers.present? && (@unread_message.present? || @new_matching_flag.present? ) %>
-          <li>
-            <%= link_to 'メッセージ', matching_index_path  %>
-            <i class="fas fa-circle fa-xs circle-badge"></i>
-          </li>
-        <% else %>
-          <li><%= link_to 'メッセージ', matching_index_path  %></li>
-        <% end %>
-        <li><%= link_to 'プロフィール', mypage_my_profile_path %></li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path  %></li>
-        <li><%= link_to '新規登録', new_user_registration_path  %></li>
-      <% end %>
-    </ul>
-    <% if user_signed_in? %>
-      <button 
-        class="popover-icon"
-        data-container="body"
-        data-toggle="popover"
-        data-placement="bottom"
-        data-popover-content="#popover-content-id"
-      >
-        <div class='header-user-img'>
-          <% if current_user.person.profile.img_name? %>
-            <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
+    <div id="wrapper">
+      <header>
+        <div id="logo">
+          <% if user_signed_in? %>
+            <%= link_to image_tag('cordis_logo.svg'), users_path %>
           <% else %>
-            <%= image_tag 'default-person-icon.jpeg' %>
+            <%= link_to image_tag('cordis_logo.svg'), root_path %>
           <% end %>
         </div>
-      </button>
-      <div id="popover-content-id" style="display:none;">
-        <div class="popover-body">
-          <ul class="popper-ul">
-            <li class="popper-li">
-              <%= link_to 'プロフィールを編集', mypage_edit_path %>
-            </li>
-            <li class="popper-li">
-              <%= link_to '各種設定', settings_path %>
-            </li>
-            <li class="popper-li">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            </li>
+        <ul class="menu">
+          <% if user_signed_in? %>
+            <li><%= link_to '会員をさがす', users_path %></li>
+            <% if @new_arrival_flag == true %>
+              <li>
+                <%= link_to 'キョウカン', likes_received_path %>
+                <i class="fas fa-circle fa-xs circle-badge"></i>
+              </li>
+            <% else %>
+              <li><%= link_to 'キョウカン', likes_received_path %></li>
+            <% end %>
+            <% if current_user.matchers.present? && (@unread_message.present? || @new_matching_flag.present? ) %>
+              <li>
+                <%= link_to 'メッセージ', matching_index_path  %>
+                <i class="fas fa-circle fa-xs circle-badge"></i>
+              </li>
+            <% else %>
+              <li><%= link_to 'メッセージ', matching_index_path  %></li>
+            <% end %>
+            <li><%= link_to 'プロフィール', mypage_my_profile_path %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path  %></li>
+            <li><%= link_to '新規登録', new_user_registration_path  %></li>
+          <% end %>
+        </ul>
+        <% if user_signed_in? %>
+          <button 
+            class="popover-icon"
+            data-container="body"
+            data-toggle="popover"
+            data-placement="bottom"
+            data-popover-content="#popover-content-id"
+          >
+            <div class='header-user-img'>
+              <% if current_user.person.profile.img_name? %>
+                <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
+              <% else %>
+                <%= image_tag 'default-person-icon.jpeg' %>
+              <% end %>
+            </div>
+          </button>
+          <div id="popover-content-id" style="display:none;">
+            <div class="popover-body">
+              <ul class="popper-ul">
+                <li class="popper-li">
+                  <%= link_to 'プロフィールを編集', mypage_edit_path %>
+                </li>
+                <li class="popper-li">
+                  <%= link_to '各種設定', settings_path %>
+                </li>
+                <li class="popper-li">
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </header>
+        <%= render 'layouts/flashes' %>
+        <%= yield %>
+      <footer>
+        <div class='fotter-inner'>
+          <ul>
+            <li>利用規約</li>
+            <li>特定商取引法に基づく表記</li>
+            <li>プライバシーポリシー</li>
+            <li><%= link_to 'お問い合わせ', new_contact_path %></li>
           </ul>
         </div>
-      </div>
-    <% end %>
-  </header>
-    <%= render 'layouts/flashes' %>
-    <%= yield %>
+        <div class='copyright'>© 2020 Copyright: cordis,inc</div>
+      </footer>
+    </div>
   </body>
 </html>
