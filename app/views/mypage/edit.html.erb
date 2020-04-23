@@ -4,7 +4,7 @@
     <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
         <div class="form-area">
-          <%= pf.label 'ユーザー名' %>
+          <%= pf.label 'お名前（本名を入力してください）' %>
           <%= pf.text_field :name, class: "input-form" %>
         </div>
         <div class="form-area">
