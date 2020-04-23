@@ -11,7 +11,11 @@
           <i class="fas fa-lg fa-angle-right"></i>
         </li>
         <li class="settings-list">
-          <%= link_to "パスワードの変更", password_settings_path %>
+          <%= link_to "お問い合わせ", new_contact_path %>
+          <i class="fas fa-lg fa-angle-right"></i>
+        </li>
+        <li class="settings-list">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
           <i class="fas fa-lg fa-angle-right"></i>
         </li>
       </ul>

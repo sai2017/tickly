@@ -11,9 +11,10 @@ class SettingsController < ApplicationController
     @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
   end
 
-  def password
-    @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
-  end
+  # Facebookログインのみの実装により、パスワードの変更は現状必要ないのでコメントアウトしておく
+  # def password
+  #   @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)
+  # end
 
   def create
     @mail_notification_setting = MailNotificationSetting.find_by(user_id: current_user.id)

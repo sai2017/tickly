@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     collection do
       get :mail_notification
       get :email
-      get :password
+      # Facebookログインのみの実装により、パスワードの変更は現状必要ないのでコメントアウトしておく
+      # get :password
     end
   end
 
