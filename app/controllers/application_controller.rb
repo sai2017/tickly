@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery except: :message_notification
-  protect_from_forgery except: :matching_notification
+  protect_from_forgery with: :exception
   before_action :message_notification
   before_action :matching_notification
   before_action :passive_relationship_notification
