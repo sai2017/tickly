@@ -125,6 +125,24 @@
   
     }
 
+    .no-messages {
+      text-align: center;
+      padding-top: 70px;
+
+      .matching-success {
+        color: #007FBD;
+        font-weight: bold;
+      }
+
+      .content {
+        padding-top: 20px;
+        
+        span {
+          color: #007FBD;
+        }
+      }
+    }
+
     /*以下、③右側の緑コメント*/
     .mycomment {
       margin: 10px 0;
