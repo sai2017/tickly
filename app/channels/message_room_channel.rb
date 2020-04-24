@@ -24,5 +24,13 @@ class MessageRoomChannel < ApplicationCable::Channel
         MessageMailer.message_to_user(message.user, receive_user).deliver
       end
     end
+
+    # 今回が最初のメッセージの作成（２通目が空）だったら、お互いのnew_matching_flagをfalseにする
+    if Message.where(message_room_id: message.message_room_id).second.blank?
+      active_relationship = Relationship.find_by(following_id: receive_user.id, follower_id: message.user.id)
+      passive_relationship = Relationship.find_by(following_id: message.user.id, follower_id: receive_user.id)
+      active_relationship.update(new_matching_flag: false)
+      passive_relationship.update(new_matching_flag: false)
+    end
   end
 end
