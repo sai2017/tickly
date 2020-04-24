@@ -82,6 +82,11 @@ body {
           border: 1px #707070 solid;
           width: 40px;
           height: 40px;  
+
+          &:hover {
+            filter: brightness(80%);
+            transition-duration: 0.3s;
+          }  
         }
       }
     }
