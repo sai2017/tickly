@@ -86,7 +86,8 @@
       color: #24282A;
       font-weight: bold;
       &:hover {
-        opacity: .8;
+        filter: brightness(80%);
+        transition-duration: 0.3s;
       }  
 
       .user-card-img {
