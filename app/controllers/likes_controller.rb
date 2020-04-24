@@ -16,8 +16,8 @@ class LikesController < ApplicationController
         sent_user
       end
     end
-    @sent_users = next_sent_users.compact
-
+    sent_users = next_sent_users.compact
+    @sent_users = Kaminari.paginate_array(sent_users).page(params[:page]).per(10)
   end
 
   def received
@@ -37,6 +37,7 @@ class LikesController < ApplicationController
         received_user
       end
     end
-    @received_users = next_received_users.compact
+    received_users = next_received_users.compact
+    @received_users = Kaminari.paginate_array(received_users).page(params[:page]).per(10)
   end
 end

@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
         message_exist_matchers.push(user)
       end
     end
-    @desc_message_exist_matchers = desc_message_users & message_exist_matchers
+    desc_message_exist_matchers = desc_message_users & message_exist_matchers
+    @desc_message_exist_matchers = Kaminari.paginate_array(desc_message_exist_matchers).page(params[:page]).per(10)
   end
 
   def create

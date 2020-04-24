@@ -9,6 +9,7 @@ class MatchingController < ApplicationController
       end
     end
 
-    @desc_relationship_blank_matchers = User.matching(current_user) & message_blank_matchers
+    desc_relationship_blank_matchers = User.matching(current_user) & message_blank_matchers
+    @desc_relationship_blank_matchers = Kaminari.paginate_array(desc_relationship_blank_matchers).page(params[:page]).per(10)
   end
 end
