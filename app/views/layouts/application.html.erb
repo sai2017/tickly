@@ -68,6 +68,9 @@
             <div class="popover-body">
               <ul class="popper-ul">
                 <li class="popper-li">
+                  <div>本日残り <span class='today-balance-count'><%= current_user.like_point.balance %></span> キョウカン！</div>
+                </li>
+                <li class="popper-li">
                   <%= link_to 'プロフィールを編集', mypage_edit_path %>
                 </li>
                 <li class="popper-li">
