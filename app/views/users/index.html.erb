@@ -7,24 +7,29 @@
           <div class="search-form">
             <%= f.search_field :profile_name_cont, class: 'keyword-area', placeholder: 'フリーワードで検索' %>
           </div>
-          <div class="search-form">
-            <label>年齢</label>
-            <div class='search-age-form'>
-              <%= select_tag :profile_search_min_age, options_for_select((15..85).to_a, { :selected => @search_min_age.to_i }), include_blank: '指定なし' %>
-              <span class='range-space'>〜</span>
-              <%= select_tag :profile_search_max_age, options_for_select((15..85).to_a, { :selected => @search_max_age.to_i }), include_blank: '指定なし' %>
+          <div class="sp-toggle-button">
+            <i class="fas fa-angle-double-down"></i>
+          </div>
+          <div class='sp-toggle-form'>
+            <div class="search-form">
+              <label>年齢</label>
+              <div class='search-age-form'>
+                <%= select_tag :profile_search_min_age, options_for_select((15..85).to_a, { :selected => @search_min_age.to_i }), include_blank: '指定なし' %>
+                <span class='range-space'>〜</span>
+                <%= select_tag :profile_search_max_age, options_for_select((15..85).to_a, { :selected => @search_max_age.to_i }), include_blank: '指定なし' %>
+              </div>
             </div>
-          </div>
-          <div class="search-form">
-            <%= f.label :profile_prefecture_id, "居住地" %>
-            <%= f.collection_select :profile_prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
-          </div>
-          <div class="search-form">
-            <%= f.label :job_categories_id, "職種" %>
-            <%= f.collection_select :job_categories_id_eq, JobCategory.all, :id, :name, include_blank: '指定なし' %>
-          </div>
-          <div class='btn-wrap'>
-            <%= f.submit "この条件で検索", class: 'btn default-btn' %>
+            <div class="search-form">
+              <%= f.label :profile_prefecture_id, "居住地" %>
+              <%= f.collection_select :profile_prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
+            </div>
+            <div class="search-form">
+              <%= f.label :job_categories_id, "職種" %>
+              <%= f.collection_select :job_categories_id_eq, JobCategory.all, :id, :name, include_blank: '指定なし' %>
+            </div>
+            <div class='btn-wrap'>
+              <%= f.submit "この条件で検索", class: 'btn default-btn' %>
+            </div>
           </div>
         <% end %>
       </div>

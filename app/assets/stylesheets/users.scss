@@ -8,20 +8,36 @@
     display: flex;
     margin: 0 auto;
     padding: 60px 0;
+
+    @media only screen and (max-width: 480px) {
+      padding: 20px 0;
+      display: block  
+    }
   
     .search-box {
       margin-right: 50px;
-      height: 600px;
       width: 290px;
+      @media only screen and (max-width: 480px) {
+        margin-right: 0;
+        width: 100%;
+      }  
 
       .search-box-inner {
         padding: 0 20px 20px;
+
+        @media only screen and (max-width: 480px) {
+          padding: 0 0px 30px;
+        }    
 
         h4 {
           color: #24282A;
           font-size: 15px;
           font-weight: 600;
           padding-bottom: 15px;
+
+          @media only screen and (max-width: 480px) {
+            display: none;
+          }  
         }
 
         .keyword-area {
@@ -29,9 +45,38 @@
           height: 32px;
           border-radius: 31px;
           background: #fff;
-          // border: 1px solid #707070;
           border: 1px solid #ddd;
           padding: 0 10px;
+
+          @media only screen and (max-width: 480px) {
+            width: 100%;
+          }  
+        }
+
+        .sp-toggle-form {
+          @media only screen and (max-width: 480px) {
+            display: none;
+          }  
+        }
+
+        .sp-toggle-button {
+          cursor: pointer;
+          padding: 5px;
+          opacity: .6;
+          transition: .3s;
+          display: none;
+          text-align: center;
+          color: #007FBD;
+    
+          &:after {
+            content: '更に詳しく検索';
+            padding-left: 10px;
+          } 
+
+          @media only screen and (max-width: 480px) {
+            display: block;
+          }  
+
         }
 
         .search-form {
@@ -110,6 +155,10 @@
         }  
       }
 
+      @media only screen and (max-width: 480px) {
+        width: 350px;
+      }
+
       .user-card {
         border-radius: 13px;
         width: 600px;
@@ -123,6 +172,12 @@
           filter: brightness(80%);
           transition-duration: 0.3s;
         }  
+
+        @media only screen and (max-width: 480px) {
+          width: 350px;
+          height: 225px;
+        }
+
         .top-area {
           display: flex;
 
