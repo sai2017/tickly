@@ -34,29 +34,31 @@
         <% @users.each do |user| %>
           <%= link_to user_path(user.id) do %>
             <div class="user-card">
-              <div class='user-card-img'>
-                <%= image_tag user.person.profile.img_name.url(:thumb) %>
-              </div>
-              <div class='right-area'>
-                <div class='name-age'>
-                  <div class='user-name'>
-                    <%= user.person.profile.name %>
-                  </div>
-                  <% if user.person.profile.birthday.present? %>
-                    <div class='user-age'>
-                      <%= user.person.profile.age %> 歳
+              <div class='top-area'>
+                <div class='user-card-img'>
+                  <%= image_tag user.person.profile.img_name.url(:thumb) %>
+                </div>
+                <div class='right-area'>
+                  <div class='name-age'>
+                    <div class='user-name'>
+                      <%= user.person.profile.name %>
                     </div>
-                  <% end %>
+                    <% if user.person.profile.birthday.present? %>
+                      <div class='user-age'>
+                        <%= user.person.profile.age %> 歳
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class='user-company-name'>
+                    <%= user.person.profile.company_name %>
+                  </div>
+                  <div class='user-occupation'>
+                    <%= user.person.profile.occupation %>
+                  </div>
                 </div>
-                <div class='user-company-name'>
-                  <%= user.person.profile.company_name %>
-                </div>
-                <div class='user-occupation'>
-                  <%= user.person.profile.occupation %>
-                </div>
-                <div class='user-catch-copy'>
-                  <%= user.person.profile.catch_copy %>
-                </div>
+              </div>
+              <div class='user-catch-copy'>
+                <%= user.person.profile.catch_copy %>
               </div>
             </div>
           <% end %>
