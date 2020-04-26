@@ -92,13 +92,27 @@
             <% end %>
           </div>
           <div class='item'>
-            <%= link_to likes_received_path do %>
-              <i class="far fa-thumbs-up fa-2x"></i>
+            <% if @new_arrival_flag == true %>
+              <%= link_to likes_received_path do %>
+                <i class="far fa-thumbs-up fa-2x"></i>
+              <% end %>
+              <i class="fas fa-circle fa-xs circle-badge"></i>
+            <% else %>
+              <%= link_to likes_received_path do %>
+                <i class="far fa-thumbs-up fa-2x"></i>
+              <% end %>
             <% end %>
           </div>
           <div class='item'>
-            <%= link_to messages_path do %>
-              <i class="far fa-comments fa-2x"></i>
+            <% if current_user.matchers.present? && (@unread_message.present? || @new_matching_flag.present? ) %>
+              <%= link_to messages_path do %>
+                <i class="far fa-comments fa-2x"></i>
+              <% end %>
+              <i class="fas fa-circle fa-xs circle-badge"></i>
+            <% else %>
+              <%= link_to messages_path do %>
+                <i class="far fa-comments fa-2x"></i>
+              <% end %>
             <% end %>
           </div>
           <div class='item'>
