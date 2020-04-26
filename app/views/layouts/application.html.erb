@@ -15,7 +15,7 @@
 
   <body id="global-body">
     <div id="wrapper">
-      <header>
+      <header class='pc-header'>
         <div id="logo">
           <% if user_signed_in? %>
             <%= link_to image_tag('cordis_logo.svg'), users_path %>
@@ -83,6 +83,67 @@
             </div>
           </div>
         <% end %>
+      </header>
+      <header class='sp-header'>
+        <div class='inner'>
+          <div class='item'>
+            <%= link_to users_path do %>
+              <i class="fas fa-search fa-2x"></i>
+            <% end %>
+          </div>
+          <div class='item'>
+            <%= link_to likes_received_path do %>
+              <i class="far fa-thumbs-up fa-2x"></i>
+            <% end %>
+          </div>
+          <div class='item'>
+            <%= link_to messages_path do %>
+              <i class="far fa-comments fa-2x"></i>
+            <% end %>
+          </div>
+          <div class='item'>
+            <%= link_to mypage_my_profile_path do %>
+              <i class="far fa-user fa-2x"></i>
+            <% end %>
+          </div>
+          <% if user_signed_in? %>
+          <div class='item'>
+            <button 
+              class="popover-icon"
+              data-container="body"
+              data-toggle="popover"
+              data-placement="bottom"
+              data-popover-content="#popover-content-id"
+            >
+              <div class='header-user-img'>
+                <% if current_user.person.profile.img_name? %>
+                  <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
+                <% else %>
+                  <%= image_tag 'default-person-icon.jpeg' %>
+                <% end %>
+              </div>
+            </button>
+            <div id="popover-content-id" style="display:none;">
+              <div class="popover-body">
+                <ul class="popper-ul">
+                  <li class="popper-li">
+                    <div>本日残り <span class='today-balance-count'><%= current_user.like_point.balance %></span> キョウカン！</div>
+                  </li>
+                  <li class="popper-li">
+                    <%= link_to 'プロフィールを編集', mypage_edit_path %>
+                  </li>
+                  <li class="popper-li">
+                    <%= link_to '各種設定', settings_path %>
+                  </li>
+                  <li class="popper-li">
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          <% end %>
+        </div>
       </header>
         <%= render 'layouts/flashes' %>
         <%= yield %>
