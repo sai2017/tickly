@@ -3,6 +3,11 @@
   width: 940px;
   padding: 20px 0;
 
+  @media only screen and (max-width: 480px) {
+    width: 350px;
+    padding: 20px 0px;
+  }
+
   .mypage-edit-title {
     color: #007FBD;
     font-size: 25px;
@@ -15,6 +20,10 @@
     background-color: #fff;
     border-radius: 13px;
     padding: 50px;
+
+    @media only screen and (max-width: 480px) {
+      padding: 20px 10px;
+    }  
 
     .form-area,.icon-label {
       font-weight: bold;
@@ -202,6 +211,11 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+
+      @media only screen and (max-width: 480px) {
+        width: 30%;
+        margin-right: 5px;
+      }
     }
 
     #person_profile_attributes_prefecture_id {
@@ -215,6 +229,10 @@
     margin: 0 auto;
     justify-content: center;
 
+    @media only screen and (max-width: 480px) {
+      padding-top: 10px;
+    }
+
     .default-btn {
       font-size: 30px;
       color: #fff;
@@ -222,6 +240,11 @@
       height: 60px;
       border-radius: 52px;
       background: #007fbd;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 20px;
+        height: 40px;
+      }
 
       &:hover {
         filter: brightness(80%);
