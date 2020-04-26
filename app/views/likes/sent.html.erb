@@ -12,31 +12,33 @@
       <% @sent_users.each do |sent_user| %>
         <%= link_to user_path(sent_user.id) do %>
           <div class="user-card">
-            <div class='user-card-img'>
-              <%= image_tag sent_user.person.profile.img_name.url(:thumb) %>
-            </div>
-            <div class='right-area'>
-              <div class='first-topic-area'>
-                <div class='name-age'>
-                  <div class='user-name'>
-                    <%= sent_user.person.profile.name %>
-                  </div>
-                  <% if sent_user.person.profile.birthday.present? %>
-                    <div class='user-age'>
-                      <%= sent_user.person.profile.age %> 歳
+            <div class='top-area'>
+              <div class='user-card-img'>
+                <%= image_tag sent_user.person.profile.img_name.url(:thumb) %>
+              </div>
+              <div class='right-area'>
+                <div class='first-topic-area'>
+                  <div class='name-age'>
+                    <div class='user-name'>
+                      <%= sent_user.person.profile.name %>
                     </div>
-                  <% end %>
+                    <% if sent_user.person.profile.birthday.present? %>
+                      <div class='user-age'>
+                        <%= sent_user.person.profile.age %> 歳
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class='user-company-name'>
+                  <%= sent_user.person.profile.company_name %>
+                </div>
+                <div class='user-occupation'>
+                  <%= sent_user.person.profile.occupation %>
                 </div>
               </div>
-              <div class='user-company-name'>
-                <%= sent_user.person.profile.company_name %>
-              </div>
-              <div class='user-occupation'>
-                <%= sent_user.person.profile.occupation %>
-              </div>
-              <div class='user-catch-copy'>
-                <%= sent_user.person.profile.catch_copy %>
-              </div>
+            </div>
+            <div class='user-catch-copy'>
+              <%= sent_user.person.profile.catch_copy %>
             </div>
           </div>
         <% end %>

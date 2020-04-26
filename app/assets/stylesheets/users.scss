@@ -175,7 +175,7 @@
 
         @media only screen and (max-width: 480px) {
           width: 350px;
-          height: 225px;
+          height: 200px;
         }
 
         .top-area {
@@ -187,15 +187,26 @@
               border: 1px #707070 solid;
               width: 100px;
               height: 100px;
+
+              @media only screen and (max-width: 480px) {
+                width: 70px;
+                height: 70px;
+              }  
             }
           }
 
           .right-area {
-            padding-left: 10px;
+            padding: 0 10px;
+            width: 480px;
+
+            @media only screen and (max-width: 480px) {
+              width: 260px;
+            }  
 
             .name-age {
               display: flex;
               padding-bottom: 10px;
+              font-size: 16px;
 
               .user-name {
                 padding-right: 20px;
@@ -204,10 +215,32 @@
 
             .user-company-name {
               padding-bottom: 5px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;  
+
+              @media only screen and (max-width: 480px) {
+                font-weight: nomal;
+                font-size: 13px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }  
             }
 
             .user-occupation {
               padding-bottom: 10px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;  
+
+              @media only screen and (max-width: 480px) {
+                font-weight: nomal;
+                font-size: 13px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }  
             }
           }
         }
@@ -216,6 +249,10 @@
           padding-top: 5px;
           color: #007fbd;
           font-size: 18px;
+
+          @media only screen and (max-width: 480px) {
+            font-size: 16px;
+          }  
         }
       }
 

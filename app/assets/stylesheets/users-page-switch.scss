@@ -3,6 +3,10 @@
   width: 600px;
   padding: 20px 0;
 
+  @media only screen and (max-width: 480px) {
+    width: 375px;
+    padding: 20px 10px;
+  }
 
   .page-title {
     color: #007FBD;
@@ -18,6 +22,10 @@
     display: flex;
     font-weight: bold;
     position: relative;
+
+    @media only screen and (max-width: 480px) {
+      width: 350px;
+    }
 
     .circle-badge {
       color: red;
@@ -75,6 +83,10 @@
       }  
     }
 
+    @media only screen and (max-width: 480px) {
+      width: 350px;
+    }
+
     .user-card {
       border-radius: 13px;
       width: 600px;
@@ -82,7 +94,6 @@
       background-color: #fff;
       margin-bottom: 30px;
       padding: 20px;
-      display: flex;
       color: #24282A;
       font-weight: bold;
       &:hover {
@@ -90,63 +101,108 @@
         transition-duration: 0.3s;
       }  
 
-      .user-card-img {
-        img {
-          border-radius: 50%;
-          border: 1px #707070 solid;
-          width: 100px;
-          height: 100px;
-        }
+      @media only screen and (max-width: 480px) {
+        width: 350px;
+        height: 200px;
       }
 
-      .right-area {
-        padding-left: 10px;
-        width: 506px;
+      .top-area {
+        display: flex;
 
-        .first-topic-area {
-          display: flex;
-          justify-content: space-between;
+        .user-card-img {
+          img {
+            border-radius: 50%;
+            border: 1px #707070 solid;
+            width: 100px;
+            height: 100px;
 
-          .name-age {
-            display: flex;
-            padding-bottom: 10px;
-  
-            .user-name {
-              padding-right: 20px;
-            }
-          }  
-
-          .icon-time {
-            display: flex;
-
-            .user-new-icon {
-              width: 50px;
-              height: 24px;
-              background: #f71515;
-              border-radius: 50px;
-              color: #fff;
-              text-align: center;
-            }
-  
-            .user-relation-time {
-              padding-left: 10px;
-              color: #9B9B9B;
-              font-size: 14px;
+            @media only screen and (max-width: 480px) {
+              width: 70px;
+              height: 70px;
             }
           }
         }
 
-        .user-company-name {
-          padding-bottom: 5px;
-        }
+        .right-area {
+          padding: 0 10px;
+          width: 480px;
 
-        .user-occupation {
-          padding-bottom: 10px;
-        }
+          @media only screen and (max-width: 480px) {
+            width: 260px;
+          }
 
-        .user-catch-copy {
-          color: #007fbd;
-          font-size: 18px;
+          .first-topic-area {
+            display: flex;
+            justify-content: space-between;
+
+            .name-age {
+              display: flex;
+              padding-bottom: 10px;
+              font-size: 16px;
+    
+              .user-name {
+                padding-right: 20px;
+              }
+            }  
+
+            .icon-time {
+              display: flex;
+
+              .user-new-icon {
+                width: 50px;
+                height: 24px;
+                background: #f71515;
+                border-radius: 50px;
+                color: #fff;
+                text-align: center;
+              }
+    
+              .user-relation-time {
+                padding-left: 10px;
+                color: #9B9B9B;
+                font-size: 14px;
+              }
+            }
+          }
+
+          .user-company-name {
+            padding-bottom: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media only screen and (max-width: 480px) {
+              font-weight: nomal;
+              font-size: 13px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+
+          .user-occupation {
+            padding-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media only screen and (max-width: 480px) {
+              font-weight: nomal;
+              font-size: 13px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+      .user-catch-copy {
+        padding-top: 5px;
+        color: #007fbd;
+        font-size: 18px;
+
+        @media only screen and (max-width: 480px) {
+          font-size: 16px;
         }
       }
     }
@@ -187,14 +243,28 @@
       }
     }
 
-    .messages-card {
-      height: 100px;
+    .user-card.messages-card {
+      height: 90px;
       padding: 10px;
+      margin-bottom: 10px;
 
       .user-card-img {
         img {
           width: 70px;
           height: 70px;
+
+          @media only screen and (max-width: 480px) {
+            width: 60px;
+            height: 60px;
+          }  
+        }
+      }
+
+      .right-area {
+        width: 520px;
+
+        @media only screen and (max-width: 480px) {
+          width: 280px;
         }
       }
 

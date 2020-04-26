@@ -14,37 +14,39 @@
         <% message_room = MessageRoomUser.where(message_room: current_user_message_rooms, user_id: user.id).map(&:message_room).first %>
         <%= link_to message_path(message_room.id) do %>
           <div class="user-card messages-card">
-            <div class='user-card-img'>
-              <%= image_tag user.person.profile.img_name.url(:thumb) %>
-            </div>
-            <div class='right-area'>
-              <div class='first-topic-area'>
-                <div class='message-name-age'>
-                  <div class='user-name'>
-                    <%= user.person.profile.name %>
-                  </div>
-                  <% if user.person.profile.birthday.present? %>
-                    <div class='user-age'>
-                      <%= user.person.profile.age %> 歳
+            <div class='top-area'>
+              <div class='user-card-img'>
+                <%= image_tag user.person.profile.img_name.url(:thumb) %>
+              </div>
+              <div class='right-area'>
+                <div class='first-topic-area'>
+                  <div class='message-name-age'>
+                    <div class='user-name'>
+                      <%= user.person.profile.name %>
                     </div>
-                  <% end %>
-                </div>
-                <div class='icon-time'>
-                  <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
-                    <div class='user-new-icon'>未読</div>
-                  <% end %>
-                  <div class='user-relation-time'>
-                    <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
+                    <% if user.person.profile.birthday.present? %>
+                      <div class='user-age'>
+                        <%= user.person.profile.age %> 歳
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class='icon-time'>
+                    <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
+                      <div class='user-new-icon'>未読</div>
+                    <% end %>
+                    <div class='user-relation-time'>
+                      <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class='user-company-name'>
-                <% if user.person.profile.company_name || user.person.profile.occupation %>
-                  <%= user.person.profile.company_name %> / <%= user.person.profile.occupation %>
-                <% end %>
-              </div>
-              <div class='message-content'>
-                <%= Message.where(message_room_id: message_room.id).last.content %>
+                <div class='user-company-name'>
+                  <% if user.person.profile.company_name || user.person.profile.occupation %>
+                    <%= user.person.profile.company_name %> / <%= user.person.profile.occupation %>
+                  <% end %>
+                </div>
+                <div class='message-content'>
+                  <%= Message.where(message_room_id: message_room.id).last.content %>
+                </div>
               </div>
             </div>
           </div>
