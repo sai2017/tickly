@@ -2,12 +2,21 @@
   padding: 50px 0;
   color: #24282A;
 
+  @media only screen and (max-width: 480px) {
+    padding: 20px 0;
+  }
+
   .profile-wrap {
     width: 940px;
     background-color: #fff;
     border-radius: 13px;
     margin: 0 auto;
     padding: 50px;
+
+    @media only screen and (max-width: 480px) {
+      width: 350px;
+      padding: 20px 10px;
+    }
 
     .profile-header {
       display: flex;
@@ -17,27 +26,51 @@
         border-radius: 50%;
         overflow: hidden;
         margin-right: 30px;
+
+        @media only screen and (max-width: 480px) {
+          width: 70px;
+          height: 70px;
+          margin-right: 5px;
+        }
       }
 
       .basic-text-profile-wrap {
         padding: 10px;
+
+        @media only screen and (max-width: 480px) {
+          width: 260px;
+          padding: 0 10px 10px;
+        }
 
         .name-age-wrap {
           display: flex;
           align-items: flex-end;
           margin-bottom: 20px;
 
+          @media only screen and (max-width: 480px) {
+            align-items: baseline;
+            margin-bottom: 10px;
+          }  
+
           .user-name {
             font-weight: bold;
             font-size: 30px;
             text-align: left;
             margin-right: 20px;
+
+            @media only screen and (max-width: 480px) {
+              font-size: 20px;
+            }    
           }
 
           .user-age {
             font-weight: bold;
             font-size: 20px;
             height: 32px;
+
+            @media only screen and (max-width: 480px) {
+              font-size: 15px;
+            }
           }
         }
 
@@ -46,6 +79,12 @@
           font-size: 20px;
           margin-right: 20px;
           margin-bottom: 10px;
+
+          @media only screen and (max-width: 480px) {
+            font-weight: nomal;
+            font-size: 13px;
+            margin-right: 0;
+          }
         }
 
         .user-occupation {
@@ -53,6 +92,11 @@
           font-size: 20px;
           margin-right: 20px;
 
+          @media only screen and (max-width: 480px) {
+            font-weight: nomal;
+            font-size: 13px;
+            margin-right: 0;
+          }
         }
       }
     }
@@ -62,10 +106,20 @@
       font-size: 30px;
       color: #007fbd;
       padding-top: 30px;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 16px;
+        padding-top: 5px;
+        line-height: 24px;
+      }
     }
 
     .btn-wrap {
       padding-top: 30px;
+
+      @media only screen and (max-width: 480px) {
+        padding-top: 10px;
+      }
 
       .default-btn {
         font-size: 30px;
@@ -74,6 +128,11 @@
         height: 60px;
         border-radius: 52px;
         background: #007fbd;
+
+        @media only screen and (max-width: 480px) {
+          font-size: 20px;
+          height: 40px;
+        }  
 
         &:hover {
           filter: brightness(80%);
@@ -95,10 +154,18 @@
     .main-profile {
       padding-top: 50px;
 
+      @media only screen and (max-width: 480px) {
+        padding-top: 20px;
+      }
+
       .profile-title {
         font-weight: bold;
         font-size: 30px;
         color: #007fbd;
+
+        @media only screen and (max-width: 480px) {
+          font-size: 16px;
+        }  
       }
 
       .profile-content {
@@ -107,12 +174,22 @@
         padding-top: 20px;
         font-size: 15px;
         line-height: 28px;
+
+        @media only screen and (max-width: 480px) {
+          padding-top: 10px;
+          font-size: 13px;
+          line-height: 22px;
+        }
       }
 
       .tags-wrap {
         padding-top: 20px;
         display: flex;
         flex-wrap: wrap;
+
+        @media only screen and (max-width: 480px) {
+          padding-top: 10px;
+        }
 
         .tags {
           color: #007fbd;
@@ -122,6 +199,11 @@
           margin-right: 10px;
           max-width: 280px;
           margin-bottom: 10px;
+
+          @media only screen and (max-width: 480px) {
+            max-width: 220px;
+            font-size: 13px;
+          }  
   
           .tags-text {
             text-align: center;
