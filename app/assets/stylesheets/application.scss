@@ -61,12 +61,12 @@ body {
 
       li {
         display: inline-block;
-        color: #007FBD;
         margin-right: 30px;
         font-size: 1rem;
         font-weight: 700;
 
         a {
+          color: #007FBD;
           &:hover {
             text-decoration: none;
           }  
@@ -135,6 +135,10 @@ body {
           color: red;
           position: absolute;
         }
+
+        .active {
+          color: #007FBD;
+        }  
 
       }
 
