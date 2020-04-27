@@ -3,6 +3,10 @@
   width: 540px;
   padding: 20px 0;
 
+  @media only screen and (max-width: 480px) {
+    width: 350px;
+  }
+
   .settings-title {
     text-align: center;
     color: #007FBD;
