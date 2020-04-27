@@ -8,6 +8,11 @@
     padding: 20px 10px;
   }
 
+  @media only screen and (max-width: 320px) {
+    width: 290px;
+    padding: 20px 0;
+  }
+
   .page-title {
     color: #007FBD;
     font-size: 25px;
@@ -25,6 +30,10 @@
 
     @media only screen and (max-width: 480px) {
       width: 350px;
+    }
+
+    @media only screen and (max-width: 320px) {
+      width: 290px;
     }
 
     .circle-badge {
@@ -87,6 +96,10 @@
       width: 350px;
     }
 
+    @media only screen and (max-width: 320px) {
+      width: 290px;
+    }  
+
     .user-card {
       border-radius: 13px;
       width: 600px;
@@ -105,6 +118,11 @@
         width: 350px;
         height: 200px;
       }
+
+      @media only screen and (max-width: 320px) {
+        width: 290px;
+        height: 220px;
+      }  
 
       .top-area {
         display: flex;
@@ -131,6 +149,10 @@
             width: 260px;
           }
 
+          @media only screen and (max-width: 320px) {
+            width: 200px;
+          }
+
           .first-topic-area {
             display: flex;
             justify-content: space-between;
@@ -155,12 +177,22 @@
                 border-radius: 50px;
                 color: #fff;
                 text-align: center;
+
+                @media only screen and (max-width: 320px) {
+                  width: 36px;
+                  height: 18px;
+                  font-size: 12px;
+                }      
               }
     
               .user-relation-time {
                 padding-left: 10px;
                 color: #9B9B9B;
                 font-size: 14px;
+
+                @media only screen and (max-width: 320px) {
+                  font-size: 11px;
+                }      
               }
             }
           }
@@ -178,6 +210,14 @@
               text-overflow: ellipsis;
               white-space: nowrap;
             }
+
+            @media only screen and (max-width: 320px) {
+              font-weight: nomal;
+              font-size: 11px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
           }
 
           .user-occupation {
@@ -189,6 +229,14 @@
             @media only screen and (max-width: 480px) {
               font-weight: nomal;
               font-size: 13px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            @media only screen and (max-width: 320px) {
+              font-weight: nomal;
+              font-size: 11px;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -252,6 +300,10 @@
       padding: 10px;
       margin-bottom: 10px;
 
+      @media only screen and (max-width: 320px) {
+        width: 290px;
+      }
+
       .user-card-img {
         img {
           width: 70px;
@@ -260,7 +312,12 @@
           @media only screen and (max-width: 480px) {
             width: 60px;
             height: 60px;
-          }  
+          }
+
+          @media only screen and (max-width: 320px) {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
 
@@ -270,6 +327,10 @@
         @media only screen and (max-width: 480px) {
           width: 280px;
         }
+
+        @media only screen and (max-width: 320px) {
+          width: 240px;
+        }
       }
 
       .message-name-age {
@@ -277,8 +338,25 @@
         padding-bottom: 5px;
         display: flex;
 
+        @media only screen and (max-width: 320px) {
+          font-size: 13px;
+        }
+
         .user-name {
           padding-right: 20px;
+
+          @media only screen and (max-width: 320px) {
+            padding-right: 5px;
+          }
+        }
+      }
+
+      .icon-time {
+
+        .user-relation-time {
+          @media only screen and (max-width: 320px) {
+            font-size: 11px;
+          }
         }
       }
 
@@ -293,6 +371,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
+        @media only screen and (max-width: 320px) {
+          font-size: 11px;
+        }
       }
     }
 

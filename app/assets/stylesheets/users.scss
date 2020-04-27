@@ -13,6 +13,10 @@
       padding: 20px 0;
       display: block  
     }
+
+    @media only screen and (max-width: 320px) {
+      width: 290px;
+    }
   
     .search-box {
       margin-right: 50px;
@@ -159,6 +163,10 @@
         width: 350px;
       }
 
+      @media only screen and (max-width: 320px) {
+        width: 290px;
+      } 
+
       .user-card {
         border-radius: 13px;
         width: 600px;
@@ -177,6 +185,11 @@
           width: 350px;
           height: 200px;
         }
+
+        @media only screen and (max-width: 320px) {
+          width: 290px;
+          height: 220px;
+        }    
 
         .top-area {
           display: flex;
@@ -203,6 +216,10 @@
               width: 260px;
             }  
 
+            @media only screen and (max-width: 320px) {
+              width: 200px;
+            }
+
             .name-age {
               display: flex;
               padding-bottom: 10px;
@@ -226,6 +243,14 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
               }  
+
+              @media only screen and (max-width: 320px) {
+                font-weight: nomal;
+                font-size: 11px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }  
             }
 
             .user-occupation {
@@ -237,6 +262,14 @@
               @media only screen and (max-width: 480px) {
                 font-weight: nomal;
                 font-size: 13px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }  
+
+              @media only screen and (max-width: 320px) {
+                font-weight: nomal;
+                font-size: 11px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;

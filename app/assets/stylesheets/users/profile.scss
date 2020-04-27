@@ -18,6 +18,10 @@
       padding: 20px 10px;
     }
 
+    @media only screen and (max-width: 320px) {
+      width: 290px;
+    }  
+
     .profile-header {
       display: flex;
       img {
@@ -148,6 +152,11 @@
         border-radius: 52px;
         background: #F0F0F0;
         text-align: center;
+
+        @media only screen and (max-width: 480px) {
+          font-size: 20px;
+          height: 40px;
+        }  
       }
     }
 

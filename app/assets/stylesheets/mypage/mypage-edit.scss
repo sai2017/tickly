@@ -8,6 +8,10 @@
     padding: 20px 0px;
   }
 
+  @media only screen and (max-width: 320px) {
+    width: 290px;
+  }
+
   .mypage-edit-title {
     color: #007FBD;
     font-size: 25px;
