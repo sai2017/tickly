@@ -4,7 +4,16 @@ $(function() {
     contentSelector: '.jscroll', 
     // 次のページにいくためのリンクの場所は？ ＞aタグの指定
     nextSelector: 'a.next',
-    // 読み込み中の表示はどうする？
-    loadingHtml: '読み込んでいます'
+    // 読込中はスピナー表示
+    loadingHtml: `
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    `
   });
 });
