@@ -34,7 +34,7 @@
         <% end %>
       </div>
     </div>
-    <div class="user-list-box">
+    <div class="user-list-box jscroll">
       <% if @users.present? %>
         <% @users.each do |user| %>
           <%= link_to user_path(user.id) do %>

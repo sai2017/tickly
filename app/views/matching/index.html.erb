@@ -7,7 +7,7 @@
       <i class="fas fa-circle fa-lg right-circle-badge"></i>
     <% end %>
   </div>
-  <div class="user-list-box">
+  <div class="user-list-box jscroll">
     <% if @desc_relationship_blank_matchers.present? %>
       <% @desc_relationship_blank_matchers.each do |user| %>
         <%= link_to user_path(user.id) do %>

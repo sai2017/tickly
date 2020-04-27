@@ -4,7 +4,7 @@
     <%= link_to '相手から', likes_received_path, class: 'left-link active' %>
     <%= link_to '自分から', likes_sent_path, class: 'right-link' %>
   </div>
-  <div class="user-list-box">
+  <div class="user-list-box jscroll">
     <% if @received_users.present? %>
       <% @received_users.each do |received_user| %>
         <%= link_to user_path(received_user.id) do %>
