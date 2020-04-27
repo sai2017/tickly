@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 60px;
 
     @media only screen and (max-width: 480px) {
       overflow: hidden;
@@ -33,6 +34,10 @@ body {
     // margin: 0 auto;
     padding: 10px 10px 5px;
     display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 
     @media only screen and (max-width: 480px) {
       display: none;
@@ -105,6 +110,10 @@ body {
     display: none;
     background: #fff;
     border-bottom: 1px solid #e9eef1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 
     @media only screen and (max-width: 480px) {
       display: block;
