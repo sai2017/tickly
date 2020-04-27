@@ -20,6 +20,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    @media only screen and (max-width: 480px) {
+      overflow: hidden;
+    }
+  
   }
 
   .pc-header {
