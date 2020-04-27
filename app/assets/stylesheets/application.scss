@@ -174,15 +174,6 @@ body {
   }
 
   .popover {
-    @media only screen and (max-width: 480px) {
-      left: -90px !important;
-    }
-
-    .arrow {
-      @media only screen and (max-width: 480px) {
-        left: 175px !important;
-      }
-    }
 
     .popover-body {
 
