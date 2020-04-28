@@ -12,6 +12,10 @@
       <% @desc_relationship_blank_matchers.each do |user| %>
         <%= link_to user_path(user.id) do %>
           <div class="user-card">
+            <% active_relationship = Relationship.find_by(following_id: user.id, follower_id: current_user.id) %>
+            <% if active_relationship.new_matching_flag == true %>
+              <span class="ribbon">NEW</span>
+            <% end %>
             <div class='top-area'>
               <div class='user-card-img'>
                 <%= image_tag user.person.profile.img_name.url(:thumb) %>
@@ -26,12 +30,6 @@
                       <div class='user-age'>
                         <%= user.person.profile.age %> 歳
                       </div>
-                    <% end %>
-                  </div>
-                  <div class='icon-time'>
-                    <% active_relationship = Relationship.find_by(following_id: user.id, follower_id: current_user.id) %>
-                    <% if active_relationship.new_matching_flag == true %>
-                      <div class='user-new-icon'>NEW</div>
                     <% end %>
                   </div>
                 </div>

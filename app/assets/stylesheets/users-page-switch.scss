@@ -109,6 +109,9 @@
       padding: 20px;
       color: #24282A;
       font-weight: bold;
+      display: block;
+      position: relative;
+
       &:hover {
         filter: brightness(80%);
         transition-duration: 0.3s;
@@ -121,8 +124,60 @@
 
       @media only screen and (max-width: 320px) {
         width: 290px;
-        height: 220px;
-      }  
+        height: 200px;
+      } 
+      
+      .ribbon {  
+        display: inline-block;
+        position: absolute;
+        top: -6px;
+        right: 568px;
+        margin: 0;
+        padding: 10px 0 7px;
+        z-index: 2;
+        width: 40px;
+        text-align: center;
+        color: white;
+        font-size: 13px;
+        background: #f05a69;
+        border-radius: 2px 0 0 0;
+
+        @media only screen and (max-width: 480px) {
+          right: 313px;
+          padding: 5px 0 3px;
+          width: 36px;
+        }  
+
+        @media only screen and (max-width: 320px) {
+          right: 253px;
+        }   
+
+        &:before {
+          position: absolute;
+          content: '';
+          top: 0;
+          right: -5px;
+          border: none;
+          border-bottom: solid 6px #d07676;
+          border-right: solid 5px transparent;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 100%;
+          height: 0;
+          width: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-top: 10px solid #f05a69;
+
+          @media only screen and (max-width: 480px) {
+            border-left: 16px solid transparent;
+          }    
+        }
+      }
 
       .top-area {
         display: flex;
@@ -161,6 +216,10 @@
               display: flex;
               padding-bottom: 10px;
               font-size: 16px;
+
+              @media only screen and (max-width: 320px) {
+                font-size: 14px;
+              }
     
               .user-name {
                 padding-right: 20px;
@@ -251,6 +310,10 @@
 
         @media only screen and (max-width: 480px) {
           font-size: 16px;
+        }
+
+        @media only screen and (max-width: 320px) {
+          font-size: 15px;
         }
       }
     }
@@ -365,17 +428,45 @@
         font-weight: normal;
       }
 
-      .message-content {
-        font-size: 12px;
-        color: rgba(0,0,0,0.28);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      .content-wrap {
+        display: flex;
+        justify-content:space-between;
 
-        @media only screen and (max-width: 320px) {
-          font-size: 11px;
+        .message-content {
+          font-size: 12px;
+          color: rgba(0,0,0,0.28);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          @media only screen and (max-width: 480px) {
+            width: 350px;
+          }
+  
+          @media only screen and (max-width: 320px) {
+            font-size: 11px;
+            width: 660px;
+          }
         }
+
+        .user-new-icon {
+          width: 50px;
+          color: #f05a69;
+          text-align: center;
+          font-size: 15px;
+          font-weight: bold;
+          margin-left: 10px;
+          margin-right: 5px;
+
+          @media only screen and (max-width: 320px) {
+            width: 100px;
+            height: 18px;
+            font-size: 12px;
+          }      
+        }
+  
       }
+
     }
 
     .blank-data {

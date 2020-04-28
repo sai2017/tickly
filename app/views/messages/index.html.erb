@@ -31,9 +31,6 @@
                     <% end %>
                   </div>
                   <div class='icon-time'>
-                    <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
-                      <div class='user-new-icon'>未読</div>
-                    <% end %>
                     <div class='user-relation-time'>
                       <%= l Message.where(message_room_id: message_room.id).last.created_at, format: :short %>
                     </div>
@@ -44,8 +41,13 @@
                     <%= user.person.profile.company_name %> / <%= user.person.profile.occupation %>
                   <% end %>
                 </div>
-                <div class='message-content'>
-                  <%= Message.where(message_room_id: message_room.id).last.content %>
+                <div class='content-wrap'>
+                  <div class='message-content'>
+                    <%= Message.where(message_room_id: message_room.id).last.content %>
+                  </div>
+                  <% if Message.where(message_room_id: message_room.id, user_id: user.id, unread: 'unread').present? %>
+                    <div class='user-new-icon'>未読</div>
+                  <% end %>
                 </div>
               </div>
             </div>
