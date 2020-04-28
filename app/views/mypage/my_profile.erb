@@ -9,7 +9,7 @@
           </div>
           <% if @current_person_profile.birthday.present? %>
             <div class="user-age">
-              <p><%= @current_person_profile.age %> 歳</p>
+              <p>(<%= @current_person_profile.age %>)</p>
             </div>
           <% end %>
         </div>
