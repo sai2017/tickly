@@ -1,4 +1,4 @@
-current directory: /Users/hiroaki/workspace/cordis/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
+current directory: /Users/hiroaki/workspace/baree/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
 /Users/hiroaki/.rbenv/versions/2.7.0/bin/ruby -I /Users/hiroaki/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20200303-86017-uw60hd.rb extconf.rb --with-ldflags\=-L/usr/local/opt/openssl/lib
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
@@ -27,10 +27,10 @@ Setting rpath to /usr/local/opt/mysql@5.7/lib
 -----
 creating Makefile
 
-current directory: /Users/hiroaki/workspace/cordis/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
+current directory: /Users/hiroaki/workspace/baree/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
 make "DESTDIR=" clean
 
-current directory: /Users/hiroaki/workspace/cordis/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
+current directory: /Users/hiroaki/workspace/baree/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
 make "DESTDIR="
 compiling client.c
 client.c:787:14: warning: incompatible pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
@@ -52,6 +52,6 @@ compiling result.c
 compiling statement.c
 linking shared-object mysql2/mysql2.bundle
 
-current directory: /Users/hiroaki/workspace/cordis/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
+current directory: /Users/hiroaki/workspace/baree/vendor/bundle/ruby/2.7.0/gems/mysql2-0.5.3/ext/mysql2
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 mysql2.bundle ./.gem.20200303-86017-1ueesm1/mysql2

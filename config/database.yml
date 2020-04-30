@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: cordis_development
+  database: baree_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: cordis_test
+  database: baree_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: cordis_production
-  username: cordis
-  password: <%= ENV['CORDIS_DATABASE_PASSWORD'] %>
+  database: baree_production
+  username: baree
+  password: <%= ENV['baree_DATABASE_PASSWORD'] %>
