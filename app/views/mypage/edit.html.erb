@@ -56,24 +56,16 @@
           </div>
         </section> 
         <div class="form-area">
-          <%= pf.label '働く意義' %>
-          <%= pf.text_area :purpose_of_working, class: "form-control" %>
-        </div>
-        <div class="form-area">
-          <%= pf.label '弱みやコンプレックス' %>
-          <%= pf.text_area :weakness, class: "form-control" %>
-        </div>
-        <div class="form-area">
-          <%= pf.label '原体験(現在の職業や活動、働く意義に至った理由など、あなたの今の人格が形成された体験を記入してください)' %>
+          <%= pf.label '現在の活動に至った理由（原体験）' %>
           <%= pf.text_area :original_experience, class: "form-control" %>
         </div>
         <div class="form-area">
-          <%= pf.label '今頑張っていることや、今後やってみたいこと' %>
+          <%= pf.label '今後実現したいことやビジョン' %>
           <%= pf.text_area :want_to_do, class: "form-control" %>
         </div>
         <div class="form-area">
-          <%= pf.label '今頑張っていることや、今後やってみたいこと' %>
-          <%= pf.text_area :want_to_connect, class: "form-control" %>
+          <%= pf.label '現在の活動内容' %>
+          <%= pf.text_area :current_work, class: "form-control" %>
         </div>
         <label class='title-label'>コミュニケーションの手段 ※複数選択可</label>
         <section class="user-edit-section">
