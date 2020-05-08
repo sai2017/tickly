@@ -3,27 +3,42 @@
   <div class='form-wrap'>
     <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
-        <div class="form-area">
-          <%= pf.label 'お名前（本名を入力してください）' %>
-          <%= pf.text_field :name, class: "input-form" %>
-        </div>
+        <% if current_user.admin %>
+          <div class="form-area">
+            <%= pf.label '氏名' %>
+            <%= pf.text_field :name, class: "input-form" %>
+          </div>
+        <% else %>
+          <div class="form-area">
+            <span>氏名（Facebookから取得した氏名を表示）</span><br>
+            <%= @current_person.profile.name %>
+          </div>
+        <% end %>
         <div class="form-area">
           <%= pf.label '生年月日' %><br>
           <%= pf.date_select :birthday, use_month_numbers: true, start_year: 1930, 
                               end_year: (Time.current.year - 10), include_blank: true %>
         </div>
-        <div class='icon-label'>アイコン</div>
-        <div id="img_field" onClick="$('#file').click()" >
+        <div class='icon-label'>アイコン（Facebookから取得したアイコンを表示）</div>
+        <% if current_user.admin %>
+          <div id="img_field" onClick="$('#file').click()" >
+            <% if @current_person.profile.img_name? %>
+              <%= image_tag @current_person.profile.img_name.url(:thumb) %>
+            <% else %>
+              <%= image_tag 'default-person-icon.jpeg' %>
+            <% end %>
+          </div>
+          <div class="form-area">
+            <%= pf.file_field :img_name, class: "image", style: "display:none;", id: "file"%>
+            <p class='delete-image-checkbox'><%= pf.check_box :remove_img_name %>画像を削除する</p>
+          </div>
+        <% else %>
           <% if @current_person.profile.img_name? %>
             <%= image_tag @current_person.profile.img_name.url(:thumb) %>
           <% else %>
             <%= image_tag 'default-person-icon.jpeg' %>
           <% end %>
-        </div>
-        <div class="form-area">
-          <%= pf.file_field :img_name, class: "image", style: "display:none;", id: "file"%>
-          <p class='delete-image-checkbox'><%= pf.check_box :remove_img_name %>画像を削除する</p>
-        </div>
+        <% end %>
         <div class="form-area">
           <%= pf.label '会社名' %>
           <%= pf.text_field :company_name, class: "input-form" %>
