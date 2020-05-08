@@ -36,6 +36,14 @@ class User < ApplicationRecord
         name: auth.info.name, 
         remote_img_name_url: auth.info.image.gsub("picture","picture?type=large")
       )
+    else
+      if user.person.profile.name != auth.info.name
+        user.person.profile.update(name: auth.info.name)
+      end
+
+      if user.person.profile.img_name != auth.info.image
+        user.person.profile.update(remote_img_name_url: auth.info.image.gsub("picture","picture?type=large"))
+      end
     end
 
     user
