@@ -6,7 +6,7 @@
       <%= link_to  "Facebookではじめる（無料）", user_facebook_omniauth_authorize_path, class: 'btn default-btn' %>
     </div>
     <div class="main-image">
-      <img src="../../assets/main-image.png" />
+      <%= image_tag 'main-image.png' %>
     </div>
     <div class="first-message">
       <p>強い共感で人とつながり、ビジネス、そして人生を前に進める手助けをしたい。</P>
@@ -20,7 +20,7 @@
   <section id='feature'>
     <h2>bareeの特徴</h2>
     <div class='feature-box'>
-      <img src="../../assets/lp-feature-story.svg" />
+      <%= image_tag 'lp-feature-story.svg' %>
       <div class='feature-text'>
         <h3>お互いのビジネスや<br>人生観に共感した上でマッチング</h3>
         <p>履歴書に書くような時系列の自己紹介では、 あなたの個性は見えてきません。 あなたのストーリーの魅力を最大限に伝える プロフィールを作成し、マッチングすることができます。</p>
@@ -31,10 +31,10 @@
         <h3>全国の多種多様な職種のお相手に<br>アプローチ</h3>
         <p>あなたが共感できる人は身近な場所にいるとは 限りません。一つでも多くの共感が生まれるように、あなたの希望に合わせてお相手を見つけることができます。</p>
       </div>
-      <img src="../../assets/lp-feature-japan.svg" class='img-right' />
+      <%= image_tag 'lp-feature-japan.svg', class: 'img-right' %>
     </div>
     <div class='feature-box'>
-      <img src="../../assets/lp-feature-facebook.svg" />
+      <%= image_tag 'lp-feature-facebook.svg' %>
       <div class='feature-text'>
         <h3>Facebookログインによる完全実名制</h3>
         <p>信頼できるお相手を見つけ、安心して共感していただき たいため、実名制のFacebookを利用して登録します。</p>
@@ -46,17 +46,17 @@
     <div class='usage-step-wrap'>
       <div class='usage-step'>
         <h3>STEP1</h3>
-        <img src="../../assets/screenshot-step1.svg" />
+        <%= image_tag 'screenshot-step1.svg' %>
         <p>気になる会員をさがす</p>
       </div>
       <div class='usage-step'>
         <h3>STEP2</h3>
-        <img src="../../assets/screenshot-step2.svg" />
+        <%= image_tag 'screenshot-step2.svg' %>
         <p>お相手が見つかったら、「キョウカン」を押す</p>
       </div>
       <div class='usage-step'>
         <h3>STEP3</h3>
-        <img src="../../assets/screenshot-step3.svg" />
+        <%= image_tag 'screenshot-step3.svg' %>
         <p>お互いに「キョウカン」すればマッチング成立！メッセージしてみましょう</p>
       </div>
     </div>
