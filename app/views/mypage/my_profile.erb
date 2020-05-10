@@ -1,7 +1,11 @@
 <div class='user-page-wrap'>
   <div class='profile-wrap'>
     <div class='profile-header'>
-      <%= image_tag @current_person_profile.img_name.url(:thumb) %>
+      <% if @current_person_profile.img_name? %>
+        <%= image_tag @current_person_profile.img_name.url(:thumb) %>
+      <% else %>
+        <%= image_tag 'default-person-icon.jpeg' %>
+      <% end %>
       <div class='basic-text-profile-wrap'>
         <div class='name-age-wrap'>
           <div class="user-name">
