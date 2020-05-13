@@ -57,11 +57,7 @@
             data-popover-content="#popover-content-id"
           >
             <div class='header-user-img'>
-              <% if current_user.person.profile.img_name? %>
-                <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
-              <% else %>
-                <%= image_tag 'default-person-icon.jpeg' %>
-              <% end %>
+              <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
             </div>
           </button>
           <div id="popover-content-id" style="display:none;">
@@ -130,11 +126,7 @@
                 data-popover-content="#popover-content-id"
               >
                 <div class='header-user-img'>
-                  <% if current_user.person.profile.img_name? %>
-                    <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
-                  <% else %>
-                    <%= image_tag 'default-person-icon.jpeg' %>
-                  <% end %>
+                  <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
                 </div>
               </button>
               <div id="popover-content-id" style="display:none;">

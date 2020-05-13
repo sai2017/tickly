@@ -22,22 +22,14 @@
         <div class='icon-label'>アイコン（Facebookから取得したアイコンを表示）</div>
         <% if current_user.admin %>
           <div id="img_field" onClick="$('#file').click()" >
-            <% if @current_person.profile.img_name? %>
-              <%= image_tag @current_person.profile.img_name.url(:thumb) %>
-            <% else %>
-              <%= image_tag 'default-person-icon.jpeg' %>
-            <% end %>
+            <%= image_tag @current_person.profile.img_name.url(:thumb) %>
           </div>
           <div class="form-area">
             <%= pf.file_field :img_name, class: "image", style: "display:none;", id: "file"%>
             <p class='delete-image-checkbox'><%= pf.check_box :remove_img_name %>画像を削除する</p>
           </div>
         <% else %>
-          <% if @current_person.profile.img_name? %>
-            <%= image_tag @current_person.profile.img_name.url(:thumb) %>
-          <% else %>
-            <%= image_tag 'default-person-icon.jpeg' %>
-          <% end %>
+          <%= image_tag @current_person.profile.img_name.url(:thumb) %>
         <% end %>
         <div class="form-area">
           <%= pf.label '会社名' %>
