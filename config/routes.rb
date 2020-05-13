@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   mount ActionCable.server => '/cable'
-  devise_for :users, :controllers => {
+  devise_for :users, skip: [:passwords], :controllers => {
     :registrations => 'users/registrations',
     :omniauth_callbacks => 'users/omniauth_callbacks'
   } 
