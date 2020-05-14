@@ -57,7 +57,7 @@
             data-popover-content="#popover-content-id"
           >
             <div class='header-user-img'>
-              <%= image_tag current_user.person.profile.img_name.url(:thumb) %>
+              <%= image_tag current_user.person.profile.img_name.url(:thumb), class: 'header-user-image' %>
             </div>
           </button>
           <div id="popover-content-id" style="display:none;">

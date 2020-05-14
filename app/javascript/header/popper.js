@@ -9,9 +9,13 @@ $(function() {
           return $(content).children(".popover-body").html();
       }
     }).on('click', function () {
-      $(this).popover('toggle');
-    }).on('blur', function () {
-      $(this).popover('hide');
-    });  
+      $(this).popover('toggle');      
+    });
+
+    $(document).on('click', function(e) {
+      if  (!$(e.target).is(".header-user-image, .popover-body, .popper-ul, .popper-li")) {
+        $("[data-toggle=popover]").popover('hide');
+      }
+    });
   }
 });
