@@ -1,5 +1,5 @@
 class MessageMailer < ApplicationMailer
-  default from: "support@baree-dev.com"
+  default from: "info@baree.jp"
 
   def message_to_user(send_user, receive_user)
     @sender_user_name = send_user.person.profile.name

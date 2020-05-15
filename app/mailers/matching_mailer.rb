@@ -1,5 +1,5 @@
 class MatchingMailer < ApplicationMailer
-  default from: "support@baree-dev.com"
+  default from: "info@baree.jp"
 
   def matching_to_user(user, pair_user)
     # @user = user 
