@@ -1,5 +1,5 @@
 class MatchingMailer < ApplicationMailer
-  default from: "info@baree.jp"
+  default from: '"Baree" <info@baree.jp>'
 
   def matching_to_user(user, pair_user)
     # @user = user 
