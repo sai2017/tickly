@@ -7,11 +7,10 @@ class MailsController < ApplicationController
     title = params[:title]
     content = params[:content]
     users = User.all
-    if NotificationFromBareeMailer.all_notify(users, title, content).deliver
-      flash[:success] = '全ユーザーに送信しました'
-    else
-      flash[:error] = '送信に失敗しました。'
+    users.each do |user|
+      NotificationFromBareeMailer.all_notify(user, title, content).deliver
     end
+    flash[:success] = '全ユーザーに送信しました'
     redirect_to mails_path
   end
 
