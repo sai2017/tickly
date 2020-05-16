@@ -1,0 +1,21 @@
+
+<div class="settings-wrap">
+  <div class="settings-title">
+  全ユーザーに一斉送信
+  </div>
+  <div class="settings-content">
+    <%= form_with(model: @contact, local: true) do |f| %>
+      <div>
+        <%= f.label :title, '件名' %>
+        <%= f.text_field :title, class: 'input-form', required: 'true' %>
+      </div>
+      <div class='form-area'>
+        <%= f.label :content, '本文' %>
+        <%= f.text_area :content, class: 'text-form', required: 'true' %>
+      </div>
+      <div class='btn-wrap'>
+        <%= f.submit '送信', class: "btn default-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

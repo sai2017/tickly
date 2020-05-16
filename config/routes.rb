@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :matching, only: %i(index)
 
   resources :users, only: %i(index show)
+  resources :mails, only: %i(index create)
   resources :relationships, only: %i(create)
   resources :contacts, only: %i(new create)
   resources :settings, only: %i(index create) do
