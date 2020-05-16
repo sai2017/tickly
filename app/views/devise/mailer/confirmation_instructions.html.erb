@@ -1,9 +1,10 @@
-<p>bareeをご利用いただきありがとうございます。</p>
+<p>Bareeをご利用いただきありがとうございます。</p>
 
 <% if @resource.try(:unconfirmed_email?) %>
- <p>新しいメールアドレスに変更するには、以下のアドレスをクリックしてください。</p>
- <p><%= link_to "#{@resource.unconfirmed_email}", confirmation_url(@resource, confirmation_token: @token) %></p>
- <p>このURLの有効期限は24時間です。</p>
+  <p>新しいメールアドレスに変更するには、以下のアドレスをクリックしてください。</p>
+  <p><%= link_to "#{@resource.unconfirmed_email}", confirmation_url(@resource, confirmation_token: @token) %></p>
+  <p>このURLの有効期限は24時間です。</p>
 <% else %>
   <p>会員登録が完了しました。</p>
+  <p>早速あなただけのストーリーでプロフィールを作成し、素敵な出会いを見つけにいきましょう。</p>
 <% end %>

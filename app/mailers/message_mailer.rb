@@ -5,7 +5,7 @@ class MessageMailer < ApplicationMailer
     @sender_user_name = send_user.person.profile.name
     @receive_user_name = receive_user.person.profile.name
     mail(
-      subject: "#{@sender_user_name}さんから新着メッセージが届いています！｜baree",
+      subject: "【Baree】#{@sender_user_name}さんから新着メッセージが届いています！",
       to: receive_user.email
     )
   end
