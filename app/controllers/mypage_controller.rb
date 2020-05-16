@@ -13,10 +13,11 @@ class MypageController < ApplicationController
 
     if @current_person.update(profile_params)
       flash[:success] = "プロフィールを更新しました"
+      redirect_to mypage_my_profile_path
     else
       flash[:error] = 'プロフィールの更新に失敗しました。' 
+      redirect_back(fallback_location: root_path)
     end
-    redirect_back(fallback_location: root_path)
   end
 
   private
