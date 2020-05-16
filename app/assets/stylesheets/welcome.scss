@@ -186,11 +186,13 @@
             width: 270px;
             height: 60px;  
           }  
-  
-          &:hover {
-            filter: brightness(80%);
-            transition-duration: 0.3s;
-          }  
+
+          @media screen and (min-width: 481px) {
+            &:hover {
+              filter: brightness(80%);
+              transition-duration: 0.3s;
+            }  
+          }
         }
   
   
@@ -431,10 +433,12 @@
         height: 60px;
       }  
 
-      &:hover {
-        filter: brightness(80%);
-        transition-duration: 0.3s;
-      }  
+      @media screen and (min-width: 481px) {
+        &:hover {
+          filter: brightness(80%);
+          transition-duration: 0.3s;
+        }  
+      }
     }
 
   }

@@ -136,12 +136,14 @@
         @media only screen and (max-width: 480px) {
           font-size: 20px;
           height: 40px;
-        }  
+        }
 
-        &:hover {
-          filter: brightness(80%);
-          transition-duration: 0.3s;
-        }  
+        @media screen and (min-width: 481px) {
+          &:hover {
+            filter: brightness(80%);
+            transition-duration: 0.3s;
+          }  
+        }
       }
 
       .disabled-btn {

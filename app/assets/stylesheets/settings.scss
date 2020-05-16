@@ -149,10 +149,12 @@
         border-radius: 52px;
         background: #007fbd;
 
-        &:hover {
-          filter: brightness(80%);
-          transition-duration: 0.3s;
-        }  
+        @media screen and (min-width: 481px) {
+          &:hover {
+            filter: brightness(80%);
+            transition-duration: 0.3s;
+          }  
+        }
       }
     }
   }

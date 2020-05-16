@@ -44,10 +44,12 @@
           height: auto;
           border-radius: 50%;
 
-          &:hover {
-            filter: brightness(80%);
-            transition-duration: 0.3s;
-          }
+          @media screen and (min-width: 481px) {
+            &:hover {
+              filter: brightness(80%);
+              transition-duration: 0.3s;
+            }  
+          }    
         }
       }
     } 
@@ -87,9 +89,11 @@
         height: auto;
         border-radius: 50%;
 
-        &:hover {
-          filter: brightness(80%);
-          transition-duration: 0.3s;
+        @media screen and (min-width: 481px) {
+          &:hover {
+            filter: brightness(80%);
+            transition-duration: 0.3s;
+          }  
         }
       }
       .chatting {
@@ -257,6 +261,7 @@
         resize: none;
         border-radius: 10px;
         background: #fff;
+        outline: none;
       }
 
       #btn_id {
@@ -267,9 +272,17 @@
         border-radius: 52px;
         background: #007fbd;
 
-        &:hover {
-          filter: brightness(80%);
-          transition-duration: 0.3s;
+        @media only screen and (max-width: 480px) {
+          font-size: 13px;
+          width: 60px;
+          margin-left: 5px; 
+        }
+
+        @media screen and (min-width: 481px) {
+          &:hover {
+            filter: brightness(80%);
+            transition-duration: 0.3s;
+          }  
         }
       }
     }
