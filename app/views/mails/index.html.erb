@@ -4,7 +4,7 @@
   全ユーザーに一斉送信
   </div>
   <div class="settings-content">
-    <%= form_with(model: @contact, local: true) do |f| %>
+    <%= form_with url: mails_path, local: true do |f| %>
       <div>
         <%= f.label :title, '件名' %>
         <%= f.text_field :title, class: 'input-form', required: 'true' %>
