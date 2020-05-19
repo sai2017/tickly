@@ -58,6 +58,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def after_sign_up_path_for(resource)
+    about_message_from_baree_path
+  end
+
   def after_update_path_for(resource)
     settings_path
   end
