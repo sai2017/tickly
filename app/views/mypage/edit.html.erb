@@ -1,5 +1,6 @@
 <div class='mypage-edit-wrap'>
   <div class='mypage-edit-title'>プロフィール編集</div>
+  <p class='profile-info'><i class="fas fa-question-circle"></i>プロフィールの書き方でお困りの方は<%= link_to 'こちら', about_usage_path %></p>
   <div class='form-wrap'>
     <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
@@ -44,7 +45,7 @@
           <%= pf.text_field :catch_copy, class: "input-form" %>
         </div>
         <div class="form-area">
-          <%= pf.label 'これまでのSTORY(1000文字以内)' %>
+          <%= pf.label 'これまでのSTORY' %>
           <%= pf.text_area :self_introduction, class: "form-control" %>
         </div>
         <label class='title-label'>職業タイプ ※複数選択可</label>
