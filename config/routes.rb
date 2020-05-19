@@ -43,4 +43,10 @@ Rails.application.routes.draw do
     patch 'update'
     put 'update'
   end
+
+  get 'about' => 'about#index'
+  namespace :about do
+    get 'message_from_baree'
+    get 'usage'
+  end
 end

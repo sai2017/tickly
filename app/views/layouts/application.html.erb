@@ -73,6 +73,9 @@
                   <%= link_to '各種設定', settings_path %>
                 </li>
                 <li class="popper-li">
+                  <%= link_to 'Bareeについて', about_path %>
+                </li>
+                <li class="popper-li">
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
                 </li>
               </ul>
