@@ -23,7 +23,7 @@
   # )
 
   # LikePoint.create!(
-  #   balance: 10,
+  #   balance: 3,
   #   user_id: id
   # )
 end

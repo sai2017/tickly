@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # confirmed_atがNULLである新規登録のみ、LikePointとMailNotificationSettingを作成する
     if @user.persisted? && @user.confirmed_at.blank?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      LikePoint.create(balance: 10, user_id: @user.id)
+      LikePoint.create(balance: 3, user_id: @user.id)
       MailNotificationSetting.create(user_id: @user.id)
       @user.skip_confirmation!
       @user.save!

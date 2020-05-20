@@ -6,7 +6,7 @@ class Tasks::UpdateLikePointBalance
 
     def update_like_point_balance
       LikePoint.all.each do |point|
-        point.update(balance: 10)
+        point.update(balance: 3)
         output_log(point)
       end
     end

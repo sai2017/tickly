@@ -16,8 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       person.build_profile
       resource.save
 
-      # 新規登録の際にポイント10個をユーザーに付与する
-      LikePoint.create(balance: 10, user_id: @user.id)
+      # 新規登録の際にポイント3個をユーザーに付与する
+      LikePoint.create(balance: 3, user_id: @user.id)
       MailNotificationSetting.create(user_id: @user.id)
       resource.skip_confirmation!
       resource.save
