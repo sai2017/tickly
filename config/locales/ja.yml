@@ -5,6 +5,7 @@ ja:
       user: ユーザー
       person: ユーザー
       profile: プロフィール
+      message: メッセージ
     attributes:
       profile:
         name: 氏名
@@ -17,6 +18,8 @@ ja:
         want_to_do: 今後実現したいことやビジョン
         current_work: 現在の活動内容
         prefecture_id: 居住地
+      message:
+        content: 本文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

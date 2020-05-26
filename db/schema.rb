@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_144604) do
+ActiveRecord::Schema.define(version: 2020_05_26_092428) do
 
   create_table "communication_method_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "communication_method_id", null: false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_144604) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "message_room_id", null: false
     t.integer "user_id", null: false
-    t.string "content", null: false
+    t.text "content", null: false
     t.boolean "unread", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
