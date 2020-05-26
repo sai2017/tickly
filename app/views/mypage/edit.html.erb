@@ -43,19 +43,19 @@
         <% end %>
         <div class="form-area">
           <%= pf.label '会社名' %>
-          <%= pf.text_field :company_name, class: "input-form" %>
+          <%= pf.text_field :company_name, class: "input-form", maxlength: 50 %>
         </div>
         <div class="form-area">
-          <%= pf.label '肩書き' %>
-          <%= pf.text_field :occupation, class: "input-form" %>
+          <%= pf.label '肩書き（50字以内）' %>
+          <%= pf.text_field :occupation, class: "input-form", maxlength: 50 %>
         </div>
         <div class="form-area">
-          <%= pf.label 'キャッチコピー' %>
-          <%= pf.text_field :catch_copy, class: "input-form" %>
+          <%= pf.label 'キャッチコピー（50字以内）' %>
+          <%= pf.text_field :catch_copy, class: "input-form", maxlength: 50 %>
         </div>
         <div class="form-area">
           <%= pf.label 'これまでのSTORY' %>
-          <%= pf.text_area :self_introduction, class: "form-control" %>
+          <%= pf.text_area :self_introduction, class: "form-control", maxlength: 2000 %>
         </div>
         <label class='title-label'>職業タイプ ※複数選択可</label>
         <section class="user-edit-section">
@@ -78,15 +78,15 @@
         </section> 
         <div class="form-area">
           <%= pf.label '現在の活動に至った理由（原体験）' %>
-          <%= pf.text_area :original_experience, class: "form-control" %>
+          <%= pf.text_area :original_experience, class: "form-control", maxlength: 2000 %>
         </div>
         <div class="form-area">
           <%= pf.label '今後実現したいことやビジョン' %>
-          <%= pf.text_area :want_to_do, class: "form-control" %>
+          <%= pf.text_area :want_to_do, class: "form-control", maxlength: 2000 %>
         </div>
         <div class="form-area">
           <%= pf.label '現在の活動内容' %>
-          <%= pf.text_area :current_work, class: "form-control" %>
+          <%= pf.text_area :current_work, class: "form-control", maxlength: 2000 %>
         </div>
         <label class='title-label'>コミュニケーションの手段 ※複数選択可</label>
         <section class="user-edit-section">
