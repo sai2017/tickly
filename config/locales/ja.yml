@@ -1,6 +1,22 @@
 ---
 ja:
   activerecord:
+    models:
+      user: ユーザー
+      person: ユーザー
+      profile: プロフィール
+    attributes:
+      profile:
+        name: 氏名
+        birthday: 生年月日
+        company_name: 会社名
+        self_introduction: これまでのstory
+        occupation: 肩書き
+        catch_copy: キャッチコピー
+        original_experience: 現在の活動に至った理由（原体験）
+        want_to_do: 今後実現したいことやビジョン
+        current_work: 現在の活動内容
+        prefecture_id: 居住地
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

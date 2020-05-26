@@ -2,7 +2,16 @@
   <div class='mypage-edit-title'>プロフィール編集</div>
   <p class='profile-info'><i class="fas fa-question-circle"></i>プロフィールの書き方でお困りの方は<%= link_to 'こちら', about_usage_path %></p>
   <div class='form-wrap'>
-    <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false } do |f| %>
+    <%= form_for @current_person, url: mypage_update_path, html: { method: :patch, enforce_utf8: false }, local: true do |f| %>
+      <% if @current_person.profile.errors.messages.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @current_person.profile.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= f.fields_for :profile, @current_person.profile do |pf| %>
         <% if current_user.admin %>
           <div class="form-area">

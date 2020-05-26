@@ -15,8 +15,7 @@ class MypageController < ApplicationController
       flash[:success] = "プロフィールを更新しました"
       redirect_to mypage_my_profile_path
     else
-      flash[:error] = 'プロフィールの更新に失敗しました。' 
-      redirect_back(fallback_location: root_path)
+      render 'edit'
     end
   end
 
