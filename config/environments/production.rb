@@ -41,7 +41,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-  config.action_cable.allowed_request_origins = [ 'https://www.baree.jp/', /https:\/\/www.baree.*/ ]
+  config.action_cable.allowed_request_origins = [ 'https://www.tickly.jp/', /https:\/\/www.tickly.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -90,14 +90,14 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.asset_host = 'https://www.baree.jp'
+  config.action_mailer.asset_host = 'https://www.tickly.jp'
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'www.baree.jp', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'www.tickly.jp', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: ENV['SENDGRID_USER_NAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'baree.jp',
+    domain: 'tickly.jp',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
