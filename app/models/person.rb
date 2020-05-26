@@ -12,4 +12,6 @@ class Person < ApplicationRecord
   has_many :job_categories, through: :job_category_people
 
   belongs_to :user
+
+  validates :user_id, presence: true
 end

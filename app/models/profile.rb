@@ -11,6 +11,7 @@ class Profile < ApplicationRecord
   validates :original_experience, length: { maximum: 2000 }
   validates :want_to_do, length: { maximum: 2000 }
   validates :current_work, length: { maximum: 2000 }
+  validates :person_id, presence: true
 
   def age
     birthday = self.birthday.strftime("%Y%m%d").to_i
