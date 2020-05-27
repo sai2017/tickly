@@ -8,7 +8,7 @@ class MailsController < ApplicationController
     content = params[:content]
     users = User.all
     users.each do |user|
-      NotificationFromBareeMailer.all_notify(user, title, content).deliver
+      NotificationFromTicklyMailer.all_notify(user, title, content).deliver
     end
     flash[:success] = '全ユーザーに送信しました'
     redirect_to mails_path

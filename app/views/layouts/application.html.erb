@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>baree</title>
+    <title>tickly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="current_user_id" content="<%= current_user.id if current_user %>">
@@ -73,7 +73,7 @@
                   <%= link_to '各種設定', settings_path %>
                 </li>
                 <li class="popper-li">
-                  <%= link_to 'Bareeについて', about_path %>
+                  <%= link_to 'Ticklyについて', about_path %>
                 </li>
                 <li class="popper-li">
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
@@ -164,7 +164,7 @@
             <li>プライバシーポリシー</li>
           </ul>
         </div>
-        <div class='copyright'>© baree 2020. All Rights Reserved.</div>
+        <div class='copyright'>© tickly 2020. All Rights Reserved.</div>
       </footer>
     </div>
   </body>

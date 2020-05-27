@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'about#index'
   namespace :about do
-    get 'message_from_baree'
+    get 'message_from_tickly'
     get 'usage'
   end
 end

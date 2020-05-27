@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     user = User.find(resource.id)
     if resource.signup_flag == true
-      user.update(signup_flag: false) && about_message_from_baree_path
+      user.update(signup_flag: false) && about_message_from_tickly_path
     else
       users_path
     end

@@ -6,8 +6,8 @@ class AboutControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get message_from_baree" do
-    get about_message_from_baree_url
+  test "should get message_from_tickly" do
+    get about_message_from_tickly_url
     assert_response :success
   end
 

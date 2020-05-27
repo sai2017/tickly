@@ -6,7 +6,7 @@ class MatchingMailer < ApplicationMailer
     @user_name = user.person.profile.name
     @pair_user_name = pair_user.person.profile.name
     mail(
-      subject: "【Baree】おめでとうございます！#{@pair_user_name}さんとのマッチングが成立しました！",
+      subject: "【Tickly】おめでとうございます！#{@pair_user_name}さんとのマッチングが成立しました！",
       to: user.email
     )
   end

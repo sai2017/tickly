@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NotificationFromBareeMailerTest < ActionMailer::TestCase
+class NotificationFromTicklyMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end
