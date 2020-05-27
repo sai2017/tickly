@@ -1,5 +1,5 @@
 class FollowingMailer < ApplicationMailer
-  default from: '"Baree" <info@baree.jp>'
+  default from: '"Tickly" <info@tickly.jp>'
 
   def following_to_user(user, follower_user)
     @user_name = user.person.profile.name

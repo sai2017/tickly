@@ -1,5 +1,5 @@
 class NotificationFromBareeMailer < ApplicationMailer
-  default from: '"Baree" <info@baree.jp>'
+  default from: '"Tickly" <info@tickly.jp>'
 
   def all_notify(user, title, content)
     @content = content

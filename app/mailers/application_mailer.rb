@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@baree.jp'
+  default from: 'info@tickly.jp'
   layout 'mailer'
 end
