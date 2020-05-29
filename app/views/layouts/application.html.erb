@@ -43,9 +43,6 @@
               <li><%= link_to 'メッセージ', messages_path  %></li>
             <% end %>
             <li><%= link_to 'プロフィール', mypage_my_profile_path %></li>
-          <% else %>
-            <li><%= link_to 'ログイン', new_user_session_path  %></li>
-            <li><%= link_to '新規登録', new_user_registration_path  %></li>
           <% end %>
         </ul>
         <% if user_signed_in? %>
@@ -83,8 +80,8 @@
           </div>
         <% end %>
       </header>
-      <% if user_signed_in? %>
-        <header class='sp-header'>
+      <header class='sp-header'>
+        <% if user_signed_in? %>
           <div class='inner'>
             <div class='item'>
               <%= link_to users_path, class: "#{controller_name == 'users' && controller.action_name == 'index' ? 'active' : ''}" do %>
@@ -152,16 +149,19 @@
               </div>
             </div>
           </div>
-        </header>
-      <% end %>
+        <% else %>
+          <div id="sp-logo">
+            <%= link_to image_tag('Tickly-logo.svg'), root_path %>
+          </div>
+        <% end %>
+      </header>
         <%= render 'layouts/flashes' %>
         <%= yield %>
       <footer>
         <div class='fotter-inner'>
           <ul>
-            <li>利用規約</li>
-            <li>特定商取引法に基づく表記</li>
-            <li>プライバシーポリシー</li>
+            <li><%= link_to '利用規約', terms_path %></li>
+            <li><%= link_to 'プライバシーポリシー', privacy_path %></li>
           </ul>
         </div>
         <div class='copyright'>© tickly 2020. All Rights Reserved.</div>

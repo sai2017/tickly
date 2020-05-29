@@ -49,4 +49,7 @@ Rails.application.routes.draw do
     get 'message_from_tickly'
     get 'usage'
   end
+
+  get 'terms', to: 'toppage#terms'
+  get 'privacy', to: 'toppage#privacy'
 end

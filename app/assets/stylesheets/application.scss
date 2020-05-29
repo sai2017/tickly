@@ -13,6 +13,7 @@
 @import "mypage/mypage-edit";
 @import "settings";
 @import "about";
+@import "toppage";
 @import "spinkit.min";
 
 body {
@@ -119,6 +120,16 @@ body {
 
     @media only screen and (max-width: 480px) {
       display: block;
+    }
+
+    #sp-logo {
+      width: 220px;
+      margin-top: -6px;
+      padding: 10px 10px 5px;
+
+      img {
+        width: 100px;
+      }
     }
 
     .inner {
