@@ -32,10 +32,12 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20],
       )
       person = user.build_person
+      user.save
       person.build_profile(
         name: auth.info.name, 
         remote_img_name_url: auth.info.image.gsub("picture","picture?type=large")
       )
+      person.save
     else
       if user.person.profile.name != auth.info.name
         user.person.profile.update(name: auth.info.name)
