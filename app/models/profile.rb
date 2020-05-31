@@ -23,11 +23,11 @@ class Profile < ApplicationRecord
 
   # 渡された年齢に本日なったばかりの生年月日をyyyymmdd形式で出力
   def self.calc_younger_birthday(age)
-    Date.today.strftime("%Y%m%d").to_i - age.to_i * 10000
+    Date.today.ago(age.to_i.years).strftime("%Y%m%d").to_i
   end
   # 渡された年齢であるギリギリの生年月日をyyyymmdd形式で出力
   def self.calc_older_birthday(age)
-    Date.today.strftime("%Y%m%d").to_i - age.to_i * 10000 - 9999
+    Date.today.ago((age.to_i + 1).years).since(1.day).strftime("%Y%m%d").to_i
   end
 
   # *************************** 以上 ***************************
